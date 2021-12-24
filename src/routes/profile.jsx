@@ -1,5 +1,5 @@
 import { useState, useContext } from 'react';
-import { useParams, Navigate } from 'react-router-dom';
+import { useParams, Navigate, Link } from 'react-router-dom';
 import { initializeApp } from 'firebase/app';
 import { getDatabase, ref, get } from "firebase/database";
 import UserContext from "./userContext";
@@ -58,7 +58,7 @@ export default function Profile() {
             setResult(
                 <div>
                     <center><h1>Profile</h1></center>
-                    <h2>User: {true_user}</h2>
+                    <h2>User: {true_user}</h2> <small><Link to={'/inventory/' + true_user}>(Check their inventory)</Link></small>
                     <p style={{color: "#55bff0"}}>🛠 Class: {snapshot1.val()[true_user].class}</p>
                     <p style={{color: "#ffcc00"}}>⚡️ Watts: {snapshot1.val()[true_user].watts}</p>
                     <p style={{color: "#ff3a30"}}>💡 Percentage of Elements Found: {percentage}%</p>
