@@ -69,7 +69,7 @@ export default function Mine() {
 
   if (user !== '') {
     return (
-        <>
+        <div>
             <center>
               <h1>Mine</h1>
             </center>
@@ -77,16 +77,16 @@ export default function Mine() {
                 <p>{result}</p>
                 <button onClick={onSubmit}>Mine</button>
             </center>
-        </>
+        </div>
     );
   } else {
     return (
-        <>
+        <div>
           <center>
             <p style={{fontSize: 100}}>403</p>
             <p style={{fontSize: 50}}>Forbidden. Sign in to enter the page.</p>
           </center>
-        </>
+        </div>
     ); 
   }
 }

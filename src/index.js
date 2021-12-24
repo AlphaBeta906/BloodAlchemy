@@ -71,7 +71,7 @@ function App() {
             <footer>
               <br /><br /><br />
               <hr />
-              <center>© AlphaBeta906, Alpha Productions, 2021</center>
+              <center>© AlphaBeta906, AlphaBeta906 LLC (nonexisting thing joke), 2021</center>
               <hr />
             </footer>
         </Router>
