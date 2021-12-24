@@ -12,7 +12,7 @@ const firebaseConfig = {
     storageBucket: "elementals4.appspot.com",
     messagingSenderId: "493819791208",
     appId: "1:493819791208:web:00ecc6ec14821d1514f8dd",
-  };
+};
 
 export default function Inventory() {
     const [result, setResult] = useState("");
