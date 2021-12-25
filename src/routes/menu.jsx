@@ -20,29 +20,31 @@ export default function Menu() {
     const db = getDatabase(app);
 
     get(ref(db, `elements/`)).then((snapshot1) => {
-        for (let i = 0; i < 15; i++) {
+        if (output === "") {
             var menu = [(
                 <div>
                     <center>
                         <h1>Menu</h1>
                     </center>
-    
+
                     <p>Showing 15 random elememnts...</p>
                 </div>
             )]
-            
-            var true_elem = ""
 
-            var elem_dict = Object.keys(snapshot1.val())
-            true_elem = elem_dict[Math.floor(Math.random()*Object.keys(snapshot1.val()).length)]
-            menu.push(
-                <div>
-                    *️⃣ <b>{true_elem}</b> - <small>(<Link to={"/info/" + true_elem}>i</Link> ● <Link to={"/buy/" + true_elem}>b</Link>)</small>
-                </div>
-            )
+            for (let i = 0; i < 15; i++) {
+                var true_elem = ""
+
+                var elem_dict = Object.keys(snapshot1.val())
+                true_elem = elem_dict[Math.floor(Math.random()*Object.keys(snapshot1.val()).length)]
+                menu.push(
+                    <div>
+                        *️⃣ <b>{true_elem}</b> - <small>(<Link to={"/info/" + true_elem}>i</Link> ● <Link to={"/buy/" + true_elem}>b</Link>)</small>
+                    </div>
+                )
+            }
+
+            setOutput(menu);
         }
-
-        setOutput(menu);
     }).catch((error) => {
         output.push(error.toString());
     });
