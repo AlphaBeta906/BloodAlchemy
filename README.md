@@ -8,7 +8,7 @@ Firstly, (of course) get all the files. You will need ALL OF THEM. (like 90% is 
 
 Then, ask me on the contact page my email, then and only then I will give you the code for the tokens. Then do `npm start` on my-app to pop up this abomination.
 
-**Note: By running this, and getting the tokens, you would agree that I will use your code for my website (if it takes off).
+**Note: By running this, and getting the tokens, you would agree that I will use your code for my website (if it takes off).**
 
 ### Sweet! It is working now. By the way, when is the real thing gonna emerge.
 Hmmm, I am thinking late January at the earliest and March at the latest. I won't promise you, but it's a plan.
