@@ -1,16 +1,17 @@
 import { useState, useContext } from "react";
+import { useParams, Link } from "react-router-dom";
 import { initializeApp } from "firebase/app";
 import { getDatabase, get, ref, set } from "firebase/database";
-import { useParams, Link } from "react-router-dom";
 import UserContext from "./userContext";
 import firebaseConfig from "./firebase";
 
-export default function Buy() {
+export default function Sell() {
     const param = useParams();
-    const [result, setResult] = useState("...");
+
+    const { user } = useContext(UserContext);
+    const [result, setResult] = useState("");
     const [price, setPrice] = useState(0);
     const [output, setOutput] = useState("");
-    const { user } = useContext(UserContext);
 
     const app = initializeApp(firebaseConfig);
     const db = getDatabase(app);
@@ -21,22 +22,18 @@ export default function Buy() {
 
             const onSubmit = () => {
                 if (user !== "") {
-                    get(ref(db, `users/${user}/watts`)).then((snapshot1) => {
-                        if (snapshot1.val() >= price) {
-                            set(ref(db, `users/${user}/watts`), snapshot1.val() - price);
-                            get(ref(db, `users/${user}/inventory`)).then((snapshot2) => {
-                                if (snapshot2.val()[param.elem] === undefined) {
-                                    set(ref(db, `users/${user}/inventory/${param.elem}`), 1);
-                                } else {
-                                    set(ref(db, `users/${user}/inventory/${param.elem}`), snapshot2.val()[param.elem] + 1);
-                                }
+                    get(ref(db, `users/${user}/inventory`)).then((snapshot1) => {
+                        if (snapshot1.val()[param.elem] !== undefined && snapshot1.val()[param.elem] > 0) {
+                            set(ref(db, `users/${user}/inventory/${param.elem}`), snapshot1.val()[param.elem] - 1);
+                            get(ref(db, `users/${user}/watts`)).then((snapshot2) => {
+                                set(ref(db, `users/${user}/watts`), snapshot2.val() + price);
         
                                 setResult("You bought " + param.elem);
                             }).catch((error) => {
                                 setResult(error.toString());
                             });
                         } else {
-                            setResult("Insufficient funds!");
+                            setResult("You don't have any " + param.elem + "!");
                         }
                     }).catch((error) => {
                         setResult(error.toString());
@@ -48,15 +45,17 @@ export default function Buy() {
                 setOutput(
                     <div>
                         <center>
-                            <h1>Buy</h1>
+                            <h1>Sell</h1>
                         </center>
-                        <center>You wanna buy one {param.element}?</center>
-                        <center>It costs {price} watts.</center>
 
-                        <center>Dealer: {result}</center>
-                        <center><button onClick={onSubmit}>Buy</button></center><br />
+                        <center>You wanna sell one {param.elem}?</center>
+                        <center>You will get {price} watts!</center>
 
+                        <center>Deal or No Deal?</center>
+
+                        <center><button onClick={onSubmit}>Deal</button></center><br />
                         <center><Link to="/menu/">Back to menu</Link></center>
+                        <center>{result}</center>
                     </div>
                 );
             } else {
@@ -84,4 +83,4 @@ export default function Buy() {
     });
 
     return output;
-};
+}

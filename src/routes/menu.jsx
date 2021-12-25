@@ -29,11 +29,16 @@ export default function Menu() {
                 true_elem = elem_dict[Math.floor(Math.random()*Object.keys(snapshot1.val()).length)]
                 menu.push(
                     <div>
-                        *️⃣ <b>{true_elem}</b> - <small>(<Link to={"/info/" + true_elem}>i</Link> ● <Link to={"/buy/" + true_elem}>b</Link>)</small>
+                        *️⃣ <b>{true_elem}</b> - <small>(<Link to={"/info/" + true_elem}>i</Link> ● <Link to={"/buy/" + true_elem}>b</Link> ● <Link to={"/sell/" + true_elem}>s</Link>)</small>
                     </div>
                 )
             }
 
+            menu.push(
+                <div>
+                    <center><Link to="/menu/">Reload</Link></center>
+                </div>
+            )
             setOutput(menu);
         }
     }).catch((error) => {
