@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import UserContext from "./userContext";
 import axios from "axios";
 
-
 export default function Test() {
     const { register, handleSubmit } = useForm();
     const { user } = useContext(UserContext);
