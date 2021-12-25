@@ -20,6 +20,7 @@ import Profile from "./routes/profile";
 import Inventory from "./routes/inventory";
 import Info from "./routes/info";
 import Buy from "./routes/buy";
+import Menu from "./routes/menu";
 
 import Empty from "./routes/empty";
 import ProfileNoArgs from './routes/profileNoArgs';
@@ -66,7 +67,11 @@ function App() {
                   <Route index element={<InfoNoArgs />} />
                   <Route path=":element" element={<Info />} />
                 </Route>
-                <Route path="buy/:elem" element={<Buy />} />
+                <Route path="buy">
+                  <Route index element={<Menu />} />
+                  <Route path=":elem" element={<Buy />} />
+                </Route>
+                <Route path="menu" element={<Menu />} />
                 <Route path="*" element={<InvalidPage />} />
             </Routes>
             

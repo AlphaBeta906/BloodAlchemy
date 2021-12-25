@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import { initializeApp } from "firebase/app";
 import { getDatabase, get, ref, set } from "firebase/database";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import UserContext from "./userContext";
 
 const firebaseConfig = {
@@ -63,6 +63,8 @@ export default function Buy() {
     
                     <center>Dealer: {result}</center>
                     <button onClick={onSubmit}>Buy</button>
+
+                    <center><Link to="/menu/">Back to menu</Link></center>
                 </div>
             );
         } else {
