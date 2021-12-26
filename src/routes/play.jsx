@@ -80,7 +80,6 @@ export default function Play() {
             if (reactions[first + "+" + second] !== undefined) {
               get(ref(db, `elements/${reactions[first + "+" + second]}`)).then((snapshot) => {
                 var watts = snapshot.val().generation * snapshot.val().complexity + gDTRGB(snapshot.val().color);
-                watts = Math.ceil(watts / 2);
 
                 get(ref(db, `users/${user}/watts`)).then((snapshot) => {
                   set(ref(db, `users/${user}/watts`), snapshot.val() + watts);
@@ -118,7 +117,6 @@ export default function Play() {
             } else {
               get(ref(db, `elements/${reactions[second + "+" + first]}`)).then((snapshot) => {
                 var watts = snapshot.val().generation * snapshot.val().complexity + gDTRGB(snapshot.val().color);
-                watts = Math.ceil(watts / 2);
 
                 get(ref(db, `users/${user}/watts`)).then((snapshot) => {
                   set(ref(db, `users/${user}/watts`), snapshot.val() + watts);

@@ -22,6 +22,8 @@ import Info from "./routes/info";
 import Buy from "./routes/buy";
 import Menu from "./routes/menu";
 import Sell from './routes/sell';
+import Suggestions from './routes/suggestions';
+import Suggestion from './routes/suggestion';
 
 import Empty from "./routes/empty";
 import ProfileNoArgs from './routes/profileNoArgs';
@@ -77,13 +79,18 @@ function App() {
                   <Route path=":elem" element={<Sell />} />
                 </Route>
                 <Route path="menu" element={<Menu />} />
+                <Route path="suggestions" element={<Suggestions />} />
+                <Route path="suggestion">
+                  <Route index element={<Suggestions />} />
+                  <Route path=":suggestion" element={<Suggestion />} />
+                </Route>
                 <Route path="*" element={<InvalidPage />} />
             </Routes>
             
             <footer>
               <br /><br /><br />
               <hr />
-              <center>© AlphaBeta906, AlphaBeta906 LLC (nonexisting thing joke), 2021</center>
+              <center>&copy; AlphaBeta906, AlphaBeta906 LLC (nonexisting thing joke), 2021</center>
               <hr />
             </footer>
         </Router>

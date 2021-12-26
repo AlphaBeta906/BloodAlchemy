@@ -8,14 +8,21 @@ export default function Test() {
     const { user } = useContext(UserContext);
     const [result, setResult] = useState("...");
 
-    const onSubmit = async (data) => {
-        axios.get(`http://127.0.0.1:5000/color_mixing/${data.c1}-${data.c2}`)
-            .then(res => {
-                setResult(res.data.combined_color);
-            })
-            .catch(err => {
-                setResult(err.toString());
-            });
+    function mix_hex(hex1, hex2) {
+        // http://127.0.0.1:5000/color_mixing/FFA500-FFA500
+        var promise = axios.get("http://127.0.0.1:5000/color_mixing/" + hex1 + "-" + hex2);
+
+        var new_promise = promise.then((res) => res.data.combined_color);
+
+        return new_promise;
+    }
+
+    const onSubmit = (data) => {
+        mix_hex(data.c1, data.c2).then((res) => {
+            setResult(res);
+        }).catch((err) => {
+            setResult(err.toString());
+        });
     }
 
     /*

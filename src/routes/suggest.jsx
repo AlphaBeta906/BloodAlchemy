@@ -3,22 +3,13 @@ import { useForm } from "react-hook-form";
 import { initializeApp } from 'firebase/app';
 import { getDatabase, ref, onValue, set, get } from "firebase/database";
 import { Link } from "react-router-dom";
-import UserContext from "./userContext";
-import axios from "axios";
+import UserContext from "./userContext";  
 import firebaseConfig from "./firebase";
 
 export default function Suggest() {
   const { register, handleSubmit } = useForm();
   const [result, setResult] = useState("");
   const { user } = useContext(UserContext);
-
-  function mix_hex(hex1, hex2) {
-    const promise = axios.get(`http://localhost:5000/color_mixing/${hex1}-${hex2}`);
-
-    promise.then((res) => res.data.combined_color);
-
-    return promise;
-  }
 
   const onSubmit = async (data) => {
     var app = initializeApp(firebaseConfig);
@@ -60,86 +51,11 @@ export default function Suggest() {
               </>
             );
           } else {
-            set(ref(db, 'reactions/' + data.e1 + "+" + data.e2), data.reaction);
-
-            if (!elements.includes(data.reaction)) {
-              var d = new Date();
-              let text = d.toUTCString();
-
-              var generation = 0
-
-              get(ref(db, 'elements/')).then((snapshot) => {
-                if (snapshot.val()[data.e1].generation < snapshot.val()[data.e2]["generation"]) {
-                    generation = snapshot.val()[data.e2]["generation"] + 1;
-                } else if (snapshot.val()[data.e1]["generation"] > snapshot.val()[data.e2]["generation"]) {
-                    generation = snapshot.val()[data.e1]["generation"] + 1;
-                } else if (snapshot.val()[data.e1]["generation"] === snapshot.val()[data.e2]["generation"]) {
-                    generation = snapshot.val()[data.e1]["generation"] + 1;
-                }
-
-                var complexity1 = 0
-                if (data.e1 === data.e2) {
-                    complexity1 = snapshot.val()[data.e1]["complexity"];
-                } else {
-                    if (snapshot.val()[data.e1]["complexity"] > snapshot.val()[data.e2]["complexity"]) {
-                        complexity1 = snapshot.val()[data.e1]["complexity"] + 1;
-                    } else if (snapshot.val()[data.e1]["complexity"] < snapshot.val()[data.e2]["complexity"]) {
-                        complexity1 = snapshot.val()[data.e2]["complexity"] + 1;
-                    } else if (snapshot.val()[data.e1]["complexity"] === snapshot.val()[data.e2]["complexity"]) {
-                        complexity1 = snapshot.val()[data.e1]["complexity"] + 1;
-                    }
-                }
-              
-                var color = "";
-
-                mix_hex(snapshot.val()[data.e1]["color"], snapshot.val()[data.e2]["color"]).then((hex) => {
-                  color = hex;
-                }).catch((err) => {
-                  setResult(err.toString());
-                  return
-                });
-
-                set(ref(db, 'elements/' + data.reaction), {
-                  "color": color,
-                  "generation": generation,
-                  "complexity": complexity1,
-                  "date": text,
-                  "creator": user,
-                });
-
-                setResult(
-                  <>
-                    Added to database with new element: <Link to={'/info/' + data.reaction}>{data.reaction}</Link>
-                  </>
-                )
-              }).catch((error) => {
-                setResult("Error: " + error.toString());
-              });
-
-              elements.push(data.reaction);
-              reactions[data.e1 + "+" + data.e2] = data.reaction;
-            } else {
-              setResult("Added to database!");
-              reactions[data.e1 + "+" + data.e2] = data.reaction;
-            }
-
-            get(ref(db, `users/${user}/inventory/${data.e1}`)).then((snapshot) => {
-              set(ref(db, `users/${user}/inventory/${data.e1}`), snapshot.val() - 1);
-            }).catch((error) => {
-              console.error(error);
+            set(ref(db, 'suggestions/' + data.e1 + "+" + data.e2 + "=" + data.reaction), { 
+              votes: 0,
+              creator: user
             });
-
-            get(ref(db, `users/${user}/inventory/${data.e2}`)).then((snapshot) => {
-              set(ref(db, `users/${user}/inventory/${data.e2}`), snapshot.val() - 1);
-            }).catch((error) => {
-              console.error(error);
-            });
-
-            get(ref(db, `users/${user}/inventory/${data.reaction}`)).then((snapshot) => {
-              set(ref(db, `users/${user}/inventory/${data.reaction}`), snapshot.val() + 1);
-            }).catch((error) => {
-              console.error(error);
-            });
+            setResult("👍 Suggestion added!");
           }
         }).catch((error) => {
           console.error(error);
