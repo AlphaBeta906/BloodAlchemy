@@ -39,7 +39,7 @@ function App() {
   const [user, setUser] = useState("");
 
   useEffect(() => {
-    document.title = "Elementals 4";
+    document.title = "Blood Alchemy";
   }, []);
 
   return (

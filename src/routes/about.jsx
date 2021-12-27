@@ -4,8 +4,8 @@ export default function About() {
       <center><h1>About</h1></center>
       This is the about page.<br /><br />
 
-      <center><h2>What is 'Elementals'?</h2></center>
-      Elementals is an alchemy game where you combine elements to create new ones. Before it was a Discord bot, but now it's a website.
+      <center><h2>What is 'Blood Alchemy'?</h2></center>
+      Blood Alchemy is an alchemy game where you combine elements to create new ones. Before it was a Discord bot, but now it's a website.
 
       <center><h2>How do I play?</h2></center>
       You can play the game by clicking the 'Play' button on the home page, or use www.elementals4.com/play.
@@ -20,9 +20,9 @@ export default function About() {
       You can vote on proposals by clicking the 'Vote' button on the proposal page, which you can enter by clicking the 'Proposals' button on the navbar, or use www.elementals4.com/proposals.
 
       <center><h2>I heard that you store IP adresses, is that true?</h2></center>
-      Yes, it is true, in a sense. However, we encrypt your IP adress so that it cannot be used to track you. Even if a hacker gets your IP adress, he/she will be able to crack it in 1502 years, which I don't think that Elementals 4 will ever reach.
+      Yes, it is true, in a sense. However, we encrypt your IP adress so that it cannot be used to track you. Even if a hacker gets your IP adress, he/she will be able to crack it in 1502 years, which I don't think that Blood Alchemy will ever reach.
 
-      <center><h2>Do you support and enforce COPPA in Elementals 4?</h2></center>
+      <center><h2>Do you support and enforce COPPA in Blood Alchemy?</h2></center>
       We do not support and especially hate COPPA. I, AlphaBeta906 is underage as of writing this (I am 11 and this is December 2021), and I and ItzCountryballs is outside of US territory, so I am not legally required to enforce COPPA. However, if you are a parent or guardian of a child under 13, please know that we would not be adding personal ads and collecting personal data (excluding the IPs to cut corners).
 
       <center><h2>I just saw my kid see a bad word on this site! Can you please remove it?</h2></center>

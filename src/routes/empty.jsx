@@ -54,7 +54,7 @@ export default function Empty() {
         (<div>
             <hr />
             <center>
-                <h1 className="logo">Elementals 4</h1>
+                <h1 className="logo">Blood Alchemy</h1>
             </center>
         </div>),
         links,
