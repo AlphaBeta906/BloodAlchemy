@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, get, set } from "firebase/database";
@@ -16,6 +16,7 @@ export default function Suggestion() {
     const { user } = useContext(UserContext);
     const [result, setResult] = useState("");
     const [output, setOutput] = useState("");
+    const [seconds, setSeconds] = useState(0);
 
     var app = initializeApp(firebaseConfig);
     var db = getDatabase(app);
@@ -30,6 +31,13 @@ export default function Suggestion() {
     }
 
     const onSubmit = () => {
+        if (seconds !== 0) {
+            setResult(`Please wait ${seconds} seconds`);
+            return;
+        }
+
+        setSeconds(5);
+        
         get(ref(db, 'suggestions/')).then((snapshot1) => {
             if (snapshot1.val()[params.suggestion] !== undefined) {
                 set(ref(db, 'suggestions/' + params.suggestion + '/votes'), snapshot1.val()[params.suggestion].votes + 1);
@@ -113,6 +121,14 @@ export default function Suggestion() {
             setResult(error.toString());
         });
     }
+
+    useEffect(() => {
+        if (seconds > 0) {
+            setTimeout(() => setSeconds(seconds - 1), 1000);
+        } else {
+            setSeconds(0);
+        }
+    }, [seconds]);
 
     get(ref(db, 'suggestions/')).then((snapshot) => {
         if (snapshot.val()[params.suggestion] === undefined || params.suggestion === "lol") {

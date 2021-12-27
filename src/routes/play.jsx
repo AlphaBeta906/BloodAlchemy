@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { initializeApp } from 'firebase/app';
@@ -9,6 +9,7 @@ import firebaseConfig from "./firebase";
 export default function Play() {
   const { register, handleSubmit } = useForm();
   const [result, setResult] = useState("");
+  const [seconds, setSeconds] = useState(0);
   const { user } = useContext(UserContext);
 
   const colorDistance = (hex1, hex2) => {
@@ -39,6 +40,13 @@ export default function Play() {
   const onSubmit = (data) => {
     var app = initializeApp(firebaseConfig);
     var db = getDatabase(app);
+
+    if (seconds !== 0) {
+      setResult(`Please wait ${seconds} seconds`);
+      return;
+    }
+
+    setSeconds(5);
 
     // I hate rewriting legacy code
     get(ref(db, 'reactions')).then((snapshot) => {
@@ -80,6 +88,7 @@ export default function Play() {
             if (reactions[first + "+" + second] !== undefined) {
               get(ref(db, `elements/${reactions[first + "+" + second]}`)).then((snapshot) => {
                 var watts = snapshot.val().generation * snapshot.val().complexity + gDTRGB(snapshot.val().color);
+                watts = Math.ceil(watts);
 
                 get(ref(db, `users/${user}/watts`)).then((snapshot) => {
                   set(ref(db, `users/${user}/watts`), snapshot.val() + watts);
@@ -117,6 +126,7 @@ export default function Play() {
             } else {
               get(ref(db, `elements/${reactions[second + "+" + first]}`)).then((snapshot) => {
                 var watts = snapshot.val().generation * snapshot.val().complexity + gDTRGB(snapshot.val().color);
+                watts = Math.ceil(watts);
 
                 get(ref(db, `users/${user}/watts`)).then((snapshot) => {
                   set(ref(db, `users/${user}/watts`), snapshot.val() + watts);
@@ -161,6 +171,14 @@ export default function Play() {
       console.error(error)
     });
   };
+
+  useEffect(() => {
+    if (seconds > 0) {
+      setTimeout(() => setSeconds(seconds - 1), 1000);
+    } else {
+      setSeconds(0);
+    }
+  }, [seconds]);
   
   if (user !== '') {
     return (

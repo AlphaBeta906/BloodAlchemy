@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { initializeApp } from 'firebase/app';
 import { getDatabase, ref, onValue, set, get } from "firebase/database";
@@ -9,11 +9,19 @@ import firebaseConfig from "./firebase";
 export default function Suggest() {
   const { register, handleSubmit } = useForm();
   const [result, setResult] = useState("");
+  const [seconds, setSeconds] = useState(0);
   const { user } = useContext(UserContext);
 
   const onSubmit = async (data) => {
     var app = initializeApp(firebaseConfig);
     var db = getDatabase(app);
+
+    if (seconds !== 0) {
+      setResult(`Please wait ${seconds} seconds`);
+      return;
+    }
+
+    setSeconds(5);
 
     var reactions = ref(db, 'reactions');
     onValue(reactions, (snapshot) => {
@@ -63,6 +71,14 @@ export default function Suggest() {
       }
     });
   };
+
+  useEffect(() => {
+    if (seconds > 0) {
+      setTimeout(() => setSeconds(seconds - 1), 1000);
+    } else {
+      setSeconds(0);
+    }
+  }, [seconds]);
 
   return (
     <div>
