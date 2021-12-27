@@ -190,7 +190,7 @@ export default function Play() {
               <form onSubmit={handleSubmit(onSubmit)}>
                   <center>
                     <input {...register("e1")} placeholder="Element 1" />
-                    <p style={{fontSize:25}}>+</p>
+                    <p style={{fontSize:25, fontWeight:"bold"}}>+</p>
                     <input {...register("e2")} placeholder="Element 2" />
                     <p>{result}</p>
                     <input type="submit" />

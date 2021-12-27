@@ -89,9 +89,9 @@ export default function Suggest() {
         <form onSubmit={handleSubmit(onSubmit)}>
           <center>
             <input {...register("e1")} placeholder="Element 1" />
-            <p style={{fontSize:25}}>+</p>
+            <p style={{fontSize:25, fontWeight:"bold"}}>+</p>
             <input {...register("e2")} placeholder="Element 2" />
-            <p style={{fontSize:25}}>=</p>
+            <p style={{fontSize:25, fontWeight:"bold"}}>=</p>
             <input {...register("reaction")} placeholder="Reaction" />
             <p>{result}</p>
             <input type="submit" />
