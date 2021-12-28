@@ -95,16 +95,16 @@ export default function Mine() {
     } else {
       setSeconds(0);
     }
-  }, [seconds]);
 
-  if (user !== '') {
     var app = initializeApp(firebaseConfig);
     var db = getDatabase(app);
 
-    get(ref(db, `mines`)).then((snapshot) => {
+    get(ref(db, `mines/`)).then((snapshot) => {
       var mines1 = []
 
       snapshot.forEach((mine) => {
+        mines1.push(mine.key)
+
         if (mine.val().owner === user) {
           mines1.push(mine.key);
         }
@@ -116,13 +116,15 @@ export default function Mine() {
         <p>Error: {error.toString()}</p>
       </div>);
     });
+  }, [seconds, user]);
 
+  if (user !== '') {
     return (
         <div>
             <center>
               <h1>Mine</h1>
               <form onSubmit={handleSubmit(onSubmit)}>
-                <p>Mines: {mines}</p>
+                <p>Mines: {mines} | Need more mines? Go <Link to="/search/">here</Link>!</p>
                 <input {...register("mine")} placeholder="Mine" /><br />
                 <input type="submit" />
                 <p>{result}</p>
@@ -134,8 +136,8 @@ export default function Mine() {
     return (
         <div>
           <center>
-            <p style={{fontSize: 100}}>403</p>
-            <p style={{fontSize: 50}}>Forbidden. Sign in to enter the page.</p>
+            <div className="status" style={{fontSize:100}}>403</div><br />
+            <div className="desk" style={{fontSize: 50}}>Forbidden. Sign in to enter the page.</div>
           </center>
         </div>
     ); 

@@ -31,6 +31,16 @@ a:visited {
   color: #ee260c;
 }
 
+.status {
+  font-family: 'Hermes', sans-serif;
+  color: #ff7070;
+}
+
+.desk {
+  font-family: 'Hermes', sans-serif;
+  color: #b31717;
+}
+
 .meter { 
   height: 20px;
   position: relative;

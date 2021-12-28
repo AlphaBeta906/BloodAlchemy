@@ -135,8 +135,8 @@ export default function Suggestion() {
             setOutput(
                 <div>
                     <center>
-                        <p style={{fontSize: 100}}>404</p>
-                        <p style={{fontSize: 50}}>Page Not Found. That reaction is undefined</p>
+                        <div className="status" style={{fontSize:100}}>404</div><br />
+                        <div className="desk" style={{fontSize: 50}}>Page Not Found. That reaction is undefined</div>
                     </center>
                 </div>
             );
@@ -144,8 +144,8 @@ export default function Suggestion() {
             setOutput(
                 <div>
                     <center>
-                        <p style={{fontSize: 100}}>403</p>
-                        <p style={{fontSize: 50}}>Forbidden. You must be logged in to vote</p>
+                        <div className="status" style={{fontSize:100}}>403</div><br />
+                        <div className="desk" style={{fontSize: 50}}>Forbidden. You must be logged in to vote</div>
                     </center>
                 </div>
             );

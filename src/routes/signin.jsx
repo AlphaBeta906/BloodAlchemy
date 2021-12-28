@@ -39,9 +39,21 @@ export default function Signin() {
                 password: sha256(data.password),
                 watts: 0
             });
-            setResult(
-              <Navigate to="/"/>
-            );
+
+            get(ref(db, 'mines/')).then(snapshot => {
+              var mines = Object.keys(snapshot.val()).length;
+
+              set(ref(db, 'mines/Mine ' + (mines + 1).toString()), {
+                owner: user,
+                start: 1
+              })
+
+              setResult(
+                <Navigate to="/"/>
+              );
+            }).catch(error => {
+              setResult("Error: " + error.toString());
+            })
           } else {
             setResult("You are already logged in!");
           }
@@ -75,8 +87,8 @@ export default function Signin() {
             <h1>Sign In</h1>
           </center>
           <center>
-            <p style={{fontSize: 100}}>204</p>
-            <p style={{fontSize: 50}}>No Content. You already signed in!</p>
+            <div className="status" style={{fontSize:100}}>204</div><br />
+            <div className="desk" style={{fontSize: 50}}>No Content. You already signed in!</div>
           </center>
       </div>
     )

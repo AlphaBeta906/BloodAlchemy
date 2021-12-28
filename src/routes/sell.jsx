@@ -62,8 +62,8 @@ export default function Sell() {
                 setOutput(
                     <div>
                         <center>
-                        <p style={{fontSize: 100}}>403</p>
-                        <p style={{fontSize: 50}}>Forbidden. Sign in to enter the page.</p>
+                        <div className="status" style={{fontSize:100}}>403</div><br />
+                        <div className="desk" style={{fontSize: 50}}>Forbidden. Sign in to enter the page.</div>
                         </center>
                     </div>
                 )
@@ -72,8 +72,8 @@ export default function Sell() {
             setOutput(
                 <div>
                     <center>
-                        <p style={{fontSize: 100}}>404</p>
-                        <p style={{fontSize: 50}}>Page not found.</p>
+                        <div className="status" style={{fontSize:100}}>404</div><br />
+                        <div className="desk" style={{fontSize: 50}}>Page not found.</div>
                     </center>
                 </div>
             );

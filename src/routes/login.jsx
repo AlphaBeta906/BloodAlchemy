@@ -51,8 +51,8 @@ export default function Login() {
     return (
       <div>
         <center>
-          <p style={{fontSize: 100}}>204</p>
-          <p style={{fontSize: 50}}>No Content. You already signed in!</p>
+          <div className="status" style={{fontSize:100}}>204</div><br />
+          <div className="desk" style={{fontSize: 50}}>No Content. You already signed in!</div>
         </center>
       </div>
     );
