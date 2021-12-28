@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import UserContext from "./userContext";
 import firebaseConfig from "./firebase";
+import Error from "./error";
 
 export default function Mine() {
   const [result, setResult] = useState("");
@@ -110,9 +111,7 @@ export default function Mine() {
         setMines(mines1);
       });
     }).catch((error) => {
-      return (<div>
-        <p>Error: {error.toString()}</p>
-      </div>);
+      setResult("Error: " + error.toString());
     });
   }, [seconds, user]);
 
@@ -132,12 +131,7 @@ export default function Mine() {
     );
   } else {
     return (
-        <div>
-          <center>
-            <div className="status" style={{fontSize:100}}>403</div><br />
-            <div className="desk" style={{fontSize: 50}}>Forbidden. Sign in to enter the page.</div>
-          </center>
-        </div>
+      <Error status="401" />
     ); 
   }
 }

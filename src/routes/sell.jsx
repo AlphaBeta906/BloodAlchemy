@@ -4,6 +4,7 @@ import { initializeApp } from "firebase/app";
 import { getDatabase, get, ref, set } from "firebase/database";
 import UserContext from "./userContext";
 import firebaseConfig from "./firebase";
+import Error from "./error";
 
 export default function Sell() {
     const param = useParams();
@@ -60,22 +61,12 @@ export default function Sell() {
                 );
             } else {
                 setOutput(
-                    <div>
-                        <center>
-                        <div className="status" style={{fontSize:100}}>403</div><br />
-                        <div className="desk" style={{fontSize: 50}}>Forbidden. Sign in to enter the page.</div>
-                        </center>
-                    </div>
+                    <Error status="401" />
                 )
             };
         } else {
             setOutput(
-                <div>
-                    <center>
-                        <div className="status" style={{fontSize:100}}>404</div><br />
-                        <div className="desk" style={{fontSize: 50}}>Page not found.</div>
-                    </center>
-                </div>
+                <Error status="404" />
             );
         }
     }).catch((error) => {

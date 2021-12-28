@@ -5,6 +5,7 @@ import { getDatabase, ref, onValue, set, get } from "firebase/database";
 import { Link } from "react-router-dom";
 import UserContext from "./userContext";  
 import firebaseConfig from "./firebase";
+import Error from "./error";
 
 export default function Suggest() {
   const { register, handleSubmit } = useForm();
@@ -80,24 +81,30 @@ export default function Suggest() {
     }
   }, [seconds]);
 
-  return (
-    <div>
-      <center>
-        <h1>Suggest</h1>
-      </center>
-      <center>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <center>
-            <input {...register("e1")} placeholder="Element 1" />
-            <p style={{fontSize:25, fontWeight:"bold"}}>+</p>
-            <input {...register("e2")} placeholder="Element 2" />
-            <p style={{fontSize:25, fontWeight:"bold"}}>=</p>
-            <input {...register("reaction")} placeholder="Reaction" />
-            <p>{result}</p>
-            <input type="submit" />
-          </center>
-        </form>
-      </center>
-    </div>
-  );
+  if (user !== "") {
+    return (
+      <div>
+        <center>
+          <h1>Suggest</h1>
+        </center>
+        <center>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <center>
+              <input {...register("e1")} placeholder="Element 1" />
+              <p style={{fontSize:25, fontWeight:"bold"}}>+</p>
+              <input {...register("e2")} placeholder="Element 2" />
+              <p style={{fontSize:25, fontWeight:"bold"}}>=</p>
+              <input {...register("reaction")} placeholder="Reaction" />
+              <p>{result}</p>
+              <input type="submit" />
+            </center>
+          </form>
+        </center>
+      </div>
+    );
+  } else {
+    return (
+      <Error code="401" />
+    );
+  }
 };

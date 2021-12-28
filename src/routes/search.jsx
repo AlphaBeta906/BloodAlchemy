@@ -3,6 +3,7 @@ import { initializeApp } from 'firebase/app';
 import { getDatabase, get, set, ref } from 'firebase/database';
 import firebaseConfig from './firebase';
 import UserContext from './userContext';
+import Error from './error';
 
 export default function Search() {
     const [result, setResult] = useState("");
@@ -64,14 +65,20 @@ export default function Search() {
         }
     }, [seconds])
 
-    return (
-        <div>
-            <center><h1>Search</h1></center>
+    if (user !== "") {
+        return (
+            <div>
+                <center><h1>Search</h1></center>
 
-            <p>There is a 1 in 5 chance of this suceeding. There is a cooldown of 20 seconds and a 50 watt tax. Are you sure you want to do it?</p>
-            <center><button onClick={onSubmit}>Yes</button></center>
+                <p>There is a 1 in 5 chance of this suceeding. There is a cooldown of 20 seconds and a 50 watt tax. Are you sure you want to do it?</p>
+                <center><button onClick={onSubmit}>Yes</button></center>
 
-            <center><p>{result}</p></center>
-        </div>
-    )
+                <center><p>{result}</p></center>
+            </div>
+        )
+    } else {
+        return (
+            <Error status="401" />
+        )
+    }
 }

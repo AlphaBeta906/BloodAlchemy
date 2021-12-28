@@ -4,6 +4,7 @@ import { initializeApp } from 'firebase/app';
 import { getDatabase, ref, get, set } from 'firebase/database';
 import UserContext from './userContext';
 import firebaseConfig from './firebase';
+import Error from './error';
 
 export default function Attack() {
     const { register, handleSubmit } = useForm();
@@ -49,7 +50,14 @@ export default function Attack() {
 
                     if (your_power > owner_power) {
                         set(ref(db, 'mines/' + data.mine + '/owner'), user);
-                        setResult("You won!");
+
+                        if (snapshot2.val()[user]["inventory"]["class"] === "slave") {
+                            set(ref(db, 'users/' + user + '/inventory/class'), "master");
+
+                            setResult("You are now a master!");
+                        } else {
+                            setResult("You won!");
+                        }
                     } else if (owner_power > your_power) {
                         setResult("You lost!");
                     } else {
@@ -81,12 +89,7 @@ export default function Attack() {
         );
     } else {
         return (
-            <div>
-                <center>
-                <div className="status" style={{fontSize:100}}>403</div><br />
-                <div className="desk" style={{fontSize: 50}}>Forbidden. Sign in to enter the page.</div>
-                </center>
-            </div>
+            <Error status="401" />
         )
     }
 }

@@ -26,13 +26,14 @@ import Suggestions from './routes/suggestions';
 import Suggestion from './routes/suggestion';
 import Search from "./routes/search";
 import Attack from "./routes/attack";
+import Upgrade from "./routes/upgrade";
 
 import Empty from "./routes/empty";
 import ProfileNoArgs from './routes/profileNoArgs';
 import InventoryNoArgs from './routes/inventoryNoArgs';
 import InfoNoArgs from './routes/infoNoArgs';
 
-import InvalidPage from "./routes/404";
+import Error from './routes/error';
 
 import UserContext from "./routes/userContext";
 // import reportWebVitals from './reportWebVitals';
@@ -88,7 +89,8 @@ function App() {
                 </Route>
                 <Route path="search" element={<Search />} />
                 <Route path="attack" element={<Attack />} />
-                <Route path="*" element={<InvalidPage />} />
+                <Route path="upgrade" element={<Upgrade />} />
+                <Route path="*" element={<Error status="404" />} />
             </Routes>
             
             <footer>

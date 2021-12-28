@@ -6,6 +6,7 @@ import { getDatabase, ref, set, get } from "firebase/database";
 import { sha256 } from 'js-sha256';
 import UserContext from "./userContext";
 import firebaseConfig from "./firebase";
+import Error from "./error";
 
 export default function Signin() {
   const { register, handleSubmit } = useForm();
@@ -83,15 +84,7 @@ export default function Signin() {
     );
   } else if (result === "") {
     return (
-      <div>
-          <center>
-            <h1>Sign In</h1>
-          </center>
-          <center>
-            <div className="status" style={{fontSize:100}}>204</div><br />
-            <div className="desk" style={{fontSize: 50}}>No Content. You already signed in!</div>
-          </center>
-      </div>
+      <Error status="204" />
     )
   } else {
     return result;

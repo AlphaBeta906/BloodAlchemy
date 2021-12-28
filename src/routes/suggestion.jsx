@@ -5,6 +5,7 @@ import { getDatabase, ref, get, set } from "firebase/database";
 import firebaseConfig from "./firebase";
 import UserContext from "./userContext";
 import axios from "axios";
+import Error from "./error";
 
 export default function Suggestion() {
     let params = useParams();
@@ -133,21 +134,11 @@ export default function Suggestion() {
     get(ref(db, 'suggestions/')).then((snapshot) => {
         if (snapshot.val()[params.suggestion] === undefined || params.suggestion === "lol") {
             setOutput(
-                <div>
-                    <center>
-                        <div className="status" style={{fontSize:100}}>404</div><br />
-                        <div className="desk" style={{fontSize: 50}}>Page Not Found. That reaction is undefined</div>
-                    </center>
-                </div>
+                <Error status="404" />
             );
         } else if (user === "") {
             setOutput(
-                <div>
-                    <center>
-                        <div className="status" style={{fontSize:100}}>403</div><br />
-                        <div className="desk" style={{fontSize: 50}}>Forbidden. You must be logged in to vote</div>
-                    </center>
-                </div>
+                <Error status="401" />
             );
         } else if (![0, 1,].includes(snapshot.val()[params.suggestion].votes)) {
             setOutput(

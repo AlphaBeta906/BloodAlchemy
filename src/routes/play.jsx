@@ -5,6 +5,7 @@ import { initializeApp } from 'firebase/app';
 import { getDatabase, ref, get, set } from "firebase/database";
 import UserContext from "./userContext";
 import firebaseConfig from "./firebase";
+import Error from "./error";
 
 export default function Play() {
   const { register, handleSubmit } = useForm();
@@ -202,12 +203,7 @@ export default function Play() {
     );
   } else {
     return (
-      <div>
-          <center>
-            <div className="status" style={{fontSize:100}}>403</div><br />
-            <div className="desk" style={{fontSize: 50}}>Forbidden. Sign in to enter the page.</div>
-          </center>
-      </div>
+      <Error code="401" />
     )
   }
 }
