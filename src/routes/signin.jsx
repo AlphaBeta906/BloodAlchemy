@@ -30,6 +30,7 @@ export default function Signin() {
 
             set(ref(db, 'users/' + data.username), {
                 class: "slave",
+                level: 1,
                 inventory: {
                     Fire: 1,
                     Water: 1,
