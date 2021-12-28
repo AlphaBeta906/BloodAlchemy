@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+@import url('http://fonts.cdnfonts.com/css/hermes');
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
 
 * {
@@ -8,7 +8,7 @@
 hr {
   border: 5px solid rgb(0, 0, 0, 0);
   height: 5px;
-  background-image: linear-gradient(to right, rgb(112.5, 112.5, 112.5), rgb(64, 109, 67), rgb(112.5, 112.5, 112.5));
+  background-image: linear-gradient(to right, rgb(112.5, 112.5, 112.5), #aa2a2a, rgb(112.5, 112.5, 112.5));
 }
 
 a {
@@ -27,9 +27,8 @@ a:visited {
 }
 
 .logo {
-  font-family: 'Russo One', sans-serif;
-  color: #f36d0a;
-  -webkit-text-stroke: 2.8px red;
+  font-family: 'Hermes', sans-serif;
+  color: #ee260c;
 }
 
 .meter { 
