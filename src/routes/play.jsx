@@ -87,12 +87,12 @@ export default function Play() {
             );
           } else {
             if (reactions[first + "+" + second] !== undefined) {
-              get(ref(db, `elements/${reactions[first + "+" + second]}`)).then((snapshot) => {
-                var watts = snapshot.val().generation * snapshot.val().complexity + gDTRGB(snapshot.val().color);
-                watts = Math.ceil(watts);
+              get(ref(db, `elements/${reactions[first + "+" + second]}`)).then((snapshot1) => {
+                get(ref(db, `users/${user}`)).then((snapshot) => {
+                  var watts = snapshot1.val().generation * snapshot1.val().complexity + gDTRGB(snapshot1.val().color) * snapshot.val().level;
+                  watts = Math.ceil(watts);
 
-                get(ref(db, `users/${user}/watts`)).then((snapshot) => {
-                  set(ref(db, `users/${user}/watts`), snapshot.val() + watts);
+                  set(ref(db, `users/${user}/watts`), snapshot.val()["watts"] + watts);
 
                   setResult(<>
                     You got one You got one <Link to={'/info/' + reactions[first + "+" + second]}>{reactions[first + "+" + second]}</Link>!<br />
@@ -125,12 +125,12 @@ export default function Play() {
                 setResult("Error: " + error.toString());
               });
             } else {
-              get(ref(db, `elements/${reactions[second + "+" + first]}`)).then((snapshot) => {
-                var watts = snapshot.val().generation * snapshot.val().complexity + gDTRGB(snapshot.val().color);
-                watts = Math.ceil(watts);
+              get(ref(db, `elements/${reactions[second + "+" + first]}`)).then((snapshot1) => {
+                get(ref(db, `users/${user}`)).then((snapshot) => {
+                  var watts = snapshot1.val().generation * snapshot1.val().complexity + gDTRGB(snapshot1.val().color) * snapshot.val().level;
+                  watts = Math.ceil(watts);
 
-                get(ref(db, `users/${user}/watts`)).then((snapshot) => {
-                  set(ref(db, `users/${user}/watts`), snapshot.val() + watts);
+                  set(ref(db, `users/${user}/watts`), snapshot.val()["watts"] + watts);
 
                   setResult(<>
                     You got one <Link to={'/info/' + reactions[second + "+" + first]}>{reactions[second + "+" + first]}</Link>!<br />
@@ -203,7 +203,7 @@ export default function Play() {
     );
   } else {
     return (
-      <Error code="401" />
+      <Error status="401" />
     )
   }
 }
