@@ -103,8 +103,6 @@ export default function Mine() {
       var mines1 = []
 
       snapshot.forEach((mine) => {
-        mines1.push(mine.key)
-
         if (mine.val().owner === user) {
           mines1.push(mine.key);
         }
@@ -124,7 +122,7 @@ export default function Mine() {
             <center>
               <h1>Mine</h1>
               <form onSubmit={handleSubmit(onSubmit)}>
-                <p>Mines: {mines} | Need more mines? Go <Link to="/search/">here</Link>!</p>
+                <p>Mines: {mines} | Need more mines? <Link to="/attack/">Go</Link> <Link to="/search/">here</Link>!</p>
                 <input {...register("mine")} placeholder="Mine" /><br />
                 <input type="submit" />
                 <p>{result}</p>

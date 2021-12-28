@@ -25,6 +25,7 @@ import Sell from './routes/sell';
 import Suggestions from './routes/suggestions';
 import Suggestion from './routes/suggestion';
 import Search from "./routes/search";
+import Attack from "./routes/attack";
 
 import Empty from "./routes/empty";
 import ProfileNoArgs from './routes/profileNoArgs';
@@ -86,6 +87,7 @@ function App() {
                   <Route path=":suggestion" element={<Suggestion />} />
                 </Route>
                 <Route path="search" element={<Search />} />
+                <Route path="attack" element={<Attack />} />
                 <Route path="*" element={<InvalidPage />} />
             </Routes>
             
