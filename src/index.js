@@ -27,6 +27,7 @@ import Suggestion from './routes/suggestion';
 import Search from "./routes/search";
 import Attack from "./routes/attack";
 import Upgrade from "./routes/upgrade";
+import EditArticle from './routes/editArticle';
 
 import Empty from "./routes/empty";
 import ProfileNoArgs from './routes/profileNoArgs';
@@ -90,6 +91,10 @@ function App() {
                 <Route path="search" element={<Search />} />
                 <Route path="attack" element={<Attack />} />
                 <Route path="upgrade" element={<Upgrade />} />
+                <Route path="edit">
+                  <Route index element={<Error status="400" />} />
+                  <Route path=":elem" element={<EditArticle />} />
+                </Route>
                 <Route path="*" element={<Error status="404" />} />
             </Routes>
             

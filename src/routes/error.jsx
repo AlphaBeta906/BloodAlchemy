@@ -6,6 +6,9 @@ export default function Error(props) {
         case "204":
             desk = "You already signed in!";
             break;
+        case "400":
+            desk = "Add all of the required arguments!";
+            break;
         case "401":
             desk = "You are not logged in!";
             break;
