@@ -97,15 +97,15 @@ function App() {
                   <Route path=":elem" element={<EditArticle />} />
                 </Route>
                 <Route path="*" element={<Error status="404" />} />
-
-                <footer>
-                  <br /><br /><br />
-                  <Tips />
-                  <hr />
-                  <center>&copy; AlphaBeta906, AlphaBeta906 LLC (nonexisting thing joke), 2021</center>
-                  <hr />
-                </footer>
             </Routes>
+
+            <footer>
+              <br /><br /><br />
+              <Tips />
+              <hr />
+              <center>&copy; AlphaBeta906, AlphaBeta906 LLC (nonexisting thing joke), 2021</center>
+              <hr />
+            </footer>
         </Router>
       </>
     </UserContext.Provider>

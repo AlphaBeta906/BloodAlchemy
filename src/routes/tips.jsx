@@ -13,7 +13,7 @@ export default function Tips() {
 
     return (
         <div>
-            <center><small>{tip}</small></center>
+            <center><small>Tip: {tip}</small></center>
         </div>
     );
 }
