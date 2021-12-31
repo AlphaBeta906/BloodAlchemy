@@ -33,6 +33,9 @@ export default function About() {
 
       <center><h2>This mumbo-jumbo is getting politcal. Are you trying to create a model government?</h2></center>
       No. This is a proto-democratic anarchy, proto meaning that it doesn't have a government. This is a game, and also a community, but not a government.
+
+      <center><h2>Your fonts look good, but did you manage to get their permission?</h2></center>
+      These fonts are free-ware, so no, I did not.
       
       <center><h2>I am very angered and I would like to speak to you!</h2></center> 
       Hey, I'm sorry for what I have done, but please know that I don't know any legal things. I'm just a kid developer, not a lawyer. If you have any questions, email me <a href="mailto:dragonkingalyx@gmail.com">using this link</a>.

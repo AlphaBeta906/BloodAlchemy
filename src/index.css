@@ -1,14 +1,15 @@
-@import url('http://fonts.cdnfonts.com/css/hermes');
-@import url('http://fonts.cdnfonts.com/css/joy-multiplication');
+@import url('http://fonts.cdnfonts.com/css/octin-spraypaint');
+@import url(//db.onlinewebfonts.com/c/50cd2aad9c8f35800bb6beac3ad42f16?family=Azonix);
 
 * {
-  font-family: 'Joy Multiplication', sans-serif;
+  font-family: 'Azonix', sans-serif;
 }
 
 hr {
-  border: 5px solid rgb(0, 0, 0, 0);
-  height: 5px;
+  border: 10px solid #fff;
+  height: 15px;
   background-image: linear-gradient(to right, rgb(112.5, 112.5, 112.5), #aa2a2a, rgb(112.5, 112.5, 112.5));
+  border-radius: 25px;
 }
 
 a {
@@ -27,17 +28,17 @@ a:visited {
 }
 
 .logo {
-  font-family: 'Hermes', sans-serif;
+  font-family: 'Octin Spraypaint', sans-serif;
   color: #ee260c;
 }
 
 .status {
-  font-family: 'Hermes', sans-serif;
+  font-family: 'Octin Spraypaint', sans-serif;
   color: #ff7070;
 }
 
 .desk {
-  font-family: 'Hermes', sans-serif;
+  font-family: 'Azonix', sans-serif;
   color: #b31717;
 }
 
