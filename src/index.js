@@ -29,12 +29,13 @@ import Attack from "./routes/attack";
 import Upgrade from "./routes/upgrade";
 import EditArticle from './routes/editArticle';
 
-import Empty from "./routes/empty";
 import ProfileNoArgs from './routes/profileNoArgs';
 import InventoryNoArgs from './routes/inventoryNoArgs';
 import InfoNoArgs from './routes/infoNoArgs';
 
 import Error from './routes/error';
+import Empty from "./routes/empty";
+import Tips from './routes/tips';
 
 import UserContext from "./routes/userContext";
 // import reportWebVitals from './reportWebVitals';
@@ -96,14 +97,15 @@ function App() {
                   <Route path=":elem" element={<EditArticle />} />
                 </Route>
                 <Route path="*" element={<Error status="404" />} />
+
+                <footer>
+                  <br /><br /><br />
+                  <Tips />
+                  <hr />
+                  <center>&copy; AlphaBeta906, AlphaBeta906 LLC (nonexisting thing joke), 2021</center>
+                  <hr />
+                </footer>
             </Routes>
-            
-            <footer>
-              <br /><br /><br />
-              <hr />
-              <center>&copy; AlphaBeta906, AlphaBeta906 LLC (nonexisting thing joke), 2021</center>
-              <hr />
-            </footer>
         </Router>
       </>
     </UserContext.Provider>

@@ -6,7 +6,7 @@ export default function Tips() {
     let location = useLocation();
 
     useEffect(() => {
-        const tips = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
+        const tips = ["Stuck? Try randomly combining elements.", "Need more resources, mine it!", "In debt? Sell your elements!", "Need more watts? Upgrade your generators!", "You want to rise from slave to master? Invade a mine!"];
 
         setTip(tips[Math.floor(Math.random() * tips.length)]);
     }, [location.pathname])
