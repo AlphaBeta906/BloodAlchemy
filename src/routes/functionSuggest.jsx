@@ -15,7 +15,10 @@ export default function FunctionSuggest() {
         var app = initializeApp(firebaseConfig);
         var db = getDatabase(app);
 
-        if (data.mode === "" || data.elem === "" || data.reaction === "") {
+        if (seconds !== 0) {
+            setResult(`Please wait ${seconds} seconds`);
+            return;
+        } else if (data.mode === "" || data.elem === "" || data.reaction === "") {
             setResult("Please fill in all fields!");
         } else {
             get(ref(db, `reactions`)).then(snapshot1 => {
