@@ -195,7 +195,7 @@ export default function Play() {
                     <input {...register("e2")} placeholder="Element 2" />
                     <p>{result}</p>
                     <input type="submit" />
-                    <p>Need more resources? <Link to="/mine">Go here</Link>. Inventory? <Link to="/inventory">Go here.</Link></p>
+                    <p>Need more resources? <Link to="/mine">Go here</Link>. Inventory? <Link to="/inventory">Go here.</Link> <Link to="/function/">Change mode</Link></p>
                   </center>
               </form>
           </center>

@@ -1,8 +1,7 @@
 import { useState, useContext, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { initializeApp } from 'firebase/app';
-import { getDatabase, ref, onValue, set, get } from "firebase/database";
-import { Link } from "react-router-dom";
+import { getDatabase, ref, onValue, set } from "firebase/database";
 import UserContext from "./userContext";  
 import firebaseConfig from "./firebase";
 import Error from "./error";
@@ -46,29 +45,11 @@ export default function Suggest() {
       } else if (reactions[data.e1 + "+" + data.e2] !== undefined || reactions[data.e2 + "+" + data.e1] !== undefined) {
         setResult("Reaction exists!");
       } else {
-        get(ref(db, 'users/' + user + '/inventory')).then((snapshot) => {
-          if (snapshot.val()[data.e1] < 0 || snapshot.val()[data.e1] === undefined) {
-            setResult(
-              <>
-                The element <Link to={'/info/' + data.e1}>{data.e1}</Link> is not in your inventory!
-              </>
-            );
-          } else if (snapshot.val()[data.e2] < 0 || snapshot.val()[data.e2] === undefined) {
-            setResult(
-              <>
-                The element <Link to={'/info/' + data.e2}>{data.e2}</Link> is not in your inventory!
-              </>
-            );
-          } else {
-            set(ref(db, 'suggestions/' + data.e1 + "+" + data.e2 + "=" + data.reaction), { 
-              votes: 0,
-              creator: user
-            });
-            setResult("👍 Suggestion added!");
-          }
-        }).catch((error) => {
-          console.error(error);
+        set(ref(db, 'suggestions/' + data.e1 + "+" + data.e2 + "=" + data.reaction), { 
+          votes: 0,
+          creator: user
         });
+        setResult("👍 Suggestion added!");
       }
     });
   };

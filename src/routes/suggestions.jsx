@@ -21,16 +21,28 @@ export default function Suggestions() {
 
         snapshot.forEach(snap => {
             if (snap.key !== "lol" && [0, 1].includes(snap.val()["votes"])) {
-                var reaction = snap.key.split("=");
-                var e1 = reaction[0].split("+")[0];
-                var e2 = reaction[0].split("+")[1];
-                var reaction_name = reaction[1];
+                if (snap.key.includes("Refine(") || snap.key.includes("Ferment(")) {
+                    const reaction = snap.key.split("=")[1];
+                    const process = snap.key.split("=")[0].replace(")", "").split("(")[0];
+                    const elem = snap.key.split("=")[0].replace(")", "").split("(")[1];
 
-                reactions.push(
-                    <div>
-                        - <Link to={'/info/' + e1}>{e1}</Link> + <Link to={'/info/' + e2}>{e2}</Link> = {reaction_name} ({snap.val().votes}) <Link to={'/suggestion/' + e1 + "+" + e2 + "=" + reaction_name}>Vote</Link>
-                    </div>
-                );
+                    reactions.push(
+                        <div>
+                            - {process}(<Link to={'/info/' + elem}>{elem}</Link>) = {reaction} ({snap.val().votes}) <Link to={'/suggestion/' + snap.key}>Vote</Link>
+                        </div>
+                    );
+                } else {
+                    var reaction2 = snap.key.split("=");
+                    var e1 = reaction2[0].split("+")[0];
+                    var e2 = reaction2[0].split("+")[1];
+                    var reaction_name = reaction2[1];
+
+                    reactions.push(
+                        <div>
+                            - <Link to={'/info/' + e1}>{e1}</Link> + <Link to={'/info/' + e2}>{e2}</Link> = {reaction_name} ({snap.val().votes}) <Link to={'/suggestion/' + snap.key}>Vote</Link>
+                        </div>
+                    );
+                };
             }
         });
 

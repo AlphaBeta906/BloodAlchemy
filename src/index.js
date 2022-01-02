@@ -28,6 +28,8 @@ import Search from "./routes/search";
 import Attack from "./routes/attack";
 import Upgrade from "./routes/upgrade";
 import EditArticle from './routes/editArticle';
+import Function from './routes/function';
+import FunctionSuggest from './routes/functionSuggest';
 
 import ProfileNoArgs from './routes/profileNoArgs';
 import InventoryNoArgs from './routes/inventoryNoArgs';
@@ -96,6 +98,8 @@ function App() {
                   <Route index element={<Error status="400" />} />
                   <Route path=":elem" element={<EditArticle />} />
                 </Route>
+                <Route path="function" element={<Function />} />
+                <Route path="suggestFunct" element={<FunctionSuggest />} />
                 <Route path="*" element={<Error status="404" />} />
             </Routes>
 
