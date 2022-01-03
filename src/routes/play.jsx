@@ -62,83 +62,46 @@ export default function Play() {
               </>
             );
           } else {
+            var reaction = ""
+
             if (reactions[first + "+" + second] !== undefined) {
-              get(ref(db, `elements/${reactions[first + "+" + second]}`)).then((snapshot1) => {
-                get(ref(db, `users/${user}`)).then((snapshot) => {
-                  var watts = snapshot1.val().generation * snapshot1.val().complexity + gDTRGB(snapshot1.val().color) * snapshot.val().level;
-                  watts = Math.ceil(watts);
-
-                  set(ref(db, `users/${user}/watts`), snapshot.val()["watts"] + watts);
-
-                  setResult(<>
-                    You got one You got one <Link to={'/info/' + reactions[first + "+" + second]}>{reactions[first + "+" + second]}</Link>!<br />
-                    <span style={{ color: "#ffcc00" }}>⚡️ You got {watts} watts!</span>
-                  </>)
-                })
-              }).catch((error) => {
-                setResult("Error: " + error.toString());
-              });
-
-              get(ref(db, `users/${user}/inventory/${first}`)).then((snapshot) => {
-                set(ref(db, `users/${user}/inventory/${first}`), snapshot.val() - 1);
-              }).catch((error) => {
-                setResult("Error: " + error.toString());
-              });
-
-              get(ref(db, `users/${user}/inventory/${second}`)).then((snapshot) => {
-                set(ref(db, `users/${user}/inventory/${second}`), snapshot.val() - 1);
-              }).catch((error) => {
-                setResult("Error: " + error.toString());
-              });
-
-              get(ref(db, `users/${user}/inventory/${reactions[first + "+" + second]}`)).then((snapshot) => {
-                if (!snapshot.exists()) {
-                  set(ref(db, `users/${user}/inventory/${reactions[first + "+" + second]}`), 1);
-                } else {
-                  set(ref(db, `users/${user}/inventory/${reactions[first + "+" + second]}`), snapshot.val() + 1);
-                }
-              }).catch((error) => {
-                setResult("Error: " + error.toString());
-              });
+              reaction = reactions[first + "+" + second]
             } else {
-              get(ref(db, `elements/${reactions[second + "+" + first]}`)).then((snapshot1) => {
-                get(ref(db, `users/${user}`)).then((snapshot) => {
-                  var watts = snapshot1.val().generation * snapshot1.val().complexity + gDTRGB(snapshot1.val().color) * snapshot.val().level;
-                  watts = Math.ceil(watts);
-
-                  set(ref(db, `users/${user}/watts`), snapshot.val()["watts"] + watts);
-
-                  setResult(<>
-                    You got one <Link to={'/info/' + reactions[second + "+" + first]}>{reactions[second + "+" + first]}</Link>!<br />
-                    <span style={{ color: "#ffcc00" }}>⚡️ You got {watts} watts!</span>
-                  </>)
-                });
-              }).catch((error) => {
-                setResult("Error: " + error.toString());
-              });
-
-              get(ref(db, `users/${user}/inventory/${first}`)).then((snapshot) => {
-                set(ref(db, `users/${user}/inventory/${first}`), snapshot.val() - 1);
-              }).catch((error) => {
-                setResult("Error: " + error.toString());
-              });
-
-              get(ref(db, `users/${user}/inventory/${second}`)).then((snapshot) => {
-                set(ref(db, `users/${user}/inventory/${second}`), snapshot.val() - 1);
-              }).catch((error) => {
-                setResult("Error: " + error.toString());
-              });
-
-              get(ref(db, `users/${user}/inventory/${reactions[second + "+" + first]}`)).then((snapshot) => {
-                if (snapshot === null) {
-                  set(ref(db, `users/${user}/inventory/${reactions[second + "+" + first]}`), 1);
-                } else {
-                  set(ref(db, `users/${user}/inventory/${reactions[second + "+" + first]}`), snapshot.val() + 1);
-                }
-              }).catch((error) => {
-                setResult("Error: " + error.toString());
-              });
+              reaction = reactions[second + "+" + first]
             }
+
+            get(ref(db, `elements/${reaction}`)).then((snapshot1) => {
+              get(ref(db, `users/${user}`)).then((snapshot) => {
+                var watts = snapshot1.val().generation * snapshot1.val().complexity + gDTRGB(snapshot1.val().color) * snapshot.val().level;
+                watts = Math.ceil(watts);
+
+                set(ref(db, `users/${user}/watts`), snapshot.val()["watts"] + watts);
+
+                setResult(<>
+                  You got one You got one <Link to={'/info/' + reaction}>{reaction}</Link>!<br />
+                  <span style={{ color: "#ffcc00" }}>⚡️ You got {watts} watts!</span>
+                </>)
+              })
+            }).catch((error) => {
+              setResult("Error: " + error.toString());
+            });
+
+            get(ref(db, `users/${user}/inventory/`)).then((snapshot) => {
+              set(ref(db, `users/${user}/inventory/${first}`), snapshot.val()[first] - 1);
+              set(ref(db, `users/${user}/inventory/${second}`), snapshot.val()[second] - 2);
+            }).catch((error) => {
+              setResult("Error: " + error.toString());
+            });
+
+            get(ref(db, `users/${user}/inventory/${reaction}`)).then((snapshot) => {
+              if (!snapshot.exists()) {
+                set(ref(db, `users/${user}/inventory/${reaction}`), 1);
+              } else {
+                set(ref(db, `users/${user}/inventory/${reaction}`), snapshot.val() + 1);
+              }
+            }).catch((error) => {
+              setResult("Error: " + error.toString());
+            });
           }
         }).catch((error) => {
           console.error(error);
