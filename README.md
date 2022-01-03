@@ -1,3 +1,4 @@
+[![Maintainability](https://api.codeclimate.com/v1/badges/33f313b31f240d402d01/maintainability)](https://codeclimate.com/github/AlphaBeta906/BloodAlchemy/maintainability)
 # Blood Alchemy
 This is Blood Alchemy, the sucessor to Elementals 3. I finally feel like a pro, only after like 2 weeks. This repository has a REFI (React-Firebase) site that is pretty (very) buggy and a Python API just because I can't rewrite code from Python to JavaScript.
 
