@@ -17,4 +17,5 @@ Hmmm, I am thinking late January at the earliest and March at the latest. I won'
 
 ### Can I be part of the development?
 No. Atleast not yet. If you want to help and me not paying you; you need to be good at React. If you want to get paid. Wait for a few months before the bread is earned.
+
 [![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-orange.svg)](https://sonarcloud.io/summary/new_code?id=AlphaBeta906_BloodAlchemy)
