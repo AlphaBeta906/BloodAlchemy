@@ -7,39 +7,39 @@ import {
     Route 
 } from "react-router-dom";
 
-import Home from "./routes/home";
-import About from "./routes/about";
-import Contact from "./routes/contact";
-import Play from "./routes/play";
-import Suggest from "./routes/suggest";
-import Login from "./routes/login";
-import Signin from "./routes/signin";
-import Mine from "./routes/mine";
-import Test from "./routes/test";
-import Profile from "./routes/profile";
-import Inventory from "./routes/inventory";
-import Info from "./routes/info";
-import Buy from "./routes/buy";
-import Menu from "./routes/menu";
-import Sell from './routes/sell';
-import Suggestions from './routes/suggestions';
-import Suggestion from './routes/suggestion';
-import Search from "./routes/search";
-import Attack from "./routes/attack";
-import Upgrade from "./routes/upgrade";
-import EditArticle from './routes/editArticle';
-import Function from './routes/function';
-import FunctionSuggest from './routes/functionSuggest';
+import Home from "./home";
+import About from "./about";
+import Contact from "./contact";
+import Play from "./play";
+import Suggest from "./suggest";
+import Login from "./login";
+import Signin from "./signin";
+import Mine from "./mine";
+import Test from "./test";
+import Profile from "./profile";
+import Inventory from "./inventory";
+import Info from "./info";
+import Buy from "./buy";
+import Menu from "./menu";
+import Sell from './sell';
+import Suggestions from './suggestions';
+import Suggestion from './suggestion';
+import Search from "./search";
+import Attack from "./attack";
+import Upgrade from "./upgrade";
+import EditArticle from './editArticle';
+import Function from './function';
+import FunctionSuggest from './functionSuggest';
 
-import ProfileNoArgs from './routes/profileNoArgs';
-import InventoryNoArgs from './routes/inventoryNoArgs';
-import InfoNoArgs from './routes/infoNoArgs';
+import ProfileNoArgs from './profileNoArgs';
+import InventoryNoArgs from './inventoryNoArgs';
+import InfoNoArgs from './infoNoArgs';
 
-import Error from './routes/error';
-import Empty from "./routes/empty";
-import Tips from './routes/tips';
+import Error from './error';
+import Empty from "./empty";
+import Tips from './tips';
 
-import UserContext from "./routes/userContext";
+import UserContext from "./userContext";
 // import reportWebVitals from './reportWebVitals';
 
 function App() {
