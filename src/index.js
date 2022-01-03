@@ -7,39 +7,39 @@ import {
     Route 
 } from "react-router-dom";
 
-import Home from "./pages/home";
-import About from "./pages/about";
-import Contact from "./pages/contact";
-import Play from "./pages/play";
-import Suggest from "./pages/suggest";
-import Login from "./pages/login";
-import Signin from "./pages/signin";
-import Mine from "./pages/mine";
-import Test from "./pages/test";
-import Profile from "./pages/profile";
-import Inventory from "./pages/inventory";
-import Info from "./pages/info";
-import Buy from "./pages/buy";
-import Menu from "./pages/menu";
-import Sell from './pages/sell';
-import Suggestions from './pages/suggestions';
-import Suggestion from './pages/suggestion';
-import Search from "./pages/search";
-import Attack from "./pages/attack";
-import Upgrade from "./pages/upgrade";
-import EditArticle from './pages/editArticle';
-import Function from './pages/function';
-import FunctionSuggest from './pages/functionSuggest';
+import Home from "./javascript/home";
+import About from "./javascript/about";
+import Contact from "./javascript/contact";
+import Play from "./javascript/play";
+import Suggest from "./javascript/suggest";
+import Login from "./javascript/login";
+import Signin from "./javascript/signin";
+import Mine from "./javascript/mine";
+import Test from "./javascript/test";
+import Profile from "./javascript/profile";
+import Inventory from "./javascript/inventory";
+import Info from "./javascript/info";
+import Buy from "./javascript/buy";
+import Menu from "./javascript/menu";
+import Sell from './javascript/sell';
+import Suggestions from './javascript/suggestions';
+import Suggestion from './javascript/suggestion';
+import Search from "./javascript/search";
+import Attack from "./javascript/attack";
+import Upgrade from "./javascript/upgrade";
+import EditArticle from './javascript/editArticle';
+import Function from './javascript/function';
+import FunctionSuggest from './javascript/functionSuggest';
 
-import ProfileNoArgs from './pages/profileNoArgs';
-import InventoryNoArgs from './pages/inventoryNoArgs';
-import InfoNoArgs from './pages/infoNoArgs';
+import ProfileNoArgs from './javascript/profileNoArgs';
+import InventoryNoArgs from './javascript/inventoryNoArgs';
+import InfoNoArgs from './javascript/infoNoArgs';
 
-import Error from './pages/error';
-import Empty from "./pages/empty";
-import Tips from './pages/tips';
+import Error from './javascript/error';
+import Empty from "./javascript/empty";
+import Tips from './javascript/tips';
 
-import UserContext from "./pages/userContext";
+import UserContext from "./javascript/userContext";
 // import reportWebVitals from './reportWebVitals';
 
 function App() {
