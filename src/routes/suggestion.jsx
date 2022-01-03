@@ -172,36 +172,40 @@ export default function Suggestion() {
             setOutput(
                 <Error status="401" />
             );
-        } else if (![0, 1,].includes(snapshot.val()[params.suggestion].votes)) {
+        } else {
+            var status = "";
+
+            if ([0, 1].includes(snapshot.val()[params.suggestion].vote)) {
+                status = (
+                    <div>
+                        <center><h2>You want to vote?</h2></center>
+                        <center><button onClick={onSubmit}>Vote</button></center>
+                    </div>
+                )
+            } else {
+                status = (
+                    <div>
+                        <center>
+                            <h2 style={{color: "#ff3a30"}}>Vote has ended.</h2>
+                        </center>
+                    </div>
+                )
+            }
             setOutput(
-                <div>
-                    <center>
-                        <h2>Suggestion: {params.suggestion}</h2>
-                    </center>
+                [
+                    (<div>
+                        <center>
+                            <h2>Suggestion: {params.suggestion}</h2>
+                        </center>
 
-                    <p style={{color: "#6ac4dc"}}>🗳 Votes: 2</p>
-                    <p style={{color: "#8E8E93"}}>😀 Creator: <Link to={'/profile/' + snapshot.val()[params.suggestion].creator}>{snapshot.val()[params.suggestion].creator}</Link></p>
-
-                    <center><h2 style={{color: "#ff3a30"}}>Vote has ended.</h2></center>
-
-                    <center>{result}</center>
-                </div>
-            );
-        } else { 
-            setOutput(
-                <div>
-                    <center>
-                        <h2>Suggestion: {params.suggestion}</h2>
-                    </center>
-
-                    <p style={{color: "#6ac4dc"}}>🗳 Votes: {snapshot.val()[params.suggestion].votes}</p>
-                    <p style={{color: "#8E8E93"}}>😀 Creator: <Link to={'/profile/' + snapshot.val()[params.suggestion].creator}>{snapshot.val()[params.suggestion].creator}</Link></p>
-
-                    <center><h2>You want to vote?</h2></center>
-                    <center><button onClick={onSubmit}>Vote</button></center>
-
-                    <center>{result}</center>
-                </div>
+                        <p style={{color: "#6ac4dc"}}>🗳 Votes: {snapshot.val()[params.suggestion].votes}</p>
+                        <p style={{color: "#8E8E93"}}>😀 Creator: <Link to={'/profile/' + snapshot.val()[params.suggestion].creator}>{snapshot.val()[params.suggestion].creator}</Link></p>
+                    </div>),
+                    status,
+                    (<div>
+                        <center>{result}</center>
+                    </div>)
+                ]
             );
         }
     }).catch((error) => {
