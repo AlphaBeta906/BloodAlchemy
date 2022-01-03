@@ -51,7 +51,7 @@ export default function Inventory() {
             snapshot1.forEach((element) => {
                 output.push((
                     <div>
-                        *️⃣ <Link to={'/info/' + element.key}>{element.key}</Link> <span style={{fontSize: 10}}>(x{element.val()})</span>
+                        *️⃣ <Link to={'/info/' + element.key}>{element.key}</Link> <span style={{fontSize: 10}}>(x{element.val()})</span> <small>(<Link to={"/info/" + element.key}>i</Link> ● <Link to={"/buy/" + element.key}>b</Link> ● <Link to={"/sell/" + element.key}>s</Link>)</small>
                     </div>
                 ))
             });

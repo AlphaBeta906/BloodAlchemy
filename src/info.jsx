@@ -59,11 +59,14 @@ export default function Info() {
 
             get(ref(db, 'wiki/')).then((snapshot2) => {
                 var desc = ""
+                var editor = ""
 
                 if (snapshot2.val()[true_elem] !== undefined) {
                     desc = snapshot2.val()[true_elem]["content"]
+                    editor = (<div><Link to={`/edit/${true_elem}`}>Edit</Link> - Last edit by: <Link to={"/profile/" + snapshot2.val()[true_elem]["last_editor"]}>{snapshot2.val()[true_elem]["last_editor"]}</Link></div>)
                 } else {
                     desc = "No description available."
+                    editor = (<div><Link to={`/edit/${true_elem}`}>Edit</Link></div>)
                 }
 
                 setResult(
@@ -78,7 +81,7 @@ export default function Info() {
 
                         <center><h2>🤔 Description</h2></center>
                         <p>{desc}</p>
-                        <small><Link to={`/edit/${true_elem}`}>Edit</Link> - Last edit by: <Link to={"/profile/" + snapshot2.val()[true_elem]["last_editor"]}>{snapshot2.val()[true_elem]["last_editor"]}</Link></small><br /><br />
+                        <small>{editor}</small><br /><br />
 
                         <p>{result1}</p>
                     </div>

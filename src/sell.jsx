@@ -11,7 +11,6 @@ export default function Sell() {
 
     const { user } = useContext(UserContext);
     const [result, setResult] = useState("");
-    const [price, setPrice] = useState(0);
     const [output, setOutput] = useState("");
 
     const app = initializeApp(firebaseConfig);
@@ -19,7 +18,7 @@ export default function Sell() {
 
     get(ref(db, `elements/`)).then((snapshot1) => {
         if (Object.keys(snapshot1.val()).includes(param.elem)) {
-            setPrice(snapshot1.val()[param.elem]["generation"] * (snapshot1.val()[param.elem]["complexity"] * 2));
+            const price = snapshot1.val()[param.elem]["generation"] * (snapshot1.val()[param.elem]["complexity"] * 2)
 
             const onSubmit = () => {
                 if (user !== "") {
