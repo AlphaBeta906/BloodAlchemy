@@ -2,7 +2,7 @@ import { useState, useContext, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, get, set } from "firebase/database";
-import firebaseConfig from "./services/firebase";
+import firebaseConfig from "./firebase";
 import UserContext from "./userContext";
 import axios from "axios";
 import Error from "./error";

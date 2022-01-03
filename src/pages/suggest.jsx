@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { initializeApp } from 'firebase/app';
 import { getDatabase, ref, onValue, set } from "firebase/database";
 import UserContext from "./userContext";  
-import firebaseConfig from "./services/firebase";
+import firebaseConfig from "./firebase";
 import Error from "./error";
 
 export default function Suggest() {

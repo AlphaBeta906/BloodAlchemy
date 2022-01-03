@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import { initializeApp } from 'firebase/app';
 import { getDatabase, ref, get } from "firebase/database";
-import firebaseConfig from "./services/firebase";
+import firebaseConfig from "./firebase";
 
 export default function InfoNoArgs() {
     const app = initializeApp(firebaseConfig);

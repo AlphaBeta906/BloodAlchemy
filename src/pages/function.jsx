@@ -4,7 +4,7 @@ import { initializeApp } from "firebase/app";
 import { getDatabase, get, ref, set } from "firebase/database";
 import { Link } from "react-router-dom";
 import { gDTRGB } from "./colorDistance";
-import firebaseConfig from "./services/firebase";
+import firebaseConfig from "./firebase";
 import UserContext from "./userContext";
 import Error from "./error";
 

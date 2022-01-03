@@ -2,7 +2,7 @@ import { useState, useContext, useEffect } from "react";
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, set, get } from "firebase/database";
 import UserContext from "./userContext";
-import firebaseConfig from "./services/firebase";
+import firebaseConfig from "./firebase";
 import Error from "./error";
 
 export default function Upgrade() {

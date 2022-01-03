@@ -5,7 +5,7 @@ import { initializeApp } from 'firebase/app';
 import { getDatabase, ref, onValue } from "firebase/database";
 import { sha256 } from 'js-sha256';
 import UserContext from "./userContext";
-import firebaseConfig from "./services/firebase";
+import firebaseConfig from "./firebase";
 import Error from "./error";
 
 export default function Login() {

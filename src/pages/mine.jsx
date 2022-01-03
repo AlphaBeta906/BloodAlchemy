@@ -4,7 +4,7 @@ import { getDatabase, ref, set, get } from "firebase/database";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import UserContext from "./userContext";
-import firebaseConfig from "./services/firebase";
+import firebaseConfig from "./firebase";
 import Error from "./error";
 
 export default function Mine() {

@@ -3,7 +3,7 @@ import { initializeApp } from "firebase/app";
 import { getDatabase, get, ref, set } from "firebase/database";
 import { useParams, Link } from "react-router-dom";
 import UserContext from "./userContext";
-import firebaseConfig from "./services/firebase";
+import firebaseConfig from "./firebase";
 import Error from "./error";
 
 export default function Buy() {

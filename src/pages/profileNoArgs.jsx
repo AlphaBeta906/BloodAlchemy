@@ -3,7 +3,7 @@ import { initializeApp } from 'firebase/app';
 import { getDatabase, ref, get } from "firebase/database";
 import { Navigate } from 'react-router-dom';
 import UserContext from "./userContext";
-import firebaseConfig from "./services/firebase";
+import firebaseConfig from "./firebase";
 
 export default function ProfileNoArgs() {
     const app = initializeApp(firebaseConfig);
