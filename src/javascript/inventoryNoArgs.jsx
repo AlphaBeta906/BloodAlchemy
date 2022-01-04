@@ -15,16 +15,13 @@ export default function Inventory() {
 
     get(ref(db, `users/`)).then((snapshot) => {
         var true_user = null
-        var bruh = ""
 
-        if (bruh !== "ok") {
+        if (true_user === null) {
             if (user !== "") {
                 setResult(
                     <Navigate to={"/inventory/" + user} />
                 )
             } else if (true_user === null) {
-                bruh = "ok"
-
                 const user_dict = Object.keys(snapshot.val())
                 true_user = user_dict[randomInt(user_dict.length)]
 

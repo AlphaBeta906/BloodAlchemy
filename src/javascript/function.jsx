@@ -56,16 +56,16 @@ export default function Function() {
                                setResult("Error: " + error.toString()); 
                             });
 
-                            get(ref(db, `users/${user}/inventory/${data.elem}`)).then((snapshot) => {
-                                set(ref(db, `users/${user}/inventory/${data.elem}`), snapshot.val() - 1);
+                            get(ref(db, `users/${user}/inventory/${data.elem}`)).then((snapshot3) => {
+                                set(ref(db, `users/${user}/inventory/${data.elem}`), snapshot3.val() - 1);
                             }).catch((error) => {
                                 setResult("Error: " + error.toString());
                             });
 
                             const a = snapshot.val()[`${data.mode}(${data.elem})`]
 
-                            get(ref(db, `users/${user}/inventory/${a}`)).then((snapshot) => {
-                                set(ref(db, `users/${user}/inventory/${a}`), snapshot.val() + 1);
+                            get(ref(db, `users/${user}/inventory/${a}`)).then((snapshot3) => {
+                                set(ref(db, `users/${user}/inventory/${a}`), snapshot3.val() + 1);
                             }).catch((error) => {
                                 setResult("Error: " + error.toString());
                             });

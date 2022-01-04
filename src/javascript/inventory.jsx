@@ -17,18 +17,13 @@ export default function Inventory() {
 
     get(ref(db, `users/`)).then((snapshot) => {
         var true_user = null
-        var bruh = ""
 
-        if (bruh !== "ok") {
+        if (true_user === null) {
             if (snapshot.val()[params.user] !== undefined) {
-                bruh = "ok"
                 true_user = params.user
             } else if (snapshot.val()[params.user] === undefined && user !== "") {
-                bruh = "ok"
                 true_user = user
             } else if (true_user === null) {
-                bruh = "ok"
-
                 const user_dict = Object.keys(snapshot.val())
                 true_user = user_dict[randomInt(user_dict.length)]
 

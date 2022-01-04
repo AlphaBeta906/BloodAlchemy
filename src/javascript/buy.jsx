@@ -21,9 +21,9 @@ export default function Buy() {
 
             const onSubmit = () => {
                 if (user !== "") {
-                    get(ref(db, `users/${user}/watts`)).then((snapshot1) => {
-                        if (snapshot1.val() >= price) {
-                            set(ref(db, `users/${user}/watts`), snapshot1.val() - price);
+                    get(ref(db, `users/${user}/watts`)).then((snapshotx) => {
+                        if (snapshotx.val() >= price) {
+                            set(ref(db, `users/${user}/watts`), snapshotx.val() - price);
                             get(ref(db, `users/${user}/inventory`)).then((snapshot2) => {
                                 if (snapshot2.val()[param.elem] === undefined) {
                                     set(ref(db, `users/${user}/inventory/${param.elem}`), 1);
@@ -67,11 +67,11 @@ export default function Buy() {
         } else {
             setOutput(
                 <Error status="404" />
-            );
+            )
         }
     }).catch((error) => {
         setOutput(error.toString());
     });
 
     return output;
-};
+}

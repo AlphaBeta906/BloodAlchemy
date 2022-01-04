@@ -22,15 +22,11 @@ export default function Info() {
         }
 
         var true_elem = null
-        var bruh = ""
 
-        if (bruh !== "ok") {
+        if (true_elem === null) {
             if (valid === true) {
-                bruh = "ok"
                 true_elem = params.element
             } else {
-                bruh = "ok"
-
                 const elem_dict = Object.keys(snapshot1.val())
                 true_elem = elem_dict[randomInt(elem_dict.length)]
 

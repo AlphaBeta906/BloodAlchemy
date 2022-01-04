@@ -22,9 +22,7 @@ export default function Suggestion() {
         // http://127.0.0.1:5000/color_mixing/FFA500-FFA500
         var promise = axios.get("http://127.0.0.1:5000/color_mixing/" + hex1 + "-" + hex2);
 
-        var new_promise = promise.then((res) => res.data.combined_color);
-
-        return new_promise;
+        return promise.then((res) => res.data.combined_color);
     }
 
     const onSubmit = () => {
@@ -53,14 +51,9 @@ export default function Suggestion() {
                                 var text = d.toUTCString();
                                 var process_color = ""
 
-                                switch (process) {
-                                    case "Refine":
-                                        process_color = "EEEEEE";
-                                        break;
-                                    default:
-                                        process_color = "4F2956";
-                                        break;
-                                }
+                                const colors = {"Refine": "EEEEEE", "Ferment": "4F2956"};
+
+                                process_color = colors[process];
 
                                 mix_hex(snapshot2.val()[elem].color, process_color).then((res) => {
                                     set(ref(db, 'elements/' + reaction), {
@@ -126,7 +119,6 @@ export default function Suggestion() {
                                         )
                                     }).catch((err) => {
                                         setResult(err.toString());
-                                        return
                                     });
                                 }).catch((error) => {
                                     setResult("Error: " + error.toString());
