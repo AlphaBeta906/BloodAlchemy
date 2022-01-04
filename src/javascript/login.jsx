@@ -17,14 +17,14 @@ export default function Login() {
     var app = initializeApp(firebaseConfig);
     var db = getDatabase(app);
 
-    get(ref(db, `users/`)).then((snapshot) => {
-      if (snapshot.val()["password"] === sha256(data.password)) {
+    get(ref(db, `users/${data.username}/password`)).then((snapshot) => {
+      if (snapshot.val() === sha256(data.password)) {
         setUser(data.username);
         setResult(
           <Navigate to="/"/>
         );
       } else {
-        setResult("Login Failed, sussy baka!");
+        setResult("Incorrect username or password!");
       }
     }).catch((error) => {
       setResult(error.toString());
