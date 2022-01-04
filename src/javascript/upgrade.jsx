@@ -17,12 +17,10 @@ export default function Upgrade() {
     const onSubmit = () => {
         if (seconds !== 0) {
             setResult(`Please wait ${seconds} seconds`);
-            return;
         } else {
             setSeconds(20);
 
             get(ref(db, "/users/")).then((snapshot) => {
-                var level = snapshot.val()[user]["level"];
                 var cost = (level + 1) * 100;
 
                 if (snapshot.val()[user]["watts"] >= cost) {

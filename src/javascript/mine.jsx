@@ -45,10 +45,10 @@ export default function Mine() {
             }
           }
 
-          get(ref(db, `elements`)).then((snapshot) => {
+          get(ref(db, `elements`)).then((snapshot1) => {
             var max_complexity = 0;
             
-            snapshot.forEach((element) => {
+            snapshot1.forEach((element) => {
               if (element.val().complexity > max_complexity) {
                 max_complexity = element.val().complexity;
               }
@@ -60,19 +60,19 @@ export default function Mine() {
 
             var elements_with_complexity = [];
 
-            snapshot.forEach((element) => {
-              if (element.val().complexity === complexity) {
-                elements_with_complexity.push(element.key);
+            snapshot1.forEach((element2) => {
+              if (element2.val().complexity === complexity) {
+                elements_with_complexity.push(element2.key);
               }
             });
 
             var element = elements_with_complexity[randomInt(elements_with_complexity.length)];
 
-            get(ref(db, `users/${user}/inventory`)).then((snapshot) => {
-              if (snapshot.val()[element] === undefined) {
+            get(ref(db, `users/${user}/inventory`)).then((snapshot2) => {
+              if (snapshot2.val()[element] === undefined) {
                 set(ref(db, `users/${user}/inventory/${element}`), 1);
               } else {
-                set(ref(db, `users/${user}/inventory/${element}`), snapshot.val()[element] + 1);
+                set(ref(db, `users/${user}/inventory/${element}`), snapshot2.val()[element] + 1);
               }
             }).catch((error) => {
               setResult("Error: " + error.toString());
