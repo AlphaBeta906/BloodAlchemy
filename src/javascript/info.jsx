@@ -2,6 +2,7 @@ import { useState, useContext } from 'react';
 import { useParams, Navigate, Link } from 'react-router-dom';
 import { initializeApp } from 'firebase/app';
 import { getDatabase, ref, get } from "firebase/database";
+import { randomInt } from './random';
 import UserContext from "./userContext";
 import firebaseConfig from "./firebase";
 
@@ -31,7 +32,7 @@ export default function Info() {
                 bruh = "ok"
 
                 const elem_dict = Object.keys(snapshot1.val())
-                true_elem = elem_dict[Math.floor(Math.random()*Object.keys(snapshot1.val()).length)]
+                true_elem = elem_dict[randomInt(elem_dict.length)]
 
                 setResult(
                     <Navigate to={"/info/" + true_elem} />

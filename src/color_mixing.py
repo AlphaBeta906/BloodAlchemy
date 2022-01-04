@@ -6,10 +6,13 @@
 from flask import Flask
 from flask_restful import Resource, Api
 from flask_cors import CORS
+from flask_wtf.csrf import CSRFProtect
 
 app = Flask(__name__)
 api = Api(app)
-CORS(app)
+CORS(app, resources={r"/*": {"origins": "*", "send_wildcard": "False"}})
+csrf = CSRFProtect()
+csrf.init_app(app)
 
 app.config['CORS_HEADERS'] = 'Content-Type'
 

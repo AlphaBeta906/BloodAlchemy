@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import { initializeApp } from 'firebase/app';
 import { getDatabase, ref, get } from "firebase/database";
+import { randomInt } from './random';
 import firebaseConfig from "./firebase";
 
 export default function InfoNoArgs() {
@@ -12,7 +13,7 @@ export default function InfoNoArgs() {
 
     get(ref(db, `elements/`)).then((snapshot1) => {
         const elem_dict = Object.keys(snapshot1.val())
-        var true_elem = elem_dict[Math.floor(Math.random()*Object.keys(snapshot1.val()).length)]
+        var true_elem = elem_dict[randomInt(elem_dict.length)]
 
         setResult(
             <Navigate to={"/info/" + true_elem} />

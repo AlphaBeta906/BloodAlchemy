@@ -3,6 +3,7 @@ import { initializeApp } from 'firebase/app';
 import { getDatabase, ref, set, get } from "firebase/database";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { randomInt } from './random';
 import UserContext from "./userContext";
 import firebaseConfig from "./firebase";
 import Error from "./error";
@@ -21,7 +22,7 @@ export default function Mine() {
     if (seconds !== 0) {
       setResult(`Please wait ${seconds} seconds`);
       return;
-    } else if (Math.floor(Math.random() * 2) === 0) {
+    } else if (randomInt(2) === 0) {
       setResult("You didn't find anything...");
     } else if (data.mine === "") {
       setResult("You didn't enter a mine name");
@@ -37,7 +38,7 @@ export default function Mine() {
           var complexity = snapshot.val().start;
 
           while (true) {
-            if (Math.random() === 1) {
+            if (randomInt(1) === 1) {
               complexity++;
             } else {
               break
@@ -65,7 +66,7 @@ export default function Mine() {
               }
             });
 
-            var element = elements_with_complexity[Math.floor(Math.random() * elements_with_complexity.length)];
+            var element = elements_with_complexity[randomInt(elements_with_complexity.length)];
 
             get(ref(db, `users/${user}/inventory`)).then((snapshot) => {
               if (snapshot.val()[element] === undefined) {

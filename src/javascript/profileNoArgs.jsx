@@ -2,6 +2,7 @@ import { useState, useContext } from 'react';
 import { initializeApp } from 'firebase/app';
 import { getDatabase, ref, get } from "firebase/database";
 import { Navigate } from 'react-router-dom';
+import { randomInt } from './random';
 import UserContext from "./userContext";
 import firebaseConfig from "./firebase";
 
@@ -21,7 +22,7 @@ export default function ProfileNoArgs() {
             )
         } else if (true_user === "") {
             const user_dict = Object.keys(snapshot1.val())
-            true_user = user_dict[Math.floor(Math.random()*Object.keys(snapshot1.val()).length)]
+            true_user = user_dict[randomInt(user_dict.length)]
 
             setResult(
                 <Navigate to={"/profile/" + true_user} />

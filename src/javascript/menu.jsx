@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, get } from "firebase/database";
+import { randomInt } from './random';
 import firebaseConfig from "./firebase";
 
 export default function Menu() {
@@ -26,7 +27,7 @@ export default function Menu() {
                 var true_elem = ""
 
                 var elem_dict = Object.keys(snapshot1.val())
-                true_elem = elem_dict[Math.floor(Math.random()*Object.keys(snapshot1.val()).length)]
+                true_elem = elem_dict[randomInt(elem_dict.length)]
                 menu.push(
                     <div>
                         *️⃣ <b>{true_elem}</b> - <small>(<Link to={"/info/" + true_elem}>i</Link> ● <Link to={"/buy/" + true_elem}>b</Link> ● <Link to={"/sell/" + true_elem}>s</Link>)</small>

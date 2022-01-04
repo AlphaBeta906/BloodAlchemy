@@ -1,6 +1,7 @@
 import { useContext, useState, useEffect } from 'react';
 import { initializeApp } from 'firebase/app';
 import { getDatabase, get, set, ref } from 'firebase/database';
+import { randomInt } from './random';
 import firebaseConfig from './firebase';
 import UserContext from './userContext';
 import Error from './error';
@@ -23,7 +24,7 @@ export default function Search() {
                     setResult("You're a slave, you can't search! LOL 😂");
                 } else if (snapshot.val().watts < 50) {
                     setResult("You don't have enough watts to search!");
-                } else if (Math.floor(Math.random() * 4) !== 0) {
+                } else if (randomInt(4) !== 0) {
                     set(ref(db, 'users/' + user + "/watts"), {
                         watts: snapshot.val().watts - 50
                     });
@@ -41,7 +42,7 @@ export default function Search() {
           
                         set(ref(db, 'mines/Mine ' + (mines + 1).toString()), {
                           owner: user,
-                          start: Math.floor(Math.random() * 2) + 1,
+                          start: randomInt(3) + 1,
                         })
 
                         setSeconds(20);
