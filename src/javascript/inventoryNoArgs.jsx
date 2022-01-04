@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { Navigate } from "react-router-dom";
 import { initializeApp } from 'firebase/app';
 import { getDatabase, ref, get } from "firebase/database";
+import { randomInt } from "./random";
 import UserContext from "./userContext";
 import firebaseConfig from "./firebase";
 
@@ -25,7 +26,7 @@ export default function Inventory() {
                 bruh = "ok"
 
                 const user_dict = Object.keys(snapshot.val())
-                true_user = user_dict[Math.floor(Math.random()*Object.keys(snapshot.val()).length)]
+                true_user = user_dict[randomInt(user_dict.length)]
 
                 setResult(
                     <Navigate to={"/inventory/" + true_user} />
