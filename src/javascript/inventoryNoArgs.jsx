@@ -6,7 +6,7 @@ import { randomInt } from "./random";
 import UserContext from "./userContext";
 import firebaseConfig from "./firebase";
 
-export default function Inventory() {
+export default function InventoryNoArgs() {
     const [result, setResult] = useState("");
     const { user } = useContext(UserContext);
 
