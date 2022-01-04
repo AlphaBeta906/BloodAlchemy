@@ -54,13 +54,13 @@ export default function Info() {
                 result1 = "🤮 You are not logged in!"
             }
 
-            get(ref(db, 'wiki/')).then((snapshot2) => {
+            get(ref(db, 'wiki/')).then((snapshot3) => {
                 var desc = ""
                 var editor = ""
 
-                if (snapshot2.val()[true_elem] !== undefined) {
-                    desc = snapshot2.val()[true_elem]["content"]
-                    editor = (<div><Link to={`/edit/${true_elem}`}>Edit</Link> - Last edit by: <Link to={"/profile/" + snapshot2.val()[true_elem]["last_editor"]}>{snapshot2.val()[true_elem]["last_editor"]}</Link></div>)
+                if (snapshot3.val()[true_elem] !== undefined) {
+                    desc = snapshot3.val()[true_elem]["content"]
+                    editor = (<div><Link to={`/edit/${true_elem}`}>Edit</Link> - Last edit by: <Link to={"/profile/" + snapshot3.val()[true_elem]["last_editor"]}>{snapshot3.val()[true_elem]["last_editor"]}</Link></div>)
                 } else {
                     desc = "No description available."
                     editor = (<div><Link to={`/edit/${true_elem}`}>Edit</Link></div>)

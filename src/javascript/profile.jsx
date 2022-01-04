@@ -23,18 +23,13 @@ export default function Profile() {
 
         get(ref(db, `elements`)).then((snapshot) => {
             var true_user = null
-            var bruh = ""
 
-            if (bruh !== "ok") {
+            if (true_user === null) {
                 if (valid === true) {
-                    bruh = "ok"
                     true_user = params.user
                 } else if (valid === false && user !== "") {
-                    bruh = "ok"
                     true_user = user
                 } else if (true_user === null) {
-                    bruh = "ok"
-
                     const user_dict = Object.keys(snapshot1.val())
                     true_user = user_dict[randomInt(user_dict.length)]
 

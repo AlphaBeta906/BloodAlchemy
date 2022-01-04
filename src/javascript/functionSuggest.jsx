@@ -17,7 +17,6 @@ export default function FunctionSuggest() {
 
         if (seconds !== 0) {
             setResult(`Please wait ${seconds} seconds`);
-            return;
         } else if (data.mode === "" || data.elem === "" || data.reaction === "") {
             setResult("Please fill in all fields!");
         } else {

@@ -17,7 +17,6 @@ export default function Search() {
 
         if (seconds !== 0) {
             setResult(`Please wait ${seconds} seconds`);
-            return;
         } else {
             get(ref(db, 'users/' + user)).then((snapshot) => {
                 if (snapshot.val().class === "slave") {
@@ -37,8 +36,8 @@ export default function Search() {
                         watts: snapshot.val().watts - 50
                     });
 
-                    get(ref(db, 'mines/')).then(snapshot => {
-                        var mines = Object.keys(snapshot.val()).length;
+                    get(ref(db, 'mines/')).then((snapshot1) => {
+                        var mines = Object.keys(snapshot1.val()).length;
           
                         set(ref(db, 'mines/Mine ' + (mines + 1).toString()), {
                           owner: user,

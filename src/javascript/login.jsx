@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Navigate } from "react-router-dom";
 import { initializeApp } from 'firebase/app';
-import { getDatabase, ref, onValue } from "firebase/database";
+import { getDatabase, ref, get } from "firebase/database";
 import { sha256 } from 'js-sha256';
 import UserContext from "./userContext";
 import firebaseConfig from "./firebase";
@@ -17,8 +17,7 @@ export default function Login() {
     var app = initializeApp(firebaseConfig);
     var db = getDatabase(app);
 
-    var user = ref(db, 'users/' + data.username);
-    onValue(user, (snapshot) => {
+    get(ref(db, `users/`)).then((snapshot) => {
       if (snapshot.val()["password"] === sha256(data.password)) {
         setUser(data.username);
         setResult(
@@ -27,6 +26,8 @@ export default function Login() {
       } else {
         setResult("Login Failed, sussy baka!");
       }
+    }).catch((error) => {
+      setResult(error.toString());
     });
   };
 

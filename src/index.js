@@ -40,7 +40,6 @@ import Empty from "./javascript/empty";
 import Tips from './javascript/tips';
 
 import UserContext from "./javascript/userContext";
-// import reportWebVitals from './reportWebVitals';
 
 function App() {
   const [user, setUser] = useState("");

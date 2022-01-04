@@ -7,7 +7,30 @@ export default function Home() {
 
     const d = new Date();
     let text = d.toUTCString();
+    var message = "";
 
+    if (user === "") {
+      message = (
+        <div>
+          You are not logged in. Please <Link to='/login'>login</Link> or <Link to='/register'>register</Link>.
+        </div>
+      );
+    } else {
+      if (["AlphaBeta906", "ItzCountryballs"].includes(user)) {
+        message = (
+          <div>
+            You are logged in as {user}. <Link to='/test'>Test</Link>
+          </div>
+        );
+      } else {
+        message = (
+          <div>
+            You are logged in as {user}. <Link to='/profile'>Profile</Link>
+          </div>
+        );
+      }
+    }
+    
     return (
         <div>
             <center>
@@ -15,18 +38,7 @@ export default function Home() {
                 <h6>"Elements and stuff, I don't know"</h6>
 
                 {text}<br></br>
-                {user === '' ? (
-                  <div>
-                    Account not signed in. <Link to="/signin">Sign up</Link> or <Link to="/login">Login</Link> to play with all of the features!
-                  </div>
-                ) : ['AlphaBeta906', 'ItzCountryballs'].includes(user) ? (
-                  <div>
-                    Welcome {user}! You are signed in.<br />
-                    <Link to="/test">Test</Link>
-                  </div>
-                  ) : (<div>
-                    Welcome {user}! You are signed in.
-                  </div>)}
+                {message}
             </center>
         </div>
     );
