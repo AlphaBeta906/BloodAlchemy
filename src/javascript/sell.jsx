@@ -28,7 +28,7 @@ export default function Sell() {
                             get(ref(db, `users/${user}/watts`)).then((snapshot3) => {
                                 set(ref(db, `users/${user}/watts`), snapshot3.val() + price);
         
-                                setResult("You bought " + param.elem);
+                                setResult("You sold " + param.elem);
                             }).catch((error) => {
                                 setResult(error.toString());
                             });
