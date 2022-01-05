@@ -21,10 +21,8 @@ export default function Attack() {
         set_your_power(0);
 
         get(ref(db, '/mines/')).then((snapshot1) => {
-            if (snapshot1.val()[data.mine] === undefined) {
-                setResult("Mine not found!");
-            } else if (snapshot1.val()[data.mine].owner === user) {
-                setResult("You own this mine!");
+            if (snapshot1.val()[data.mine].owner === user || snapshot1.val()[data.mine] === undefined) {
+                setResult("You own this mine or it doesn't exist at all.");
             } else {
                 get(ref(db, 'users/')).then((snapshot2) => {
                     Object.keys(snapshot2.val()[user]["inventory"]).forEach((element) => {
