@@ -48,14 +48,14 @@ export default function Play() {
         // NOT MAKING THIS SILLY COMMENT AAA
         // fuck, lost 4000 water elements
 
-        get(ref(db, `users/${user}/inventory`)).then((snapshot) => {
-          if (snapshot.val()[first] <= 0 || snapshot.val()[first] === undefined) {
+        get(ref(db, `users/${user}/inventory`)).then((snapshotw) => {
+          if (snapshotw.val()[first] <= 0 || snapshotw.val()[first] === undefined) {
             setResult(
               <>
                 The element <Link to={'/info/' + first}>{first}</Link> is not in your inventory! You can buy more <Link to={'/buy/' + first}>here</Link>.
               </>
             );
-          } else if (snapshot.val()[second] <= 0 || snapshot.val()[second] === undefined) {
+          } else if (snapshotw.val()[second] <= 0 || snapshotw.val()[second] === undefined) {
             setResult(
               <>
                 The element <Link to={'/info/' + first}>{second}</Link> is not in your inventory! You can buy more <Link to={'/buy/' + second}>here</Link>.
