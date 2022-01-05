@@ -6,15 +6,15 @@ import firebaseConfig from "./firebase";
 import Error from "./error";
 
 export default function Upgrade() {
-    const app = initializeApp(firebaseConfig);
-    const db = getDatabase(app);
-
     const [result, setResult] = useState("");
     const [seconds, setSeconds] = useState(0);
     const [level, setLevel] = useState(0);
     const { user } = useContext(UserContext);
 
     const onSubmit = () => {
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+
         if (seconds !== 0) {
             setResult(`Please wait ${seconds} seconds`);
         } else {

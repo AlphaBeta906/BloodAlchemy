@@ -23,8 +23,8 @@ export default function Suggest() {
 
     setSeconds(5);
 
-    var reactions = ref(db, 'reactions');
-    onValue(reactions, (snapshot) => {
+    var reaction = ref(db, 'reactions');
+    onValue(reaction, (snapshot) => {
       var reactions = {};
       var elements = ["Fire", "Water", "Earth", "Air"];
 
@@ -88,4 +88,4 @@ export default function Suggest() {
       <Error code="401" />
     );
   }
-};
+}

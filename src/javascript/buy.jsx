@@ -63,7 +63,7 @@ export default function Buy() {
                 setOutput(
                     <Error status="401" />
                 )
-            };
+            }
         } else {
             setOutput(
                 <Error status="404" />

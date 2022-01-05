@@ -10,7 +10,6 @@ export default function Test() {
             setResult("Pressed!");
         } else {
             setResult(`Please wait ${seconds} seconds`);
-            return;
         }
     };
   

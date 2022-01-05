@@ -21,7 +21,6 @@ export default function Mine() {
 
     if (seconds !== 0) {
       setResult(`Please wait ${seconds} seconds`);
-      return;
     } else if (randomInt(2) === 0) {
       setResult("You didn't find anything...");
     } else if (data.mine === "") {
@@ -48,9 +47,9 @@ export default function Mine() {
           get(ref(db, `elements`)).then((snapshot1) => {
             var max_complexity = 0;
             
-            snapshot1.forEach((element) => {
-              if (element.val().complexity > max_complexity) {
-                max_complexity = element.val().complexity;
+            snapshot1.forEach((element1) => {
+              if (element1.val().complexity > max_complexity) {
+                max_complexity = element1.val().complexity;
               }
             });
 

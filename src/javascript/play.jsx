@@ -71,11 +71,11 @@ export default function Play() {
             }
 
             get(ref(db, `elements/${reaction}`)).then((snapshot1) => {
-              get(ref(db, `users/${user}`)).then((snapshot) => {
-                var watts = snapshot1.val().generation * snapshot1.val().complexity + gDTRGB(snapshot1.val().color) * snapshot.val().level;
+              get(ref(db, `users/${user}`)).then((snapshotx) => {
+                var watts = snapshot1.val().generation * snapshot1.val().complexity + gDTRGB(snapshot1.val().color) * snapshotx.val().level;
                 watts = Math.ceil(watts);
 
-                set(ref(db, `users/${user}/watts`), snapshot.val()["watts"] + watts);
+                set(ref(db, `users/${user}/watts`), snapshotx.val()["watts"] + watts);
 
                 setResult(<>
                   You got one You got one <Link to={'/info/' + reaction}>{reaction}</Link>!<br />
@@ -86,18 +86,18 @@ export default function Play() {
               setResult("Error: " + error.toString());
             });
 
-            get(ref(db, `users/${user}/inventory/`)).then((snapshot) => {
-              set(ref(db, `users/${user}/inventory/${first}`), snapshot.val()[first] - 1);
-              set(ref(db, `users/${user}/inventory/${second}`), snapshot.val()[second] - 2);
+            get(ref(db, `users/${user}/inventory/`)).then((snapshot3) => {
+              set(ref(db, `users/${user}/inventory/${first}`), snapshot3.val()[first] - 1);
+              set(ref(db, `users/${user}/inventory/${second}`), snapshot3.val()[second] - 2);
             }).catch((error) => {
               setResult("Error: " + error.toString());
             });
 
-            get(ref(db, `users/${user}/inventory/${reaction}`)).then((snapshot) => {
+            get(ref(db, `users/${user}/inventory/${reaction}`)).then((snapshot4) => {
               if (!snapshot.exists()) {
                 set(ref(db, `users/${user}/inventory/${reaction}`), 1);
               } else {
-                set(ref(db, `users/${user}/inventory/${reaction}`), snapshot.val() + 1);
+                set(ref(db, `users/${user}/inventory/${reaction}`), snapshot4.val() + 1);
               }
             }).catch((error) => {
               setResult("Error: " + error.toString());
@@ -106,7 +106,7 @@ export default function Play() {
         }).catch((error) => {
           console.error(error);
         });
-      };
+      }
     }).catch((error) => {
       console.error(error)
     });

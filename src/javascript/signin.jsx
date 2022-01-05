@@ -42,8 +42,8 @@ export default function Signin() {
                 watts: 0
             });
 
-            get(ref(db, 'mines/')).then(snapshot => {
-              var mines = Object.keys(snapshot.val()).length;
+            get(ref(db, 'mines/')).then(snapshot1 => {
+              var mines = Object.keys(snapshot1.val()).length;
 
               set(ref(db, 'mines/Mine ' + (mines + 1).toString()), {
                 owner: user,

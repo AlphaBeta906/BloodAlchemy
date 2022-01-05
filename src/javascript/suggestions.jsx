@@ -42,7 +42,7 @@ export default function Suggestions() {
                             - <Link to={'/info/' + e1}>{e1}</Link> + <Link to={'/info/' + e2}>{e2}</Link> = {reaction_name} ({snap.val().votes}) <Link to={'/suggestion/' + snap.key}>Vote</Link>
                         </div>
                     );
-                };
+                }
             }
         });
 

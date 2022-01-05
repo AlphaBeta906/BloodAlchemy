@@ -22,11 +22,11 @@ export default function Sell() {
 
             const onSubmit = () => {
                 if (user !== "") {
-                    get(ref(db, `users/${user}/inventory`)).then((snapshot1) => {
-                        if (snapshot1.val()[param.elem] !== undefined && snapshot1.val()[param.elem] > 0) {
-                            set(ref(db, `users/${user}/inventory/${param.elem}`), snapshot1.val()[param.elem] - 1);
-                            get(ref(db, `users/${user}/watts`)).then((snapshot2) => {
-                                set(ref(db, `users/${user}/watts`), snapshot2.val() + price);
+                    get(ref(db, `users/${user}/inventory`)).then((snapshot2) => {
+                        if (snapshot2.val()[param.elem] !== undefined && snapshot2.val()[param.elem] > 0) {
+                            set(ref(db, `users/${user}/inventory/${param.elem}`), snapshot2.val()[param.elem] - 1);
+                            get(ref(db, `users/${user}/watts`)).then((snapshot3) => {
+                                set(ref(db, `users/${user}/watts`), snapshot3.val() + price);
         
                                 setResult("You bought " + param.elem);
                             }).catch((error) => {
@@ -62,7 +62,7 @@ export default function Sell() {
                 setOutput(
                     <Error status="401" />
                 )
-            };
+            }
         } else {
             setOutput(
                 <Error status="404" />
