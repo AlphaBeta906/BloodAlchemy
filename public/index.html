@@ -33,4 +33,26 @@
       NEVER FORGET DECEMBER 24. ALMOST CRIED.
     -->
   </body>
+  <script>
+    var devtools = function() {};
+    devtools.toString = function() {
+      if (!this.opened) {
+        let msg = "%c 🤚 HOLD UP! ✋"; 
+        let styles= [ 
+          'font-family: monospace',
+          'color: red',
+          'font-size: 20px',
+          'padding: 10px',
+          'font-weight: bold'
+        ].join(';') 
+        console.log(msg, styles);
+        console.log("%c 🛑 If someone to copy/paste anything here, 11/10 times you are about to lead them to have your account and/or destroy the entire server.", ['color: red', 'font-weight: bold', 'font-family: monospace'].join(';'));
+        console.log("%c ⚠️ If you don't know what you are doing, please close the window and stay safe.", ['color: yellow', 'font-weight: bold', 'font-family: monospace'].join(';'));
+        console.log("%c ✅ If you know what you are doing, you may continue.", ['color: lime', 'font-weight: bold', 'font-family: monospace'].join(';'));
+      }
+      this.opened = true;
+    }
+
+    console.log('%c', devtools);
+  </script>
 </html>

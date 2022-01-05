@@ -48,28 +48,6 @@ function App() {
     document.title = "Blood Alchemy";
   }, []);
 
-  class devtools {
-    constructor() {
-      // hi :)
-    }
-    static toString() {
-      if (!this.opened) {
-        let msg = "%c 🤚 HOLD UP! ✋"; 
-        let styles= [ 
-          'font-family: monospace',
-          'color: red',
-          'font-size: 20px',
-          'padding: 10px',
-          'font-weight: bold'
-        ].join(';') 
-        console.log(msg, styles);
-      }
-      this.opened = true;
-    }
-  }
-
-  console.log('%c', devtools);
-
   return (
     <UserContext.Provider value={{user, setUser}}>
       <>        
