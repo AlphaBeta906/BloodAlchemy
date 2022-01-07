@@ -2,7 +2,7 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://alphabeta906.github.io/BloodAlchemy/",
+  "homepage": "https://alphabeta906.github.io/home/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.0",
     "@testing-library/react": "^11.2.7",
