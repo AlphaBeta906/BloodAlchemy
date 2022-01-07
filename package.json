@@ -2,8 +2,8 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://AlphaBeta906.github.io/BloodAlchemy/",
   "dependencies": {
-    "@ctrl/react-adsense": "^1.5.0",
     "@testing-library/jest-dom": "^5.16.0",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
