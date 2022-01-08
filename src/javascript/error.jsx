@@ -25,8 +25,10 @@ export default function Error(props) {
 
     return (
         <div style={{textAlign: "center"}}>
+            <br /><br />
             <div className="status" style={{fontSize:100}}>{status}</div><br />
             <div className="desk" style={{fontSize: 50}}>{desk}</div>
+            <br /><br />
         </div>
     );
 }
