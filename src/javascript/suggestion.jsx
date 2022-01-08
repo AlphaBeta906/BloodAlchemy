@@ -167,7 +167,7 @@ export default function Suggestion() {
         } else {
             var status = "";
 
-            if ([0, 1].includes(snapshot.val()[params.suggestion].vote)) {
+            if ([0, 1].includes(snapshot.val()[params.suggestion].votes)) {
                 status = (
                     <div>
                         <center><h2>You want to vote?</h2></center>
