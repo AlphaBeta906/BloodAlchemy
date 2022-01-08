@@ -27,7 +27,7 @@ export default function Signin() {
           setResult("Username already exists!");
         } else {
           if (user === "") {
-            setUser(user);
+            setUser(data.user);
 
             set(ref(db, 'users/' + data.username), {
                 class: "slave",
@@ -48,7 +48,7 @@ export default function Signin() {
               set(ref(db, 'mines/Mine ' + (mines + 1).toString()), {
                 owner: user,
                 start: 1
-              })
+              });
 
               setResult(
                 <Navigate to="/"/>
