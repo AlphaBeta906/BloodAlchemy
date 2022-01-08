@@ -12,7 +12,7 @@ export default function Home() {
     if (user === "") {
       message = (
         <div>
-          You are not logged in. Please <Link to='/login'>login</Link> or <Link to='/register'>register</Link>.
+          You are not logged in. Please <Link to='/login'>login</Link> or <Link to='/signin'>signin</Link>.
         </div>
       );
     } else {
