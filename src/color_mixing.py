@@ -1,7 +1,7 @@
 # Kids, this is when you can't program boiler plate code
 # in a different language than the one that the code is written in
 # and you had enough and you have to create a backend for your
-# frontend.
+# frontend. Also bye bye localhost, hello heroku.
 
 from flask import Flask
 from flask_restful import Resource, Api
