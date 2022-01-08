@@ -20,7 +20,7 @@ export default function Suggestion() {
 
     function mix_hex(hex1, hex2) {
         // http://127.0.0.1:5000/color_mixing/FFA500-FFA500
-        var promise = axios.get("http://127.0.0.1:5000/color_mixing/" + hex1 + "-" + hex2);
+        var promise = axios.get("http://blood-alchemy-api.herokuapp.com/color_mixing/" + hex1 + "-" + hex2);
 
         return promise.then((res) => res.data.combined_color);
     }
