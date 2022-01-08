@@ -13,7 +13,7 @@ Then, ask me on the contact page my email, then and only then I will give you th
 **Note: By running this, and getting the tokens, you would agree that I will use your code for my website (if it takes off).**
 
 ### Sweet! It is working now. By the way, when is the real thing gonna emerge.
-Hmmm, I am thinking late January at the earliest and March at the latest. I won't promise you, but it's a plan.
+It did! The website is at https://alphabeta906.github.io/BloodAlchemy
 
 ### Can I be part of the development?
 No. Atleast not yet. If you want to help and me not paying you; you need to be good at React. If you want to get paid. Wait for a few months before the bread is earned.
