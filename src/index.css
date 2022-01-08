@@ -1,3 +1,13 @@
+@font-face {
+  font-family: "Azonix";
+  src: url("../fonts/Azonix.otf") format('opentype');
+}
+
+@font-face {
+  font-family: "Octin Spraypaint";
+  src: "../fonts/octin spraypaint a rg.otf" format('opentype');
+}
+
 * {
   font-family: 'Azonix', sans-serif;
 }
