@@ -35,7 +35,7 @@ export default function Home() {
         <div>
             <center>
                 <h1>Home</h1>
-                <h6>"Elements and stuff, I don't know"</h6>
+                <h6>"Elements and stuff, I don't know" - me</h6>
 
                 {text}<br></br>
                 {message}
