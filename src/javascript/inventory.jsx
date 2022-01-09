@@ -1,8 +1,8 @@
 import { useContext, useState } from "react";
-import { useParams, Navigate, Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { initializeApp } from 'firebase/app';
 import { getDatabase, ref, get } from "firebase/database";
-import { randomInt } from "./random";
+import { didYouMean } from "./didYouMean";
 import UserContext from "./userContext";
 import firebaseConfig from "./firebase";
 
@@ -24,12 +24,19 @@ export default function Inventory() {
             } else if (snapshot.val()[params.user] === undefined && user !== "") {
                 true_user = user
             } else if (true_user === null) {
-                const user_dict = Object.keys(snapshot.val())
-                true_user = user_dict[randomInt(user_dict.length)]
+                const think = didYouMean(params.user, Object.keys(snapshot.val()))
 
                 setResult(
-                    <Navigate to={"/inventory/" + true_user} />
+                    <div>
+                        <center>
+                            <h1>User {params.user} not found</h1>
+
+                            <h2>Did you mean <Link to={"/inventory/" + think}>{think}</Link>?</h2>
+                        </center>
+                    </div>
                 )
+
+                return;
             }
         }
         

@@ -6,13 +6,6 @@ export default function Signout() {
     const [output, setOutput] = useState("");
     const { setUser } = useContext(UserContext);
 
-    setOutput(<div>
-        <center>
-            <h1>Sign Out</h1>
-            <button onClick={handleClick}>Sign-Out</button>
-        </center>
-    </div>);
-
     const handleClick = () => {
         setUser("");
         localStorage.removeItem("user");
@@ -20,6 +13,13 @@ export default function Signout() {
             <Navigate to="/" />
         )
     };
+
+    setOutput(<div>
+        <center>
+            <h1>Sign Out</h1>
+            <button onClick={handleClick}>Sign-Out</button>
+        </center>
+    </div>);
 
     return output;
 }
