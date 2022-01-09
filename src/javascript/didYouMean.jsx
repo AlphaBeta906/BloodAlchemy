@@ -26,11 +26,11 @@ function LDA(str1, str2) {
 export const didYouMean = ((thing, list) => {
     let closest = "";
     let closestDistance = Infinity;
-    for (let i = 0; i < list.length; i += 1) {
-        const distance = LDA(thing, list[i]);
+    for (let thing of list) {
+        const distance = LDA(thing, thing);
         if (distance < closestDistance) {
             closestDistance = distance;
-            closest = list[i];
+            closest = thing;
         }
     }
     console.log(closest);
