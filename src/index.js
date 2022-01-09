@@ -4,7 +4,8 @@ import './index.css';
 import {
     BrowserRouter as Router,
     Routes, 
-    Route 
+    Route,
+    Link
 } from "react-router-dom";
 
 import Home from "./javascript/home";
@@ -30,6 +31,7 @@ import Upgrade from "./javascript/upgrade";
 import EditArticle from './javascript/editArticle';
 import Function from './javascript/function';
 import FunctionSuggest from './javascript/functionSuggest';
+import Bug from './javascript/bug';
 
 import ProfileNoArgs from './javascript/profileNoArgs';
 import InventoryNoArgs from './javascript/inventoryNoArgs';
@@ -45,7 +47,7 @@ function App() {
   const [user, setUser] = useState("");
 
   useEffect(() => {
-    document.title = "Blood Alchemy";
+    document.title = "Blood Alchemy (BETA)";
   }, []);
 
   return (
@@ -100,11 +102,13 @@ function App() {
                 </Route>
                 <Route path="function" element={<Function />} />
                 <Route path="suggestFunct" element={<FunctionSuggest />} />
+                <Route path="bugs" element={<Bug />} />
                 <Route path="*" element={<Error status="404" />} />
             </Routes>
 
             <footer>
               <br /><br /><br />
+              <small><center><Link to="/bugs">Report a Bug</Link></center></small><br />
               <Tips />
               <hr />
               <center>&copy; AlphaBeta906, AlphaBeta906 LLC (nonexisting thing joke), 2021</center>

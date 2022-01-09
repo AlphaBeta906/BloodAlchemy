@@ -19,6 +19,8 @@ export default function Signin() {
 
     if (data.username === "" || data.password === "" || data.confirm === "") {
       setResult("Please fill in all fields");
+    } else if (data.username === "null") {
+      setResult("The username for security reasons cannot be named 'null'");
     } else if (data.password !== data.confirm) {
       setResult("Passwords do not match!");
     } else {

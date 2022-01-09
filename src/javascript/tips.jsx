@@ -14,12 +14,16 @@ export default function Tips() {
         setTip(tips[randomInt(tips.length)]);
 
         if (user === "") {
-            if (window.localStorage.getItem("user") !== null) {
-                setUser(window.localStorage.getItem("user"));
-                console.log(window.localStorage.getItem("user"));
+            if (localStorage.getItem("user") !== "null" && localStorage.getItem("user") !== null && localStorage.getItem("user") !== "") {
+                setUser(localStorage.getItem("user"));
             }
         } else {
-            window.localStorage.setItem("user", user);
+            if (user !== "null" && user !== null && user !== "" && location.pathname !== "/signin") {
+                localStorage.setItem("user", user);
+            } else {
+                localStorage.setItem("user", "");
+                setUser("");
+            }
         }
     }, [location.pathname, user, setUser]);
 

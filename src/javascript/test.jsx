@@ -1,26 +1,16 @@
-import { useState, useEffect } from "react";
+import { useState, useContext } from "react";
+import UserContext from "./userContext";
 
 export default function Test() {
-    const [seconds, setSeconds] = useState(0);
     const [result, setResult] = useState("");
+    const { setUser } = useContext(UserContext);
 
     const handleClick = () => {
-        if (seconds === 0) {
-            setSeconds(10);
-            setResult("Pressed!");
-        } else {
-            setResult(`Please wait ${seconds} seconds`);
-        }
+        setUser("");
+        localStorage.removeItem("user");
+        setResult("Done!");
     };
-  
-    useEffect(() => {
-        if (seconds > 0) {
-            setTimeout(() => setSeconds(seconds - 1), 1000);
-        } else {
-            setSeconds(0);
-        }
-    }, [seconds]);
-  
+
     return (
         <div>
             <button onClick={handleClick}>HEY</button>
