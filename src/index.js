@@ -32,6 +32,7 @@ import EditArticle from './javascript/editArticle';
 import Function from './javascript/function';
 import FunctionSuggest from './javascript/functionSuggest';
 import Bug from './javascript/bug';
+import Signout from "./javascript/signout";
 
 import ProfileNoArgs from './javascript/profileNoArgs';
 import InventoryNoArgs from './javascript/inventoryNoArgs';
@@ -103,6 +104,7 @@ function App() {
                 <Route path="function" element={<Function />} />
                 <Route path="suggestFunct" element={<FunctionSuggest />} />
                 <Route path="bugs" element={<Bug />} />
+                <Route path="signout" element={<Signout />} />
                 <Route path="*" element={<Error status="404" />} />
             </Routes>
 

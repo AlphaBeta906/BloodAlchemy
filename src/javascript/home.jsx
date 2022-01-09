@@ -25,7 +25,7 @@ export default function Home() {
       } else {
         message = (
           <div>
-            You are logged in as {user}. <Link to='/profile'>Profile</Link>
+            You are logged in as {user}. <Link to='signout'>Sign-Out</Link>
           </div>
         );
       }
