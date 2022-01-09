@@ -21,7 +21,7 @@ export default function Profile() {
             valid = true
         }
 
-        get(ref(db, `user`)).then((snapshot) => {
+        get(ref(db, `elements/`)).then((snapshot) => {
             var true_user = null
 
             if (true_user === null) {
