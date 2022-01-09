@@ -29,7 +29,7 @@ export default function Signin() {
           setResult("Username already exists!");
         } else {
           if (user === "") {
-            setUser(data.user);
+            setUser(data.username);
 
             set(ref(db, 'users/' + data.username), {
                 class: "slave",
