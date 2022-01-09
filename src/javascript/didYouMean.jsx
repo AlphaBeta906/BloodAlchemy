@@ -11,12 +11,12 @@ function LDA(str1, str2) {
         track[j][0] = j;
     }
     for (let j = 1; j <= str2.length; j += 1) {
-        for (let i = 1; i <= str1.length; i += 1) {
-            const indicator = str1[i - 1] === str2[j - 1] ? 0 : 1;
-            track[j][i] = Math.min(
-                track[j][i - 1] + 1, // deletion
-                track[j - 1][i] + 1, // insertion
-                track[j - 1][i - 1] + indicator, // substitution
+        for (let i2 = 1; i2 <= str1.length; i2 += 1) {
+            const indicator = str1[i2 - 1] === str2[j - 1] ? 0 : 1;
+            track[j][i2] = Math.min(
+                track[j][i2 - 1] + 1, // deletion
+                track[j - 1][i2] + 1, // insertion
+                track[j - 1][i2 - 1] + indicator, // substitution
             );
         }
     }
@@ -26,11 +26,11 @@ function LDA(str1, str2) {
 export const didYouMean = ((thing, list) => {
     let closest = "";
     let closestDistance = Infinity;
-    for (let thing of list) {
-        const distance = LDA(thing, thing);
+    for (let thing2 of list) {
+        const distance = LDA(thing2, thing);
         if (distance < closestDistance) {
             closestDistance = distance;
-            closest = thing;
+            closest = thing2;
         }
     }
     console.log(closest);
