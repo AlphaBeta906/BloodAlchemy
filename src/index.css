@@ -20,18 +20,19 @@ hr {
 }
 
 a {
-  color: rgb(64, 64, 243);
+  color: rgb(76, 76, 241);
   text-decoration: none;
-}
-
-a:hover {
-  color: rgb(23, 23, 245);
-  cursor: pointer;
-  text-decoration: underline;
+  transition: color 0.2s ease-in-out;
 }
 
 a:visited {
-  color: rgb(119, 19, 250);
+  color: rgb(94, 0, 216);
+}
+
+a:hover {
+  color: rgb(131, 131, 243);
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 .logo {
