@@ -17,7 +17,7 @@ export default function Info() {
     const { user } = useContext(UserContext);
 
     get(ref(db, `elements/`)).then((snapshot1) => {
-        if (snapshot1.val()[params.element] !== undefined) {
+        if (snapshot1.val()[params.element.replace("%20", " ")] !== undefined) {
             valid = true
         }
 
@@ -25,14 +25,14 @@ export default function Info() {
 
         if (true_elem === null) {
             if (valid === true) {
-                true_elem = params.element
+                true_elem = params.element.replace("%20", " ")
             } else {
-                const think = didYouMean(params.element, Object.keys(snapshot1.val()))
+                const think = didYouMean(params.element.replace("%20", " "), Object.keys(snapshot1.val()))
 
                 setResult(
                     <div>
                         <center>
-                            <h1>Element {params.element} not found</h1>
+                            <h1>Element {params.element.replace("%20", " ")} not found</h1>
 
                             <h2>Did you mean <Link to={"/info/" + think}>{think}</Link>?</h2>
                         </center>

@@ -17,7 +17,7 @@ export default function Profile() {
     const { user } = useContext(UserContext);
 
     get(ref(db, `users/`)).then((snapshot1) => {
-        if (snapshot1.val()[params.user] !== undefined) {
+        if (snapshot1.val()[params.user.replace("%20", " ")] !== undefined) {
             valid = true
         }
 
@@ -26,16 +26,16 @@ export default function Profile() {
 
             if (true_user === null) {
                 if (valid === true) {
-                    true_user = params.user
+                    true_user = params.user.replace("%20", " ")
                 } else if (valid === false && user !== "") {
                     true_user = user
                 } else if (true_user === null) {
-                    const think = didYouMean(params.user, Object.keys(snapshot1.val()))
+                    const think = didYouMean(params.user.replace("%20", " "), Object.keys(snapshot1.val()))
 
                     setResult(
                         <div>
                             <center>
-                                <h1>User {params.user} not found</h1>
+                                <h1>User {params.user.replace("%20", " ")} not found</h1>
 
                                 <h2>Did you mean <Link to={"/profile/" + think}>{think}</Link>?</h2>
                             </center>

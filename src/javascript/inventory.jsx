@@ -19,9 +19,9 @@ export default function Inventory() {
         var true_user = null
 
         if (true_user === null) {
-            if (snapshot.val()[params.user] !== undefined) {
-                true_user = params.user
-            } else if (snapshot.val()[params.user] === undefined && user !== "") {
+            if (snapshot.val()[params.user.replace("%20", " ")] !== undefined) {
+                true_user = params.user.replace("%20", " ")
+            } else if (snapshot.val()[params.user.replace("%20", " ")] === undefined && user !== "") {
                 true_user = user
             } else if (true_user === null) {
                 const think = didYouMean(params.user, Object.keys(snapshot.val()))
