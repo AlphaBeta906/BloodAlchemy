@@ -23,6 +23,8 @@ export default function Signin() {
       setResult("The username for security reasons cannot be named 'null'");
     } else if (data.password !== data.confirm) {
       setResult("Passwords do not match!");
+    } else if (data.username.includes(" ")) {
+      setResult("Username cannot contain spaces (a fix will be there soon)!");
     } else {
       get(ref(db, 'users/')).then(snapshot => {
         if (snapshot.val()[data.username] !== undefined) {

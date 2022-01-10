@@ -44,6 +44,8 @@ export default function Suggest() {
         setResult("Please fill in a valid element!");
       } else if (reactions[data.e1 + "+" + data.e2] !== undefined || reactions[data.e2 + "+" + data.e1] !== undefined) {
         setResult("Reaction exists!");
+      } else if (data.reaction.includes(" ")) {
+        setResult("Reaction cannot contain spaces (a fix will be there soon)!");
       } else {
         set(ref(db, 'suggestions/' + data.e1 + "+" + data.e2 + "=" + data.reaction), { 
           votes: 0,
