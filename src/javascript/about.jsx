@@ -20,10 +20,10 @@ export default function About() {
       You can vote on proposals by clicking the 'Vote' button on the proposal page, which you can enter by clicking the 'Proposals' button on the navbar, or use www.elementals4.com/proposals.
 
       <center><h2>I heard that you store IP adresses, is that true?</h2></center>
-      Yes, it is true, in a sense. However, we encrypt your IP adress so that it cannot be used to track you. Even if a hacker gets your IP adress, he/she will be able to crack it in 1502 years, which I don't think that Blood Alchemy will ever reach.
+      No, atleast not anymore.
 
       <center><h2>Do you support and enforce COPPA in Blood Alchemy?</h2></center>
-      We do not support and especially hate COPPA. I, AlphaBeta906 is underage as of writing this (I am 11 and this is December 2021), and I and ItzCountryballs is outside of US territory, so I am not legally required to enforce COPPA. However, if you are a parent or guardian of a child under 13, please know that we would not be adding personal ads and collecting personal data (excluding the IPs to cut corners).
+      We do not support and especially hate COPPA. I, AlphaBeta906 is underage as of writing this (I am 11 and this is December 2021), and I and ItzCountryballs is outside of US territory, so I am not legally required to enforce COPPA. However, if you are a parent or guardian of a child under 13, please know that we would not be adding personal ads and collecting personal data.
 
       <center><h2>I just saw my kid see a bad word on this site! Can you please remove it?</h2></center>
       Unfortunetly, no. We can't delete elements since it will collapse some part of the elemental tree, thus destroying months of history. All of our elements are created by users, and we can't delete them. Democracy is democracy, and we can't anger people.
