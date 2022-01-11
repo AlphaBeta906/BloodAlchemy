@@ -1,6 +1,6 @@
 @font-face {
-  font-family: "Azonix";
-  src: url("fonts/Azonix.otf") format('opentype');
+  font-family: "WorkSans";
+  src: url("fonts/WorkSans-Medium.ttf") format('truetype');
 }
 
 @font-face {
@@ -9,7 +9,7 @@
 }
 
 * {
-  font-family: 'Azonix', sans-serif;
+  font-family: 'WorkSans', sans-serif;
 }
 
 hr {
@@ -47,7 +47,7 @@ a:hover {
 
 .desk {
   color: #b31717;
-  font-family: 'Azonix', sans-serif;
+  font-family: 'WorkSans', sans-serif;
 }
 
 .meter {

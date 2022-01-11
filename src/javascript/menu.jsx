@@ -30,7 +30,7 @@ export default function Menu() {
                 true_elem = elem_dict[randomInt(elem_dict.length)]
                 menu.push(
                     <div>
-                        *️⃣ <b>{true_elem}</b> - <small>(<Link to={"/info/" + true_elem}>i</Link> ● <Link to={"/buy/" + true_elem}>b</Link> ● <Link to={"/sell/" + true_elem}>s</Link>)</small>
+                        *️⃣ <b>{true_elem}</b> - <small>(<Link to={"/info/" + true_elem}>i</Link> ・ <Link to={"/buy/" + true_elem}>b</Link> ・ <Link to={"/sell/" + true_elem}>s</Link>)</small>
                     </div>
                 )
             }
