@@ -1,9 +1,9 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/33f313b31f240d402d01/maintainability)](https://codeclimate.com/github/AlphaBeta906/BloodAlchemy/maintainability)
 [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=AlphaBeta906_BloodAlchemy&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=AlphaBeta906_BloodAlchemy)
+# ⚛️ Blood Alchemy
 ![Python](https://img.shields.io/badge/Python-14354C?style=for-the-badge&logo=python&logoColor=white)
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![Firebase](https://img.shields.io/badge/firebase-black?style=for-the-badge&logo=firebase&logoColor=ffca28)
-# ⚛️ Blood Alchemy
 This is Blood Alchemy, the sucessor to Elementals 3. I finally feel like a pro, only after like 2 weeks. This repository has a REFI (React-Firebase) site that is pretty (very) buggy and a Python API just because I can't rewrite code from Python to JavaScript.
 
 ## FAQ
