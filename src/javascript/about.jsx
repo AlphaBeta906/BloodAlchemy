@@ -23,7 +23,7 @@ export default function About() {
       No, atleast not anymore.
 
       <center><h2>Do you support and enforce COPPA in Blood Alchemy?</h2></center>
-      We do not support and especially hate COPPA. I, AlphaBeta906 is underage as of writing this (I am 11 and this is December 2021), and I and ItzCountryballs is outside of US territory, so I am not legally required to enforce COPPA. However, if you are a parent or guardian of a child under 13, please know that we would not be adding personal ads and collecting personal data.
+      We do not support and especially hate COPPA. We do not enforce it, as we do not collect data of our users.
 
       <center><h2>I just saw my kid see a bad word on this site! Can you please remove it?</h2></center>
       Unfortunetly, no. We can't delete elements since it will collapse some part of the elemental tree, thus destroying months of history. All of our elements are created by users, and we can't delete them. Democracy is democracy, and we can't anger people.
