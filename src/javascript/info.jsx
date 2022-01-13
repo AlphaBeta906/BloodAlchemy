@@ -140,20 +140,6 @@ export default function Info() {
                             </div>
                             <div class="flex mb-2 items-center justify-between">
                                 <div>
-                                    <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blue-600 bg-blue-200">
-                                        📖 Description
-                                    </span>
-                                </div>
-                                <div class="text-right">
-                                    <span class="text-xs font-semibold inline-block text-blue-600">
-                                        {desc}{editor}
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="relative pt-1">
-                            <div class="flex mb-2 items-center justify-between">
-                                <div>
                                     <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-gray-600 bg-gray-200">
                                         🗝 Status
                                     </span>
@@ -164,7 +150,12 @@ export default function Info() {
                                     </span>
                                 </div>
                             </div>
-                        </div>
+                        </div><br /><br />
+
+                        <center>
+                            <i>"{desc}"</i><br />
+                            {editor}
+                        </center>
                     </div>
                 );
             }).catch((error) => {
