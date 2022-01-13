@@ -98,7 +98,7 @@ export default function Function() {
         return (
             <div>
                 <center>
-                    <h1>Play: Function Mode</h1>
+                    <p class="text-2xl">Play: Function Mode</p>
 
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <p style={{textAlign: "center"}}>Mode:</p>

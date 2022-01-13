@@ -35,7 +35,7 @@ export default function Profile() {
                     setResult(
                         <div>
                             <center>
-                                <h1>User {params.user.replace("%20", " ")} not found</h1>
+                                <p class="text-2xl">User {params.user.replace("%20", " ")} not found</p>
 
                                 <h2>Did you mean <Link to={"/profile/" + think}>{think}</Link>?</h2>
                             </center>
@@ -51,7 +51,7 @@ export default function Profile() {
 
             setResult(
                 <div>
-                    <center><h1>Profile</h1></center>
+                    <center><p class="text-2xl">Profile</p></center>
                     <h2>User: {true_user}</h2> <small><Link to={'/inventory/' + true_user}>(Check their inventory)</Link></small>
                     <p style={{color: "#55bff0"}}>🛠 Class: {snapshot1.val()[true_user].class}</p>
                     <p style={{color: "#ffcc00"}}>⚡️ Watts: {snapshot1.val()[true_user].watts}</p>

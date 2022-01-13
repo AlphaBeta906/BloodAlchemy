@@ -59,14 +59,14 @@ export default function Empty() {
 
     return [
         (<div>
-            <hr />
+            <div class="flex-grow border-4 border-red-400"></div>
             <center>
-                <h1 className="logo">Blood Alchemy</h1>
+                <p className="logo">Blood Alchemy</p>
             </center>
         </div>),
         links,
         (<div>
-            <hr />
+            <div class="flex-grow border-4 border-red-400"></div>
         </div>)
     ]
 }

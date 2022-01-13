@@ -124,7 +124,7 @@ export default function Play() {
     return (
       <div>
           <center>
-            <h1>Play</h1>
+            <p class="text-2xl">Play</p>
           </center>
           <center>
               <form onSubmit={handleSubmit(onSubmit)}>

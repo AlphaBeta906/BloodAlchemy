@@ -45,7 +45,7 @@ export default function Sell() {
                 setOutput(
                     <div>
                         <center>
-                            <h1>Sell</h1>
+                            <p class="text-2xl">Sell</p>
                         </center>
 
                         <center>You wanna sell one {param.elem}?</center>

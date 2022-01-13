@@ -76,7 +76,7 @@ export default function Attack() {
         return (
             <div>
                 <center>
-                    <h1>Attack</h1>
+                    <p class="text-2xl">Attack</p>
 
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <input {...register("mine")} placeholder='Mine' />

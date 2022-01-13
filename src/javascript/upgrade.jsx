@@ -58,7 +58,7 @@ export default function Upgrade() {
         return (
             <div>
                 <center>
-                    <h1>Upgrade</h1>
+                    <p class="text-2xl">Upgrade</p>
 
                     <p>You would be upgrading from Level {level} to Level {level + 1}. Which will cost {(level + 1) * 100} watts</p>
 

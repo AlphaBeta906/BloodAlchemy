@@ -29,7 +29,7 @@ export default function Inventory() {
                 setResult(
                     <div>
                         <center>
-                            <h1>User {params.user} not found</h1>
+                            <p class="text-2xl">User {params.user} not found</p>
 
                             <h2>Did you mean <Link to={"/inventory/" + think}>{think}</Link>?</h2>
                         </center>
@@ -44,7 +44,7 @@ export default function Inventory() {
             var output = [(
                 <div>
                     <center>
-                    <h1>Inventory</h1>
+                    <p class="text-2xl">Inventory</p>
                     </center>
                     <h2>User: {true_user}</h2>
                     <h2 style={{color: '#5856D6'}}>🗂 Inventory:</h2>

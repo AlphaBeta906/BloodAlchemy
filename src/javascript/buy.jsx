@@ -48,7 +48,7 @@ export default function Buy() {
                 setOutput(
                     <div>
                         <center>
-                            <h1>Buy</h1>
+                            <p class="text-2xl">Buy</p>
                         </center>
                         <center>You wanna buy one {param.element}?</center>
                         <center>It costs {price} watts.</center>

@@ -66,7 +66,7 @@ export default function Suggest() {
     return (
       <div>
         <center>
-          <h1>Suggest</h1>
+          <p class="text-2xl">Suggest</p>
         </center>
         <center>
           <form onSubmit={handleSubmit(onSubmit)}>

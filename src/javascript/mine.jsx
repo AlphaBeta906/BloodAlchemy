@@ -119,7 +119,7 @@ export default function Mine() {
     return (
         <div>
             <center>
-              <h1>Mine</h1>
+              <p class="text-2xl">Mine</p>
               <form onSubmit={handleSubmit(onSubmit)}>
                 <p>Mines: {mines} | Need more mines? <Link to="/attack/">Go</Link> <Link to="/search/">here</Link>!</p>
                 <input {...register("mine")} placeholder="Mine" /><br />

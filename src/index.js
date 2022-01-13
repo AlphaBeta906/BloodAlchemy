@@ -112,9 +112,9 @@ function App() {
               <br /><br /><br />
               <small><center><Link to="/bugs">Report a Bug</Link></center></small><br />
               <Tips />
-              <hr />
+              <div class="flex-grow border-4 border-red-400"></div>
               <center>&copy; AlphaBeta906, AlphaBeta906 LLC (nonexisting thing joke), 2021</center>
-              <hr />
+              <div class="flex-grow border-4 border-red-400"></div>
             </footer>
         </Router>
       </>

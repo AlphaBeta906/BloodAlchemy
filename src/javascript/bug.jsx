@@ -2,7 +2,7 @@ export default function Bug() {
     return (
         <div>
             <center>
-                <h1>Bug</h1>
+                <p class="text-2xl">Bug</p>
             </center>
 
             If you want to report a bug, please do the following:

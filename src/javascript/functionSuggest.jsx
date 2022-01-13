@@ -56,7 +56,7 @@ export default function FunctionSuggest() {
     return (
         <div>
             <center>
-                <h1>Suggest: Mode Function</h1>
+                <p class="text-2xl">Suggest: Mode Function</p>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <p style={{textAlign: "center"}}>Mode:</p>
                     <select {...register("mode")}>

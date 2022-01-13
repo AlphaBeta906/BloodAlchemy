@@ -32,7 +32,7 @@ export default function Info() {
                 setResult(
                     <div>
                         <center>
-                            <h1>Element {params.element.replace("%20", " ")} not found</h1>
+                            <p class="text-2xl">Element {params.element.replace("%20", " ")} not found</p>
 
                             <h2>Did you mean <Link to={"/info/" + think}>{think}</Link>?</h2>
                         </center>
@@ -75,7 +75,7 @@ export default function Info() {
 
                 setResult(
                     <div>
-                        <center><h1>Info</h1></center>
+                        <center><p class="text-2xl">Info</p></center>
                         <h2 style={{color: `#${snapshot1.val()[true_elem].color}`}}>Element: {true_elem}</h2>
                         <p style={{color: "#ff3a30"}}>📆 Date of Creation: {snapshot1.val()[true_elem].date}</p>
                         <p style={{color: "#28CD41"}}>🟩 Generation: {snapshot1.val()[true_elem].generation}</p>

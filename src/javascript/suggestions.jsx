@@ -14,7 +14,7 @@ export default function Suggestions() {
         var reactions = [(
             <div>
                 <center>
-                    <h1>Suggestions</h1>
+                    <p class="text-2xl">Suggestions</p>
                 </center>
             </div>
         )]

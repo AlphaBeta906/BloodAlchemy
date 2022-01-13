@@ -35,7 +35,7 @@ export default function Login() {
     return (
       <div>
           <center>
-            <h1>Login</h1>
+            <p class="text-2xl">Login</p>
           </center>
           <center>
               <form onSubmit={handleSubmit(onSubmit)}>

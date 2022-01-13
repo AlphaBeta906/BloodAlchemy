@@ -51,7 +51,7 @@ export default function EditArticle() {
         return (
             <div>
                 <center>
-                    <h1>Edit Article: {params.elem}</h1>
+                    <p class="text-2xl">Edit Article: {params.elem}</p>
 
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <textarea {...register("text")} name="text" rows="10" cols="50" placeholder="Enter text here..." /><br />

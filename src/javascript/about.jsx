@@ -1,7 +1,7 @@
 export default function About() {
   return (
     <div>
-      <center><h1>About</h1></center>
+      <center><p class="text-2xl">About</p></center>
       This is the about page.<br /><br />
 
       <center><h2>What is 'Blood Alchemy'?</h2></center>

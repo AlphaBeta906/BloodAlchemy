@@ -34,8 +34,8 @@ export default function Home() {
     return (
         <div>
             <center>
-                <h1>Home</h1>
-                <h6>"Elements and stuff, I don't know" - me</h6>
+                <p class="text-2xl">Home</p>
+                <p class="text-sm">"Elements and stuff, I don't know" - me</p><br/><br/>
 
                 {text}<br></br>
                 {message}

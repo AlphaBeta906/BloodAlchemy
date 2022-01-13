@@ -16,7 +16,7 @@ export default function Menu() {
             var menu = [(
                 <div>
                     <center>
-                        <h1>Menu</h1>
+                        <p class="text-2xl">Menu</p>
                     </center>
 
                     <p>Showing 15 random elememnts...</p>
