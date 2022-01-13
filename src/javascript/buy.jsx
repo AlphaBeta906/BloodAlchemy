@@ -33,13 +33,23 @@ export default function Buy() {
         
                                 setResult("You bought " + param.elem);
                             }).catch((error) => {
-                                setResult(error.toString());
+                                setResult(
+                                    <div class="bg-red-100 border-t border-b border-red-500 text-red-700 px-4 py-3 w-64" role="alert">
+                                        <p class="font-bold">🛑 Error 🛑</p>
+                                        <p class="text-sm">{error.toString()}</p>
+                                    </div>
+                                );;
                             });
                         } else {
                             setResult("Insufficient funds!");
                         }
                     }).catch((error) => {
-                        setResult(error.toString());
+                        setResult(
+                                    <div class="bg-red-100 border-t border-b border-red-500 text-red-700 px-4 py-3 w-64" role="alert">
+                                        <p class="font-bold">🛑 Error 🛑</p>
+                                        <p class="text-sm">{error.toString()}</p>
+                                    </div>
+                                );;
                     });
                 }
             };

@@ -53,13 +53,23 @@ export default function Function() {
                                     <span style={{ color: "#ffcc00" }}>⚡️ You got {watts} watts!</span>
                                 </>)
                             }).catch(error => {
-                               setResult("Error: " + error.toString()); 
+                               setResult(
+                <div class="bg-red-100 border-t border-b border-red-500 text-red-700 px-4 py-3 w-64" role="alert">
+                  <p class="font-bold">🛑 Error 🛑</p>
+                  <p class="text-sm">{error.toString()}</p>
+                </div>
+            ); 
                             });
 
                             get(ref(db, `users/${user}/inventory/${data.elem}`)).then((snapshot3) => {
                                 set(ref(db, `users/${user}/inventory/${data.elem}`), snapshot3.val() - 1);
                             }).catch((error) => {
-                                setResult("Error: " + error.toString());
+                                setResult(
+                <div class="bg-red-100 border-t border-b border-red-500 text-red-700 px-4 py-3 w-64" role="alert">
+                  <p class="font-bold">🛑 Error 🛑</p>
+                  <p class="text-sm">{error.toString()}</p>
+                </div>
+            );
                             });
 
                             const a = snapshot.val()[`${data.mode}(${data.elem})`]
@@ -67,15 +77,30 @@ export default function Function() {
                             get(ref(db, `users/${user}/inventory/${a}`)).then((snapshot3) => {
                                 set(ref(db, `users/${user}/inventory/${a}`), snapshot3.val() + 1);
                             }).catch((error) => {
-                                setResult("Error: " + error.toString());
+                                setResult(
+                                    <div class="bg-red-100 border-t border-b border-red-500 text-red-700 px-4 py-3 w-64" role="alert">
+                                        <p class="font-bold">🛑 Error 🛑</p>
+                                        <p class="text-sm">{error.toString()}</p>
+                                    </div>
+                                );
                             });
                         }
                     }).catch((error) => {
-                        setResult(error.toString());
+                        setResult(
+                            <div class="bg-red-100 border-t border-b border-red-500 text-red-700 px-4 py-3 w-64" role="alert">
+                                <p class="font-bold">🛑 Error 🛑</p>
+                                <p class="text-sm">{error.toString()}</p>
+                            </div>
+                        );
                     });
                 }
             }).catch((error) => {
-                setResult(error.toString());
+                setResult(
+                    <div class="bg-red-100 border-t border-b border-red-500 text-red-700 px-4 py-3 w-64" role="alert">
+                        <p class="font-bold">🛑 Error 🛑</p>
+                        <p class="text-sm">{error.toString()}</p>
+                    </div>
+                );
             });
         }
     };

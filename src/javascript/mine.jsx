@@ -74,18 +74,33 @@ export default function Mine() {
                 set(ref(db, `users/${user}/inventory/${element}`), snapshot2.val()[element] + 1);
               }
             }).catch((error) => {
-              setResult("Error: " + error.toString());
+              setResult(
+                <div class="bg-red-100 border-t border-b border-red-500 text-red-700 px-4 py-3 w-64" role="alert">
+                  <p class="font-bold">🛑 Error 🛑</p>
+                  <p class="text-sm">{error.toString()}</p>
+                </div>
+            );
             });
 
             setResult(<div>
               <p>You found a <Link to={`/info/${element}`}>{element}</Link> element!</p>
             </div>);
           }).catch((error) => {
-            setResult("Error: " + error.toString());
+            setResult(
+              <div class="bg-red-100 border-t border-b border-red-500 text-red-700 px-4 py-3 w-64" role="alert">
+                <p class="font-bold">🛑 Error 🛑</p>
+                <p class="text-sm">{error.toString()}</p>
+              </div>
+            );
           });
         }
       }).catch((error) => {
-        setResult("Error: " + error.toString());
+        setResult(
+          <div class="bg-red-100 border-t border-b border-red-500 text-red-700 px-4 py-3 w-64" role="alert">
+            <p class="font-bold">🛑 Error 🛑</p>
+            <p class="text-sm">{error.toString()}</p>
+          </div>
+        );
       });
     }
   };
@@ -111,7 +126,12 @@ export default function Mine() {
         setMines(mines1);
       });
     }).catch((error) => {
-      setResult("Error: " + error.toString());
+      setResult(
+        <div class="bg-red-100 border-t border-b border-red-500 text-red-700 px-4 py-3 w-64" role="alert">
+          <p class="font-bold">🛑 Error 🛑</p>
+          <p class="text-sm">{error.toString()}</p>
+        </div>
+      );
     });
   }, [seconds, user]);
 

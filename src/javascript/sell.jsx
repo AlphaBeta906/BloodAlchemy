@@ -28,15 +28,35 @@ export default function Sell() {
                             get(ref(db, `users/${user}/watts`)).then((snapshot3) => {
                                 set(ref(db, `users/${user}/watts`), snapshot3.val() + price);
         
-                                setResult("You sold " + param.elem);
+                                setResult(
+                                    <div class="bg-green-100 border-t border-b border-green-500 text-green-700 px-4 py-3 w-64" role="alert">
+                                        <p class="font-bold">✅ Success ✅</p>
+                                        <p class="text-sm">You have sold 1 {param.elem}.</p>
+                                    </div>
+                                );
                             }).catch((error) => {
-                                setResult(error.toString());
+                                setResult(
+                                    <div class="bg-red-100 border-t border-b border-red-500 text-red-700 px-4 py-3 w-64" role="alert">
+                                        <p class="font-bold">🛑 Error 🛑</p>
+                                        <p class="text-sm">{error.toString()}</p>
+                                    </div>
+                                );;
                             });
                         } else {
-                            setResult("You don't have any " + param.elem + "!");
+                            setResult(
+                                <div class="bg-yellow-100 border-t border-b border-yellow-500 text-yellow-700 px-4 py-3 w-64" role="alert">
+                                    <p class="font-bold">⚠️ Warning ⚠️</p>
+                                    <p class="text-sm">You do not have any {param.elem}!</p>
+                                </div>
+                            );
                         }
                     }).catch((error) => {
-                        setResult(error.toString());
+                        setResult(
+                            <div class="bg-red-100 border-t border-b border-red-500 text-red-700 px-4 py-3 w-64" role="alert">
+                                <p class="font-bold">🛑 Error 🛑</p>
+                                <p class="text-sm">{error.toString()}</p>
+                            </div>
+                        );
                     });
                 }
             };
@@ -45,7 +65,7 @@ export default function Sell() {
                 setOutput(
                     <div>
                         <center>
-                            <p class="text-2xl">Sell</p>
+                            <p class="text-2xl">Sell</p><br />
                         </center>
 
                         <center>You wanna sell one {param.elem}?</center>

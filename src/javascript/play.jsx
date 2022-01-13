@@ -51,15 +51,24 @@ export default function Play() {
         get(ref(db, `users/${user}/inventory`)).then((snapshotw) => {
           if (snapshotw.val()[first] <= 0 || snapshotw.val()[first] === undefined) {
             setResult(
-              <>
-                The element <Link to={'/info/' + first}>{first}</Link> is not in your inventory! You can buy more <Link to={'/buy/' + first}>here</Link>.
-              </>
+              <div class="bg-yellow-100 border-t border-b border-yellow-500 text-yellow-700 px-4 py-3 w-64" role="alert">
+                <p class="font-bold">⚠️ Warning ⚠️</p>
+                <p class="text-sm">The element <Link to={'/info/' + first}>{first}</Link> is not in your inventory! You can buy more <Link to={'/buy/' + first}>here</Link>.</p>
+              </div>
             );
           } else if (snapshotw.val()[second] <= 0 || snapshotw.val()[second] === undefined) {
             setResult(
-              <>
-                The element <Link to={'/info/' + first}>{second}</Link> is not in your inventory! You can buy more <Link to={'/buy/' + second}>here</Link>.
-              </>
+              <div class="bg-yellow-100 border-t border-b border-yellow-500 text-yellow-700 px-4 py-3 w-64" role="alert">
+                <p class="font-bold">⚠️ Warning ⚠️</p>
+                <p class="text-sm">The element <Link to={'/info/' + second}>{second}</Link> is not in your inventory! You can buy more <Link to={'/buy/' + second}>here</Link>.</p>
+              </div>
+            );
+          } else if (first === second && snapshotw.val()[first] < 2) { 
+            setResult(
+              <div class="bg-yellow-100 border-t border-b border-yellow-500 text-yellow-700 px-4 py-3 w-64" role="alert">
+                <p class="font-bold">⚠️ Warning ⚠️</p>
+                <p class="text-sm">The element <Link to={'/info/' + second}>{second}</Link> is not in your inventory! You can buy more <Link to={'/buy/' + second}>here</Link>.</p>
+              </div>
             );
           } else {
             var reaction = ""
@@ -77,20 +86,32 @@ export default function Play() {
 
                 set(ref(db, `users/${user}/watts`), snapshotx.val()["watts"] + watts);
 
-                setResult(<>
-                  You got one You got one <Link to={'/info/' + reaction}>{reaction}</Link>!<br />
-                  <span style={{ color: "#ffcc00" }}>⚡️ You got {watts} watts!</span>
-                </>)
+                setResult(
+                  <div class="bg-green-100 border-t border-b border-green-500 text-green-700 px-4 py-3 w-64" role="alert">
+                    <p class="font-bold">✅ Success ✅</p>
+                    <p class="text-sm">You have created {reaction}, which gives you {watts} watts!</p>
+                  </div>
+                )
               })
             }).catch((error) => {
-              setResult("Error: " + error.toString());
+              setResult(
+                <div class="bg-red-100 border-t border-b border-red-500 text-red-700 px-4 py-3 w-64" role="alert">
+                  <p class="font-bold">🛑 Error 🛑</p>
+                  <p class="text-sm">{error.toString()}</p>
+                </div>
+              );
             });
 
             get(ref(db, `users/${user}/inventory/`)).then((snapshot3) => {
               set(ref(db, `users/${user}/inventory/${first}`), snapshot3.val()[first] - 1);
               set(ref(db, `users/${user}/inventory/${second}`), snapshot3.val()[second] - 2);
             }).catch((error) => {
-              setResult("Error: " + error.toString());
+              setResult(
+                <div class="bg-red-100 border-t border-b border-red-500 text-red-700 px-4 py-3 w-64" role="alert">
+                  <p class="font-bold">🛑 Error 🛑</p>
+                  <p class="text-sm">{error.toString()}</p>
+                </div>
+              );
             });
 
             get(ref(db, `users/${user}/inventory/${reaction}`)).then((snapshot4) => {
@@ -100,7 +121,12 @@ export default function Play() {
                 set(ref(db, `users/${user}/inventory/${reaction}`), snapshot4.val() + 1);
               }
             }).catch((error) => {
-              setResult("Error: " + error.toString());
+              setResult(
+                <div class="bg-red-100 border-t border-b border-red-500 text-red-700 px-4 py-3 w-64" role="alert">
+                  <p class="font-bold">🛑 Error 🛑</p>
+                  <p class="text-sm">{error.toString()}</p>
+                </div>
+              );
             });
           }
         }).catch((error) => {
