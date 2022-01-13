@@ -170,15 +170,15 @@ export default function Suggestion() {
             if ([0, 1].includes(snapshot.val()[params.suggestion].votes)) {
                 status = (
                     <div>
-                        <center><h2>You want to vote?</h2></center>
-                        <center><button onClick={onSubmit}>Vote</button></center>
+                        <center><p class="text-xl">You want to vote?</p></center>
+                        <center><button onClick={onSubmit} class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Vote</button></center>
                     </div>
                 )
             } else {
                 status = (
                     <div>
                         <center>
-                            <h2 style={{color: "#ff3a30"}}>Vote has ended.</h2>
+                            <p class="text-xl" style={{color: "#ff3a30"}}>Vote has ended.</p>
                         </center>
                     </div>
                 )
@@ -187,7 +187,7 @@ export default function Suggestion() {
                 [
                     (<div>
                         <center>
-                            <h2>Suggestion: {params.suggestion}</h2>
+                            <p class="text-xl">Suggestion: {params.suggestion}</p>
                         </center>
 
                         <p style={{color: "#6ac4dc"}}>🗳 Votes: {snapshot.val()[params.suggestion].votes}</p>

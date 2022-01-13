@@ -69,15 +69,15 @@ export default function Suggest() {
           <p class="text-2xl">Suggest</p>
         </center>
         <center>
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form onSubmit={handleSubmit(onSubmit)} class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
             <center>
-              <input {...register("e1")} placeholder="Element 1" />
+              <input {...register("e1")} placeholder="Element 1" class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
               <p style={{fontSize:25, fontWeight:"bold"}}>+</p>
-              <input {...register("e2")} placeholder="Element 2" />
+              <input {...register("e2")} placeholder="Element 2" class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
               <p style={{fontSize:25, fontWeight:"bold"}}>=</p>
-              <input {...register("reaction")} placeholder="Reaction" />
+              <input {...register("reaction")} placeholder="Reaction" class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" /><br /><br />
+              <input type="submit" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" /><br /><br />
               <p>{result}</p>
-              <input type="submit" />
             </center>
           </form>
         </center>
@@ -85,7 +85,7 @@ export default function Suggest() {
     );
   } else {
     return (
-      <Error code="401" />
+      <Error status="401" />
     );
   }
 }

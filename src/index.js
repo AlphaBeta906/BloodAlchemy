@@ -53,7 +53,7 @@ function App() {
 
   return (
     <UserContext.Provider value={{user, setUser}}>
-      <>        
+      <div class="bg-white-900">        
         <Router>
             <Empty />
             
@@ -119,7 +119,7 @@ function App() {
               <br/>
             </footer>
         </Router>
-      </>
+      </div>
     </UserContext.Provider>
   );
 }

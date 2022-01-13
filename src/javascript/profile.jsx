@@ -37,7 +37,7 @@ export default function Profile() {
                             <center>
                                 <p class="text-2xl">User {params.user.replace(/%20/g, " ")} not found</p>
 
-                                <h2>Did you mean <Link to={"/profile/" + think}>{think}</Link>?</h2>
+                                <p class="text-xl">Did you mean <Link to={"/profile/" + think}>{think}</Link>?</p>
                             </center>
                         </div>
                     )
@@ -52,7 +52,7 @@ export default function Profile() {
             setResult(
                 <div>
                     <center><p class="text-2xl">Profile</p></center>
-                    <h2>User: {true_user}</h2> <small><Link to={'/inventory/' + true_user}>(Check their inventory)</Link></small>
+                    <p class="text-xl">User: {true_user}</p> <small><Link to={'/inventory/' + true_user}>(Check their inventory)</Link></small>
                     <p style={{color: "#55bff0"}}>🛠 Class: {snapshot1.val()[true_user].class}</p>
                     <p style={{color: "#ffcc00"}}>⚡️ Watts: {snapshot1.val()[true_user].watts}</p>
                     <p style={{color: "#ff3a30"}}>💡 Percentage of Elements Found: {percentage}%</p>

@@ -68,12 +68,13 @@ export default function Search() {
     if (user !== "") {
         return (
             <div>
-                <center><p class="text-2xl">Search</p></center>
+                <center>
+                    <p class="text-2xl">Search</p>
 
-                <p>There is a 1 in 5 chance of this suceeding. There is a cooldown of 20 seconds and a 50 watt tax. Are you sure you want to do it?</p>
-                <center><button onClick={onSubmit}>Yes</button></center>
-
-                <center><p>{result}</p></center>
+                    <p>There is a 1 in 5 chance of this suceeding. There is a cooldown of 20 seconds and a 50 watt tax. Are you sure you want to do it?</p><br />
+                    <center><button class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" onClick={onSubmit}>Yes</button></center><br />
+                    <p>{result}</p>
+                </center>
             </div>
         )
     } else {

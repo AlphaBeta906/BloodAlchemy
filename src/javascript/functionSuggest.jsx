@@ -57,17 +57,17 @@ export default function FunctionSuggest() {
         <div>
             <center>
                 <p class="text-2xl">Suggest: Mode Function</p>
-                <form onSubmit={handleSubmit(onSubmit)}>
+                <form onSubmit={handleSubmit(onSubmit)} class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
                     <p style={{textAlign: "center"}}>Mode:</p>
-                    <select {...register("mode")}>
+                    <select {...register("mode")} class="block appearance-none bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                         <option value="Refine">Refine</option>
                         <option value="Ferment">Ferment</option>
                     </select><br />
-                    <input {...register("elem")} placeholder="Element" /><br />
+                    <input {...register("elem")} placeholder="Element" class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" /><br />
                     <p style={{fontSize:25, fontWeight:"bold"}}>=</p>
-                    <input {...register("reaction")} placeholder="Reaction" />
+                    <input {...register("reaction")} placeholder="Reaction" class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+                    <input type="submit" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" /><br/><br/>
                     <p>{result}</p>
-                    <input type="submit" />
                 </form>
             </center>
         </div>

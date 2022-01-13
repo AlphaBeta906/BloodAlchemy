@@ -120,10 +120,10 @@ export default function Mine() {
         <div>
             <center>
               <p class="text-2xl">Mine</p>
-              <form onSubmit={handleSubmit(onSubmit)}>
-                <p>Mines: {mines} | Need more mines? <Link to="/attack/">Go</Link> <Link to="/search/">here</Link>!</p>
-                <input {...register("mine")} placeholder="Mine" /><br />
-                <input type="submit" />
+              <form onSubmit={handleSubmit(onSubmit)} class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                <p>Mines: {mines} | Need more mines? <Link to="/attack/">Go</Link> <Link to="/search/">here</Link>!</p><br />
+                <input {...register("mine")} placeholder="Mine" class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" /><br /><br/>
+                <input type="submit" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" /><br /><br />
                 <p>{result}</p>
               </form>
             </center>

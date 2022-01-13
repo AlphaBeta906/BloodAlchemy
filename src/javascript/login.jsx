@@ -38,12 +38,12 @@ export default function Login() {
             <p class="text-2xl">Login</p>
           </center>
           <center>
-              <form onSubmit={handleSubmit(onSubmit)}>
+              <form onSubmit={handleSubmit(onSubmit)} class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
                   <center>
-                    <input {...register("username")} placeholder="Username" /><br />
-                    <input {...register("password")} placeholder="Password" type="password" />
+                    <input {...register("username")} placeholder="Username" class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" /><br />
+                    <input {...register("password")} placeholder="Password" type="password" class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" /><br/><br />
+                    <input type="submit" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" /><br /><br />
                     <p>{result}</p>
-                    <input type="submit" />
                   </center>
               </form>
           </center>

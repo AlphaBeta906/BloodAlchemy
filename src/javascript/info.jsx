@@ -34,7 +34,7 @@ export default function Info() {
                         <center>
                             <p class="text-2xl">Element {params.element.replace(/%20/g, " ")} not found</p>
 
-                            <h2>Did you mean <Link to={"/info/" + think}>{think}</Link>?</h2>
+                            <p class="text-xl">Did you mean <Link to={"/info/" + think}>{think}</Link>?</p>
                         </center>
                     </div>
                 )
@@ -76,14 +76,14 @@ export default function Info() {
                 setResult(
                     <div>
                         <center><p class="text-2xl">Info</p></center>
-                        <h2 style={{color: `#${snapshot1.val()[true_elem].color}`}}>Element: {true_elem}</h2>
+                        <p class="text-xl" style={{color: `#${snapshot1.val()[true_elem].color}`}}>Element: {true_elem}</p>
                         <p style={{color: "#ff3a30"}}>📆 Date of Creation: {snapshot1.val()[true_elem].date}</p>
                         <p style={{color: "#28CD41"}}>🟩 Generation: {snapshot1.val()[true_elem].generation}</p>
                         <p style={{color: "#FF9500"}}>🟧 Complexity: {snapshot1.val()[true_elem].complexity}</p>
                         <p style={{color: "#ffcc00"}}>⚡️ Price: {price} watts</p>
                         <p style={{color: "#8E8E93"}}>😀 Creator: <Link to={'/profile/' + snapshot1.val()[true_elem].creator}>{snapshot1.val()[true_elem].creator}</Link></p>
 
-                        <center><h2>🤔 Description</h2></center>
+                        <center><p class="text-xl">🤔 Description</p></center>
                         <p>{desc}</p>
                         <small>{editor}</small><br /><br />
 

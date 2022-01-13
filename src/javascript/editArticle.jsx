@@ -53,7 +53,7 @@ export default function EditArticle() {
                 <center>
                     <p class="text-2xl">Edit Article: {params.elem}</p>
 
-                    <form onSubmit={handleSubmit(onSubmit)}>
+                    <form onSubmit={handleSubmit(onSubmit)} class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
                         <textarea {...register("text")} name="text" rows="10" cols="50" placeholder="Enter text here..." /><br />
 
                         <input type="submit" value="Submit" />

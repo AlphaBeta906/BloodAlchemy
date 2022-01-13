@@ -78,10 +78,9 @@ export default function Attack() {
                 <center>
                     <p class="text-2xl">Attack</p>
 
-                    <form onSubmit={handleSubmit(onSubmit)}>
-                        <input {...register("mine")} placeholder='Mine' />
-
-                        <input type="submit" />
+                    <form onSubmit={handleSubmit(onSubmit)} class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                        <input {...register("mine")} placeholder='Mine' class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" /><br /><br />
+                        <input type="submit" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" />
                         <p>{result}</p>
                     </form>
                 </center>

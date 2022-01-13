@@ -31,7 +31,7 @@ export default function Inventory() {
                         <center>
                             <p class="text-2xl">User {params.user} not found</p>
 
-                            <h2>Did you mean <Link to={"/inventory/" + think}>{think}</Link>?</h2>
+                            <p class="text-xl">Did you mean <Link to={"/inventory/" + think}>{think}</Link>?</p>
                         </center>
                     </div>
                 )
@@ -46,8 +46,8 @@ export default function Inventory() {
                     <center>
                     <p class="text-2xl">Inventory</p>
                     </center>
-                    <h2>User: {true_user}</h2>
-                    <h2 style={{color: '#5856D6'}}>🗂 Inventory:</h2>
+                    <p class="text-xl">User: {true_user}</p>
+                    <p class="text-xl" style={{color: '#5856D6'}}>🗂 Inventory:</p><br />
                 </div>
             )]
 

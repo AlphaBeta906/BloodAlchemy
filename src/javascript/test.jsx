@@ -13,7 +13,7 @@ export default function Test() {
 
     return (
         <div>
-            <button onClick={handleClick}>HEY</button>
+            <button class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" onClick={handleClick}>HEY</button>
             <p>{result}</p>
         </div>
     );
