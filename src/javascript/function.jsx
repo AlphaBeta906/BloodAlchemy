@@ -19,24 +19,32 @@ export default function Function() {
         var db = getDatabase(app);
 
         if (seconds !== 0) {
-            setResult(`Please wait ${seconds} seconds`);
+            setResult(
+                <div class="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3 w-64" role="alert">
+                    <p class="font-bold">ℹ️ Info ℹ️</p>
+                    <p class="text-sm">Please wait {seconds} seconds.</p>
+                </div>
+            )
         } else if (data.e1 === "" || data.e2 === "") {
             setResult("Please fill in both elements!");
         } else {
             get(ref(db, `users/${user}`)).then(snapshot2 => {
                 if (snapshot2.val()["inventory"][data.elem] <= 0) {
                     setResult(
-                        <>
-                            The element <Link to={'/info/' + data.elem}>{data.elem}</Link> is not in your inventory! You can buy more <Link to={'/buy/' + data.elem}>here</Link>.
-                        </>
+                        <div class="bg-yellow-100 border-t border-b border-yellow-500 text-yellow-700 px-4 py-3 w-64" role="alert">
+                            <p class="font-bold">⚠️ Warning ⚠️</p>
+                            <p class="text-sm">The element <Link to={'/info/' + data.elen}>{data.elem}</Link> is not in your inventory! You can buy more <Link to={'/buy/' + data.elem}>here</Link></p>
+                        </div>
                     );
                 } else {
                     get(ref(db, 'reactions/')).then((snapshot) => {
                         if (snapshot.val()[`${data.mode}(${data.elem})`] === undefined) {
-                            setResult(<>
-                                No reaction ( {data.mode}({data.elem}) )<br />
-                                <Link to='/suggestFunct'>Suggest?</Link>
-                            </>);
+                            setResult(
+                                <div class="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3 w-64" role="alert">
+                                    <p class="font-bold">ℹ️ Info ℹ️</p>
+                                    <p class="text-sm">No reaction ( {data.mode}({data.elem}) ) <Link to="/suggestFunct">Suggest?</Link>.</p>
+                                </div>
+                            );
                         } else {
                             setSeconds(5);
 

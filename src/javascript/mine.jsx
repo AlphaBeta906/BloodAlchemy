@@ -20,11 +20,26 @@ export default function Mine() {
     var db = getDatabase(app);
 
     if (seconds !== 0) {
-      setResult(`Please wait ${seconds} seconds`);
+      setResult(
+        <div class="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3 w-64" role="alert">
+          <p class="font-bold">ℹ️ Info ℹ️</p>
+          <p class="text-sm">Please wait {seconds} seconds.</p>
+        </div>
+      );
     } else if (randomInt(2) === 0) {
-      setResult("You didn't find anything...");
+      setResult(
+        <div class="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3 w-64" role="alert">
+          <p class="font-bold">ℹ️ Info ℹ️</p>
+          <p class="text-sm">You didn't find anything...</p>
+        </div>
+      )
     } else if (data.mine === "") {
-      setResult("You didn't enter a mine name");
+      setResult(
+        <div class="bg-yellow-100 border-t border-b border-yellow-500 text-yellow-700 px-4 py-3 w-64" role="alert">
+          <p class="font-bold">⚠️ Warning ⚠️</p>
+          <p class="text-sm">Please.</p>
+        </div>
+      );
     } else {
       get(ref(db, `mines/${data.mine}`)).then((snapshot) => {
         if (snapshot.val() === undefined) {
