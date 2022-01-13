@@ -52,13 +52,48 @@ export default function Profile() {
             setResult(
                 <div>
                     <center><p class="text-2xl">Profile</p></center>
-                    <p class="text-xl">User: {true_user}</p> <small><Link to={'/inventory/' + true_user}>(Check their inventory)</Link></small>
-                    <p style={{color: "#55bff0"}}>🛠 Class: {snapshot1.val()[true_user].class}</p>
-                    <p style={{color: "#ffcc00"}}>⚡️ Watts: {snapshot1.val()[true_user].watts}</p>
-                    <p style={{color: "#ff3a30"}}>💡 Percentage of Elements Found: {percentage}%</p>
+                    <p class="text-xl">User: {true_user}</p> <small><Link to={'/inventory/' + true_user}>(Check their inventory)</Link></small><br /><br />
 
-                    <div class="meter">
-                        <span style={{width: `${percentage}%`}}><span></span></span>
+                    <div class="relative pt-1">
+                        <div class="flex mb-2 items-center justify-between">
+                            <div>
+                            <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blue-600 bg-blue-200">
+                                🛠 Class
+                            </span>
+                            </div>
+                            <div class="text-right">
+                            <span class="text-xs font-semibold inline-block text-blue-600">
+                                {snapshot1.val()[true_user].class}
+                            </span>
+                            </div>
+                        </div>
+                        <div class="flex mb-2 items-center justify-between">
+                            <div>
+                            <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-yellow-600 bg-yellow-200">
+                                ⚡️ Watts
+                            </span>
+                            </div>
+                            <div class="text-right">
+                            <span class="text-xs font-semibold inline-block text-yellow-600">
+                                {snapshot1.val()[true_user].watts}
+                            </span>
+                            </div>
+                        </div>
+                        <div class="flex mb-2 items-center justify-between">
+                            <div>
+                            <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-red-600 bg-red-200">
+                                💡 Percentage of Elements
+                            </span>
+                            </div>
+                            <div class="text-right">
+                            <span class="text-xs font-semibold inline-block text-red-600">
+                                {percentage}%
+                            </span>
+                            </div>
+                        </div>
+                        <div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-red-200">
+                            <div style={{width: `${percentage}%`}} class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-red-500"></div>
+                        </div>
                     </div>
                 </div>
             );

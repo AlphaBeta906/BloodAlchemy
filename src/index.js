@@ -113,9 +113,9 @@ function App() {
               <small><center><Link to="/bugs">Report a Bug</Link></center></small><br />
               <Tips />
               <br/>
-              <div class="flex-grow border-4 border-red-400 rounded-md"></div>
+              <div class="flex-grow border-8 border-red-400 rounded-md shadow-md"></div>
               <center>&copy; AlphaBeta906, AlphaBeta906 LLC (nonexisting thing joke), 2021</center>
-              <div class="flex-grow border-4 border-red-400 rounded-md"></div>
+              <div class="flex-grow border-8 border-red-400 rounded-md shadow-md"></div>
               <br/>
             </footer>
         </Router>

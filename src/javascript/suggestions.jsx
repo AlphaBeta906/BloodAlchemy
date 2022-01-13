@@ -51,7 +51,7 @@ export default function Suggestions() {
                 <div>
                     <br /><br />
                     <center style={{fontSize: 50}}>
-                        <p class="text-xl">No suggestions yet!</p>
+                        <p>No suggestions yet!</p>
                     </center>
                 </div>
             );

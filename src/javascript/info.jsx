@@ -76,18 +76,95 @@ export default function Info() {
                 setResult(
                     <div>
                         <center><p class="text-2xl">Info</p></center>
-                        <p class="text-xl" style={{color: `#${snapshot1.val()[true_elem].color}`}}>Element: {true_elem}</p>
-                        <p style={{color: "#ff3a30"}}>📆 Date of Creation: {snapshot1.val()[true_elem].date}</p>
-                        <p style={{color: "#28CD41"}}>🟩 Generation: {snapshot1.val()[true_elem].generation}</p>
-                        <p style={{color: "#FF9500"}}>🟧 Complexity: {snapshot1.val()[true_elem].complexity}</p>
-                        <p style={{color: "#ffcc00"}}>⚡️ Price: {price} watts</p>
-                        <p style={{color: "#8E8E93"}}>😀 Creator: <Link to={'/profile/' + snapshot1.val()[true_elem].creator}>{snapshot1.val()[true_elem].creator}</Link></p>
-
-                        <center><p class="text-xl">🤔 Description</p></center>
-                        <p>{desc}</p>
-                        <small>{editor}</small><br /><br />
-
-                        <p>{result1}</p>
+                        <p class="text-xl" style={{color: `#${snapshot1.val()[true_elem].color}`}}>Element: {true_elem}</p><br />
+                        <div class="relative pt-1">
+                            <div class="flex mb-2 items-center justify-between">
+                                <div>
+                                    <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-red-600 bg-red-200">
+                                        📅 Date of Creation
+                                    </span>
+                                </div>
+                                <div class="text-right">
+                                    <span class="text-xs font-semibold inline-block text-red-600">
+                                        {snapshot1.val()[true_elem].date}
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="flex mb-2 items-center justify-between">
+                                <div>
+                                    <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-green-600 bg-green-200">
+                                        🟩 Generation
+                                    </span>
+                                </div>
+                                <div class="text-right">
+                                    <span class="text-xs font-semibold inline-block text-green-600">
+                                        {snapshot1.val()[true_elem].generation}
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="flex mb-2 items-center justify-between">
+                                <div>
+                                    <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-orange-600 bg-orange-200">
+                                        🟧 Complexity
+                                    </span>
+                                </div>
+                                <div class="text-right">
+                                    <span class="text-xs font-semibold inline-block text-orange-600">
+                                        {snapshot1.val()[true_elem].complexity}
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="flex mb-2 items-center justify-between">
+                                <div>
+                                    <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-yellow-600 bg-yellow-200">
+                                        ⚡️ Price
+                                    </span>
+                                </div>
+                                <div class="text-right">
+                                    <span class="text-xs font-semibold inline-block text-yellow-600">
+                                        {price}
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="flex mb-2 items-center justify-between">
+                                <div>
+                                    <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-gray-600 bg-gray-200">
+                                        😀 Creator
+                                    </span>
+                                </div>
+                                <div class="text-right">
+                                    <span class="text-xs font-semibold inline-block text-gray-600">
+                                        <Link to={'/profile/' + snapshot1.val()[true_elem].creator}>{snapshot1.val()[true_elem].creator}</Link>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="flex mb-2 items-center justify-between">
+                                <div>
+                                    <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blue-600 bg-blue-200">
+                                        📖 Description
+                                    </span>
+                                </div>
+                                <div class="text-right">
+                                    <span class="text-xs font-semibold inline-block text-blue-600">
+                                        {desc}{editor}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="relative pt-1">
+                            <div class="flex mb-2 items-center justify-between">
+                                <div>
+                                    <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-gray-600 bg-gray-200">
+                                        🗝 Status
+                                    </span>
+                                </div>
+                                <div class="text-right">
+                                    <span class="text-xs font-semibold inline-block text-gray-600">
+                                        {result1}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 );
             }).catch((error) => {
