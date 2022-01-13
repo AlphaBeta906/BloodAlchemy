@@ -41,7 +41,12 @@ export default function Buy() {
                                 )
                             });
                         } else {
-                            setResult("Insufficient funds!");
+                            setResult(
+                                <div class="bg-yellow-100 border-t border-b border-yellow-500 text-yellow-700 px-4 py-3 w-64" role="alert">
+                                    <p class="font-bold">⚠️ Warning ⚠️</p>
+                                    <p class="text-sm">Insufficient funds!</p>
+                                </div>
+                            );
                         }
                     }).catch((error) => {
                         setResult(

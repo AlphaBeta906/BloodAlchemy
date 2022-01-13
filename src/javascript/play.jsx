@@ -19,7 +19,12 @@ export default function Play() {
     var db = getDatabase(app);
 
     if (seconds !== 0) {
-      setResult(`Please wait ${seconds} seconds`);
+      setResult(
+        <div class="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3 w-64" role="alert">
+          <p class="font-bold">ℹ️ Info ℹ️</p>
+          <p class="text-sm">Please wait {seconds} seconds.</p>
+        </div>
+      )
       return;
     }
 
@@ -38,10 +43,10 @@ export default function Play() {
 
       if (reactions[first + "+" + second] === undefined && reactions[second + "+" + first] === undefined) {
         setResult(
-          <>
-            No reaction ( {first} + {second} )<br />
-            <Link to="/suggest">Suggest?</Link>
-          </>
+          <div class="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3 w-64" role="alert">
+            <p class="font-bold">ℹ️ Info ℹ️</p>
+            <p class="text-sm">No reaction ( {first} + {second} ) <Link to="/suggest">Suggest?</Link>.</p>
+          </div>
         );
       } else {
         // MY WATER IS ALL GONE THANKS TO CODE THAT WAS USEFUL BEFORE BUT NOW ITS NOT GAH I NEED TO WORK NOW

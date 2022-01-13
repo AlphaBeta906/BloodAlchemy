@@ -27,7 +27,12 @@ export default function Suggestion() {
 
     const onSubmit = () => {
         if (seconds !== 0) {
-            setResult(`Please wait ${seconds} seconds`);
+            setResult(
+                <div class="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3 w-64" role="alert">
+                    <p class="font-bold">ℹ️ Info ℹ️</p>
+                    <p class="text-sm">Please wait {seconds} seconds.</p>
+                </div>
+            );
             return;
         }
 
@@ -129,7 +134,12 @@ export default function Suggestion() {
                                     );
                                 });
                             } else {
-                                setResult("Added to database!");
+                                setResult(
+                                    <div class="bg-green-100 border-t border-b border-green-500 text-green-700 px-4 py-3 w-64" role="alert">
+                                        <p class="font-bold">✅ Success ✅</p>
+                                        <p class="text-sm">Added to database!</p>
+                                    </div>
+                                );
                             }
 
                             get(ref(db, `users/${user}/inventory/${reaction}`)).then((snapshot) => {
@@ -142,10 +152,20 @@ export default function Suggestion() {
                         });
                     }
                 } else {
-                    setResult("Voted!");
+                    setResult(
+                        <div class="bg-green-100 border-t border-b border-green-500 text-green-700 px-4 py-3 w-64" role="alert">
+                            <p class="font-bold">✅ Success ✅</p>
+                            <p class="text-sm">Voted!</p>
+                        </div>
+                    )
                 }
             } else {
-                setResult("This reaction has not been suggested yet.");
+                setResult(
+                    <div class="bg-red-100 border-t border-b border-red-500 text-red-700 px-4 py-3 w-64" role="alert">
+                        <p class="font-bold">🛑 Error 🛑</p>
+                        <p class="text-sm">This reaction is not suggested... yet?</p>
+                    </div>
+                );
             }
         }).catch((error) => {
             setResult(

@@ -18,15 +18,35 @@ export default function Signin() {
     var db = getDatabase(app);
 
     if (data.username === "" || data.password === "" || data.confirm === "") {
-      setResult("Please fill in all fields");
+      setResult(
+        <div class="bg-yellow-100 border-t border-b border-yellow-500 text-yellow-700 px-4 py-3 w-64" role="alert">
+          <p class="font-bold">⚠️ Warning ⚠️</p>
+          <p class="text-sm">Please fill in all fields!</p>
+        </div>
+      );
     } else if (data.username === "null" || data.username === "undefined") {
-      setResult("The username for security reasons cannot be named 'null' or 'undefined'");
+      setResult(
+        <div class="bg-yellow-100 border-t border-b border-yellow-500 text-yellow-700 px-4 py-3 w-64" role="alert">
+          <p class="font-bold">⚠️ Warning ⚠️</p>
+          <p class="text-sm">For technical reasons, you can't name your account 'null' or 'undefined'.</p>
+        </div>
+      );
     } else if (data.password !== data.confirm) {
-      setResult("Passwords do not match!");
+      setResult(
+        <div class="bg-yellow-100 border-t border-b border-yellow-500 text-yellow-700 px-4 py-3 w-64" role="alert">
+          <p class="font-bold">⚠️ Warning ⚠️</p>
+          <p class="text-sm">Passwords do not match!</p>
+        </div>
+      );
     } else {
       get(ref(db, 'users/')).then(snapshot => {
         if (snapshot.val()[data.username] !== undefined) {
-          setResult("Username already exists!");
+          setResult(
+            <div class="bg-yellow-100 border-t border-b border-yellow-500 text-yellow-700 px-4 py-3 w-64" role="alert">
+              <p class="font-bold">⚠️ Warning ⚠️</p>
+              <p class="text-sm">Username is used.</p>
+            </div>
+          );
         } else {
           if (user === "") {
             setUser(data.username);
@@ -64,7 +84,12 @@ export default function Signin() {
               );
             })
           } else {
-            setResult("You are already logged in!");
+            setResult(
+              <div class="bg-red-100 border-t border-b border-red-500 text-red-700 px-4 py-3 w-64" role="alert">
+                <p class="font-bold">🛑 Error 🛑</p>
+                <p class="text-sm">You are logged in already!</p>
+              </div>
+            );
           }
         }
       }).catch(error => {

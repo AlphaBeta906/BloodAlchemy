@@ -16,7 +16,12 @@ export default function Upgrade() {
         const db = getDatabase(app);
 
         if (seconds !== 0) {
-            setResult(`Please wait ${seconds} seconds`);
+            setResult(
+                <div class="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3 w-64" role="alert">
+                    <p class="font-bold">ℹ️ Info ℹ️</p>
+                    <p class="text-sm">Please wait {seconds} seconds.</p>
+                </div>
+            );
         } else {
             setSeconds(20);
 
@@ -27,9 +32,19 @@ export default function Upgrade() {
                     set(ref(db, "/users/" + user + "/level"), level + 1);
                     set(ref(db, "/users/" + user + "/watts"), snapshot.val()[user]["watts"] - cost);
 
-                    setResult("Upgrade successful!");
+                    setResult(
+                        <div class="bg-green-100 border-t border-b border-green-500 text-green-700 px-4 py-3 w-64" role="alert">
+                            <p class="font-bold">✅ Success ✅</p>
+                            <p class="text-sm">Ugrade sucessful!</p>
+                        </div>
+                    );
                 } else {
-                    setResult("Not enough watts!");
+                    setResult(
+                        <div class="bg-yellow-100 border-t border-b border-yellow-500 text-yellow-700 px-4 py-3 w-64" role="alert">
+                            <p class="font-bold">⚠️ Warning ⚠️</p>
+                            <p class="text-sm">Insufficent funds.</p>
+                        </div>
+                    );
                 }
             }).catch((error) => {
                 setResult(

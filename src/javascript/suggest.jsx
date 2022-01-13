@@ -17,7 +17,12 @@ export default function Suggest() {
     var db = getDatabase(app);
 
     if (seconds !== 0) {
-      setResult(`Please wait ${seconds} seconds`);
+      setResult(
+        <div class="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3 w-64" role="alert">
+          <p class="font-bold">ℹ️ Info ℹ️</p>
+          <p class="text-sm">Please wait {seconds} seconds.</p>
+        </div>
+      );
       return;
     }
 
@@ -37,13 +42,33 @@ export default function Suggest() {
       });
 
       if (data.reaction === "") {
-        setResult("It is... empty?");
+        setResult(
+          <div class="bg-yellow-100 border-t border-b border-yellow-500 text-yellow-700 px-4 py-3 w-64" role="alert">
+            <p class="font-bold">⚠️ Warning ⚠️</p>
+            <p class="text-sm">You didn't enter the reaction.</p>
+          </div>
+        )
       } else if (data.e1 === "" && data.e2 === "") {
-        setResult("Please fill in both elements!");
+        setResult(
+          <div class="bg-yellow-100 border-t border-b border-yellow-500 text-yellow-700 px-4 py-3 w-64" role="alert">
+            <p class="font-bold">⚠️ Warning ⚠️</p>
+            <p class="text-sm">Please fill in both elements!</p>
+          </div>
+        );
       } else if (!(elements.includes(data.e1)) || !(elements.includes(data.e2))) {
-        setResult("Please fill in a valid element!");
+        setResult(
+          <div class="bg-yellow-100 border-t border-b border-yellow-500 text-yellow-700 px-4 py-3 w-64" role="alert">
+            <p class="font-bold">⚠️ Warning ⚠️</p>
+            <p class="text-sm">One or both elements are invalid!</p>
+          </div>
+        );
       } else if (reactions[data.e1 + "+" + data.e2] !== undefined || reactions[data.e2 + "+" + data.e1] !== undefined) {
-        setResult("Reaction exists!");
+        setResult(
+          <div class="bg-yellow-100 border-t border-b border-yellow-500 text-yellow-700 px-4 py-3 w-64" role="alert">
+            <p class="font-bold">⚠️ Warning ⚠️</p>
+            <p class="text-sm">Reaction exists!</p>
+          </div>
+        );
       } else {
         set(ref(db, 'suggestions/' + data.e1 + "+" + data.e2 + "=" + data.reaction), { 
           votes: 0,

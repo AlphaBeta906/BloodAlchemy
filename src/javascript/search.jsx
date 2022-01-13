@@ -16,7 +16,12 @@ export default function Search() {
         var db = getDatabase(app);
 
         if (seconds !== 0) {
-            setResult(`Please wait ${seconds} seconds`);
+            setResult(
+                <div class="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3 w-64" role="alert">
+                    <p class="font-bold">ℹ️ Info ℹ️</p>
+                    <p class="text-sm">Please wait {seconds} seconds.</p>
+                </div>
+            );
         } else {
             get(ref(db, 'users/' + user)).then((snapshot) => {
                 if (snapshot.val().class === "slave") {

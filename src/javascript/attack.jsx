@@ -54,17 +54,42 @@ export default function Attack() {
                         if (snapshot2.val()[user]["inventory"]["class"] === "slave") {
                             set(ref(db, 'users/' + user + '/inventory/class'), "master");
 
-                            setResult("You are now a master!");
+                            setResult(
+                                <div class="bg-green-100 border-t border-b border-green-500 text-green-700 px-4 py-3 w-64" role="alert">
+                                    <p class="font-bold">✅ Success ✅</p>
+                                    <p class="text-sm">You are now a master.</p>
+                                </div>
+                            )
                         } else {
-                            setResult("You won!");
+                            setResult(
+                                <div class="bg-green-100 border-t border-b border-green-500 text-green-700 px-4 py-3 w-64" role="alert">
+                                    <p class="font-bold">✅ Success ✅</p>
+                                    <p class="text-sm">You won!</p>
+                                </div>
+                            )
                         }
                     } else if (owner_power > your_power) {
-                        setResult("You lost!");
+                        setResult(
+                            <div class="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3 w-64" role="alert">
+                                <p class="font-bold">ℹ️ Info ℹ️</p>
+                                <p class="text-sm">You lost.</p>
+                            </div>
+                        )
                     } else {
-                        setResult("Draw!");
+                        setResult(
+                            <div class="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3 w-64" role="alert">
+                                <p class="font-bold">ℹ️ Info ℹ️</p>
+                                <p class="text-sm">Draw!</p>
+                            </div>
+                        )
                     }
                 }).catch((error) => {
-                    setResult("Error" + error.toString());
+                    setResult(
+                        <div class="bg-red-100 border-t border-b border-red-500 text-red-700 px-4 py-3 w-64" role="alert">
+                            <p class="font-bold">🛑 Error 🛑</p>
+                            <p class="text-sm">{error.toString()}</p>
+                        </div>
+                    );
                 });
             }
         }).catch((error) => {

@@ -16,17 +16,37 @@ export default function FunctionSuggest() {
         var db = getDatabase(app);
 
         if (seconds !== 0) {
-            setResult(`Please wait ${seconds} seconds`);
+            setResult(
+                <div class="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3 w-64" role="alert">
+                    <p class="font-bold">ℹ️ Info ℹ️</p>
+                    <p class="text-sm">Please wait {seconds} seconds.</p>
+                </div>
+            );
         } else if (data.mode === "" || data.elem === "" || data.reaction === "") {
-            setResult("Please fill in all fields!");
+            setResult(
+                <div class="bg-yellow-100 border-t border-b border-yellow-500 text-yellow-700 px-4 py-3 w-64" role="alert">
+                    <p class="font-bold">⚠️ Warning ⚠️</p>
+                    <p class="text-sm">Please fill all forms.</p>
+                </div>
+            );
         } else {
             get(ref(db, `reactions`)).then(snapshot1 => {
                 if (snapshot1[`${data.mode}(${data.elem})`] !== undefined) {
-                    setResult("This reaction already exists!");
+                    setResult(
+                        <div class="bg-yellow-100 border-t border-b border-yellow-500 text-yellow-700 px-4 py-3 w-64" role="alert">
+                            <p class="font-bold">⚠️ Warning ⚠️</p>
+                            <p class="text-sm">This reaction already exists.</p>
+                        </div>
+                    );
                 } else {
                     get(ref(db, `elements`)).then(snapshot => {
                         if (snapshot.val()[data.elem] === undefined) {
-                            setResult("The element does not exist!");
+                            setResult(
+                                <div class="bg-yellow-100 border-t border-b border-yellow-500 text-yellow-700 px-4 py-3 w-64" role="alert">
+                                    <p class="font-bold">⚠️ Warning ⚠️</p>
+                                    <p class="text-sm">The element doesn't exist.</p>
+                                </div>
+                            );
                         } else {
                             set(ref(db, `suggestions/${data.mode}(${data.elem})=${data.reaction}`), { 
                                 votes: 0,
