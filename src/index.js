@@ -112,9 +112,11 @@ function App() {
               <br /><br /><br />
               <small><center><Link to="/bugs">Report a Bug</Link></center></small><br />
               <Tips />
-              <div class="flex-grow border-4 border-red-400"></div>
+              <br/>
+              <div class="flex-grow border-4 border-red-400 rounded-md"></div>
               <center>&copy; AlphaBeta906, AlphaBeta906 LLC (nonexisting thing joke), 2021</center>
-              <div class="flex-grow border-4 border-red-400"></div>
+              <div class="flex-grow border-4 border-red-400 rounded-md"></div>
+              <br/>
             </footer>
         </Router>
       </>
