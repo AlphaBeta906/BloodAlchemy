@@ -30,6 +30,9 @@ a:hover {
   cursor: pointer;
   border: 2px solid #ff080831;
   background-color: #ff080831;
+
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .logo {
