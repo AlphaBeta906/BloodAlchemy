@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { initializeApp } from 'firebase/app';
 import { getDatabase, ref, get } from "firebase/database";
 import { didYouMean } from "./didYouMean";
+import { gDTRGB } from './colorDistance';
 import UserContext from "./userContext";
 import firebaseConfig from "./firebase";
 
@@ -44,7 +45,9 @@ export default function Info() {
         }
 
         get(ref(db, `users/`)).then((snapshot2) => {
-            var price = snapshot1.val()[true_elem].generation * (snapshot1.val()[true_elem].complexity * 2)
+            var price = snapshot1.val()[true_elem].generation * snapshot1.val()[true_elem].complexity + gDTRGB(snapshot1.val()[true_elem].color) * snapshot2.val()[user].level;
+            price = Math.ceil(price);
+
             var result1 = ""
 
             if (user !== "") {
@@ -117,7 +120,7 @@ export default function Info() {
                             <div class="flex mb-2 items-center justify-between">
                                 <div>
                                     <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-yellow-600 bg-yellow-200">
-                                        ⚡️ Price
+                                        ⚡️ Watt Output
                                     </span>
                                 </div>
                                 <div class="text-right">

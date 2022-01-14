@@ -38,7 +38,7 @@ export default function About() {
       These fonts are free-ware, so no, I did not.
       
       <center><p class="text-xl">I am very angered and I would like to speak to you!</p></center> 
-      Hey, I'm sorry for what I have done, but please know that I don't know any legal things. I'm just a kid developer, not a lawyer. If you have any questions, email me <a href="mailto:dragonkingalyx@gmail.com">using this link</a>.
+      Hey, I'm sorry for what I have done, but please know that I don't know any legal things. I'm just a developer, not a lawyer. If you have any questions, email me <a href="mailto:dragonkingalyx@gmail.com">using this link</a>.
     </div>
   );
 }
