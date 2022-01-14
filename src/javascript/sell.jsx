@@ -23,7 +23,7 @@ export default function Sell() {
             const onSubmit = () => {
                 if (user !== "") {
                     get(ref(db, `users/${user}/inventory`)).then((snapshot2) => {
-                        if (snapshot2.val()[param.elem] !== undefined && !(snapshot2.val()[param.elem] <= 0)) {
+                        if (snapshot2.val()[param.elem] !== undefined && snapshot2.val()[param.elem] >= 0) {
                             set(ref(db, `users/${user}/inventory/${param.elem}`), snapshot2.val()[param.elem] - 1);
                             get(ref(db, `users/${user}/watts`)).then((snapshot3) => {
                                 set(ref(db, `users/${user}/watts`), snapshot3.val() + price);
