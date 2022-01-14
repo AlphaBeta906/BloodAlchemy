@@ -25,9 +25,19 @@ export default function Search() {
         } else {
             get(ref(db, 'users/' + user)).then((snapshot) => {
                 if (snapshot.val().class === "slave") {
-                    setResult("You're a slave, you can't search! LOL 😂");
+                    setResult(
+                        <div class="bg-yellow-100 border-t border-b border-yellow-500 text-yellow-700 px-4 py-3 w-64" role="alert">
+                            <p class="font-bold">⚠️ Warning ⚠️</p>
+                            <p class="text-sm">You are a slave.</p>
+                        </div>
+                    );
                 } else if (snapshot.val().watts < 50) {
-                    setResult("You don't have enough watts to search!");
+                    setResult(
+                        <div class="bg-yellow-100 border-t border-b border-yellow-500 text-yellow-700 px-4 py-3 w-64" role="alert">
+                            <p class="font-bold">⚠️ Warning ⚠️</p>
+                            <p class="text-sm">Insufficent funds.</p>
+                        </div>
+                    );
                 } else if (randomInt(4) !== 0) {
                     set(ref(db, 'users/' + user + "/watts"), {
                         watts: snapshot.val().watts - 50
@@ -35,7 +45,12 @@ export default function Search() {
                     setSeconds(20);
 
 
-                    setResult("You didn't find anything... I did'nt said I warned you.");
+                    setResult(
+                        <div class="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3 w-64" role="alert">
+                            <p class="font-bold">ℹ️ Info ℹ️</p>
+                            <p class="text-sm">You didn't find anything.</p>
+                        </div>
+                    );
                 } else {
                     set(ref(db, 'users/' + user + "/watts"), {
                         watts: snapshot.val().watts - 50
@@ -51,7 +66,12 @@ export default function Search() {
 
                         setSeconds(20);
 
-                        setResult("Against all odds, you found a mine!");
+                        setResult(
+                            <div class="bg-green-100 border-t border-b border-green-500 text-green-700 px-4 py-3 w-64" role="alert">
+                                <p class="font-bold">✅ Success ✅</p>
+                                <p class="text-sm">You found a mine!</p>
+                            </div>
+                        );
                     }).catch(error => {
                         setResult(
                             <div class="bg-red-100 border-t border-b border-red-500 text-red-700 px-4 py-3 w-64" role="alert">

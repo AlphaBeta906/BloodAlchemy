@@ -70,8 +70,13 @@ export default function Suggestion() {
                                     });
                                 });
                             }
-                        }).catch((err) => {
-                            setResult(err);
+                        }).catch((error) => {
+                            setResult(
+                                <div class="bg-red-100 border-t border-b border-red-500 text-red-700 px-4 py-3 w-64" role="alert">
+                                    <p class="font-bold">🛑 Error 🛑</p>
+                                    <p class="text-sm">{error.toString()}</p>
+                                </div>
+                            );
                         });
                     } else {
                         get(ref(db, 'elements/')).then((snapshot2) => {
@@ -118,12 +123,18 @@ export default function Suggestion() {
                                         });
 
                                         setResult(
-                                            <>
-                                                Added to database with new element: <Link to={'/info/' + reaction}>{reaction}</Link>
-                                            </>
+                                            <div class="bg-green-100 border-t border-b border-green-500 text-green-700 px-4 py-3 w-64" role="alert">
+                                                <p class="font-bold">✅ Success ✅</p>
+                                                <p class="text-sm">Added to database with new element <Link to={"/info/" + reaction}>{reaction}</Link>!</p>
+                                            </div>
                                         )
-                                    }).catch((err) => {
-                                        setResult(err.toString());
+                                    }).catch((error) => {
+                                        setResult(
+                                            <div class="bg-red-100 border-t border-b border-red-500 text-red-700 px-4 py-3 w-64" role="alert">
+                                                <p class="font-bold">🛑 Error 🛑</p>
+                                                <p class="text-sm">{error.toString()}</p>
+                                            </div>
+                                        );
                                     });
                                 }).catch((error) => {
                                     setResult(
@@ -231,7 +242,12 @@ export default function Suggestion() {
             );
         }
     }).catch((error) => {
-        return (error.toString());        
+        return (
+            <div class="bg-red-100 border-t border-b border-red-500 text-red-700 px-4 py-3 w-64" role="alert">
+                <p class="font-bold">🛑 Error 🛑</p>
+                <p class="text-sm">{error.toString()}</p>
+            </div>
+        );        
     });
 
     return output;

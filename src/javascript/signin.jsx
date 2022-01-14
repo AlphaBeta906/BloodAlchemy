@@ -93,7 +93,12 @@ export default function Signin() {
           }
         }
       }).catch(error => {
-        setResult(error);
+        setResult(
+          <div class="bg-red-100 border-t border-b border-red-500 text-red-700 px-4 py-3 w-64" role="alert">
+            <p class="font-bold">🛑 Error 🛑</p>
+            <p class="text-sm">{error.toString()}</p>
+          </div>
+        );
       });
     }
   };
@@ -102,7 +107,7 @@ export default function Signin() {
     return (
       <div>
           <center>
-              <form onSubmit={handleSubmit(onSubmit)} class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+              <form onSubmit={handleSubmit(onSubmit)} class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-80">
                   <center>
                     <input {...register("username")} placeholder="Username" class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" /><br />
                     <input {...register("password")} placeholder="Password" type="password" class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" /><br />

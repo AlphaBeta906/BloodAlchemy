@@ -20,9 +20,19 @@ export default function EditArticle() {
 
         get(ref(db, `wiki`)).then((snapshot) => {
             if (snapshot.val()[params.elem] === undefined) {
-                setResult("Article added!");
+                setResult(
+                    <div class="bg-green-100 border-t border-b border-green-500 text-green-700 px-4 py-3 w-64" role="alert">
+                        <p class="font-bold">✅ Success ✅</p>
+                        <p class="text-sm">Article added.</p>
+                    </div>
+                );
             } else {
-                setResult("Article edited!");
+                setResult(
+                    <div class="bg-green-100 border-t border-b border-green-500 text-green-700 px-4 py-3 w-64" role="alert">
+                        <p class="font-bold">✅ Success ✅</p>
+                        <p class="text-sm">Article edited.</p>
+                    </div>
+                );
             }
 
             set(ref(db, `wiki/${params.elem}`), {
@@ -63,7 +73,7 @@ export default function EditArticle() {
                 <center>
                     <p class="text-2xl">Edit Article: {params.elem}</p>
 
-                    <form onSubmit={handleSubmit(onSubmit)} class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                    <form onSubmit={handleSubmit(onSubmit)} class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-80">
                         <textarea {...register("text")} name="text" rows="10" cols="50" placeholder="Enter text here..." /><br />
 
                         <input type="submit" value="Submit" />

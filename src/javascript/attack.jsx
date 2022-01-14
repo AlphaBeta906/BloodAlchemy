@@ -22,16 +22,31 @@ export default function Attack() {
 
         get(ref(db, '/mines/')).then((snapshot1) => {
             if (snapshot1.val()[data.mine] === undefined) {
-                setResult("Mine not found!");
+                setResult(
+                    <div class="bg-yellow-100 border-t border-b border-yellow-500 text-yellow-700 px-4 py-3 w-64" role="alert">
+                        <p class="font-bold">⚠️ Warning ⚠️</p>
+                        <p class="text-sm">Mine not found.</p>
+                    </div>
+                );
             } else if (snapshot1.val()[data.mine].owner === user) {
-                setResult("You own this mine!");
+                setResult(
+                    <div class="bg-yellow-100 border-t border-b border-yellow-500 text-yellow-700 px-4 py-3 w-64" role="alert">
+                        <p class="font-bold">⚠️ Warning ⚠️</p>
+                        <p class="text-sm">Mine not found.</p>
+                    </div>
+                );
             } else {
                 get(ref(db, 'users/')).then((snapshot2) => {
                     Object.keys(snapshot2.val()[user]["inventory"]).forEach((element) => {
                         get(ref(db, 'elements/')).then((snapshot3) => {
                             set_your_power((snapshot3.val()[element].generation * 2) * (snapshot3.val()[element].complexity * 3) + your_power);
                         }).catch((error) => {
-                            setResult("Error" + error.toString());
+                            setResult(
+                                <div class="bg-red-100 border-t border-b border-red-500 text-red-700 px-4 py-3 w-64" role="alert">
+                                    <p class="font-bold">🛑 Error 🛑</p>
+                                    <p class="text-sm">{error.toString()}</p>
+                                </div>
+                            );
                         });
                     });
 
@@ -41,7 +56,12 @@ export default function Attack() {
 
                             set_owner_power((snapshot3.val()[element].generation * 2) * (snapshot3.val()[element].complexity * 3) + owner_power);
                         }).catch((error) => {
-                            setResult("Error" + error.toString());
+                            setResult(
+                                <div class="bg-red-100 border-t border-b border-red-500 text-red-700 px-4 py-3 w-64" role="alert">
+                                    <p class="font-bold">🛑 Error 🛑</p>
+                                    <p class="text-sm">{error.toString()}</p>
+                                </div>
+                            );
                         });
                     });
 
@@ -108,7 +128,7 @@ export default function Attack() {
                 <center>
                     <p class="text-2xl">Attack</p>
 
-                    <form onSubmit={handleSubmit(onSubmit)} class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                    <form onSubmit={handleSubmit(onSubmit)} class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-80">
                         <input {...register("mine")} placeholder='Mine' class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" /><br /><br />
                         <input type="submit" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" />
                         <p>{result}</p>

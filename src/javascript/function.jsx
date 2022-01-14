@@ -26,7 +26,12 @@ export default function Function() {
                 </div>
             )
         } else if (data.e1 === "" || data.e2 === "") {
-            setResult("Please fill in both elements!");
+            setResult(
+                <div class="bg-yellow-100 border-t border-b border-yellow-500 text-yellow-700 px-4 py-3 w-64" role="alert">
+                    <p class="font-bold">⚠️ Warning ⚠️</p>
+                    <p class="text-sm">Please fill in both elements!</p>
+                </div>
+            );
         } else {
             get(ref(db, `users/${user}`)).then(snapshot2 => {
                 if (snapshot2.val()["inventory"][data.elem] <= 0) {
@@ -56,10 +61,12 @@ export default function Function() {
 
                                 set(ref(db, `users/${user}/watts`), snapshot2.val()["watts"] + watts);
 
-                                setResult(<>
-                                    You got one <Link to={'/info/' + snapshot.val()[`${data.mode}(${data.elem})`]}>{snapshot.val()[`${data.mode}(${data.elem})`]}</Link>!<br />
-                                    <span style={{ color: "#ffcc00" }}>⚡️ You got {watts} watts!</span>
-                                </>)
+                                setResult(
+                                    <div class="bg-green-100 border-t border-b border-green-500 text-green-700 px-4 py-3 w-64" role="alert">
+                                        <p class="font-bold">✅ Success ✅</p>
+                                        <p class="text-sm">You have created {snapshot.val()[e]}, which gives you {watts} watts!</p>
+                                    </div>
+                                )
                             }).catch(error => {
                                setResult(
                                     <div class="bg-red-100 border-t border-b border-red-500 text-red-700 px-4 py-3 w-64" role="alert">
@@ -133,7 +140,7 @@ export default function Function() {
                 <center>
                     <p class="text-2xl">Play: Function Mode</p>
 
-                    <form onSubmit={handleSubmit(onSubmit)} class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                    <form onSubmit={handleSubmit(onSubmit)} class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-80">
                         <p style={{textAlign: "center"}}>Mode:</p>
                         <select {...register("mode")} class="block appearance-none bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                             <option value="Refine">Refine</option>

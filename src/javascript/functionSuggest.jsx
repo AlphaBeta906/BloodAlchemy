@@ -53,7 +53,12 @@ export default function FunctionSuggest() {
                                 creator: user
                             });
 
-                            setResult("👍 Suggestion added!");
+                            setResult(
+                                <div class="bg-green-100 border-t border-b border-green-500 text-green-700 px-4 py-3 w-64" role="alert">
+                                    <p class="font-bold">✅ Success ✅</p>
+                                    <p class="text-sm">Suggestion added.</p>
+                                </div>
+                            );
                         }
                     }).catch(error => {
                         setResult(
@@ -87,7 +92,7 @@ export default function FunctionSuggest() {
         <div>
             <center>
                 <p class="text-2xl">Suggest: Mode Function</p>
-                <form onSubmit={handleSubmit(onSubmit)} class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                <form onSubmit={handleSubmit(onSubmit)} class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-80">
                     <p style={{textAlign: "center"}}>Mode:</p>
                     <select {...register("mode")} class="block appearance-none bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                         <option value="Refine">Refine</option>

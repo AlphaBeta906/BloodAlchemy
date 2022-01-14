@@ -85,7 +85,7 @@ export default function Upgrade() {
                 <center>
                     <p class="text-2xl">Upgrade</p>
 
-                    <p>You would be upgrading from Level {level} to Level {level + 1}. Which will cost {(level + 1) * 100} watts</p>
+                    <p>You would be upgrading from Level {level} to Level {level + 1}. Which will cost {(level + 1) * 100} watts.</p><br />
 
                     <button class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" onClick={onSubmit}>Upgrade</button>
                     <p>{result}</p>
