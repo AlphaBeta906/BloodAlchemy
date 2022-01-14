@@ -19,7 +19,7 @@ export default function EditArticle() {
         var db = getDatabase(app);
 
         get(ref(db, `wiki`)).then((snapshot) => {
-            if (snapshot.val()[params.elem] === undefined) {
+            if (snapshot.val()[params.elem.replace(/%20/g, " ")] === undefined) {
                 setResult(
                     <div class="bg-green-100 border-t border-b border-green-500 text-green-700 px-4 py-3 w-64" role="alert">
                         <p class="font-bold">✅ Success ✅</p>
@@ -35,7 +35,7 @@ export default function EditArticle() {
                 );
             }
 
-            set(ref(db, `wiki/${params.elem}`), {
+            set(ref(db, `wiki/${params.elem.replace(/%20/g, " ")}`), {
                 content: data.text,
                 last_editor: user
             })
@@ -54,7 +54,7 @@ export default function EditArticle() {
         var db = getDatabase(app);
 
         get(ref(db, 'elements')).then((snapshot) => {
-            if (snapshot.val()[params.elem] !== undefined) {
+            if (snapshot.val()[params.elem.replace(/%20/g, " ")] !== undefined) {
                 setExists(true);
             }
         }).catch((error) => {
@@ -71,17 +71,17 @@ export default function EditArticle() {
         return (
             <div>
                 <center>
-                    <p class="text-2xl">Edit Article: {params.elem}</p>
+                    <p class="text-2xl">Edit Article: {params.elem.replace(/%20/g, " ")}</p>
 
-                    <form onSubmit={handleSubmit(onSubmit)} class="bg-white dark:bg-slate-400 shadow-md rounded px-8 pt-6 pb-8 mb-4 w-80">
-                        <textarea {...register("text")} name="text" rows="10" cols="50" placeholder="Enter text here..." /><br />
+                    <form onSubmit={handleSubmit(onSubmit)} class="bg-white dark:bg-slate-400 shadow-md rounded px-8 pt-6 pb-8 mb-4 w-fit">
+                        <textarea {...register("text")} name="text" rows="10" cols="50" placeholder="Enter text here..." class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" /><br />
 
-                        <input type="submit" value="Submit" />
+                        <input type="submit" value="Submit" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" />
                     </form>
 
                     <p>{result}</p>
 
-                    <Link to={`/info/${params.elem}`}>Back to info page</Link>
+                    <Link to={`/info/${params.elem.replace(/%20/g, " ")}`}>Back to info page</Link>
                 </center>
             </div>
         );

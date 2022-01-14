@@ -104,7 +104,7 @@ export default function Play() {
                 setResult(
                   <div class="bg-green-100 border-t border-b border-green-500 text-green-700 px-4 py-3 w-64" role="alert">
                     <p class="font-bold">✅ Success ✅</p>
-                    <p class="text-sm">You have created {reaction}, which gives you {watts} watts!</p>
+                    <p class="text-sm">You have created <Link to={"/info/" + reaction}>{reaction}</Link>, which gives you {watts} watts!</p>
                   </div>
                 )
               })
