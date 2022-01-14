@@ -53,7 +53,7 @@ function App() {
 
   return (
     <UserContext.Provider value={{user, setUser}}>
-      <div class="bg-white-900">        
+      <div class="bg-white text-black dark:bg-gray-800 dark:text-white transition-all" style={{minHeight: "100vh"}}>        
         <Router>
             <Empty />
             

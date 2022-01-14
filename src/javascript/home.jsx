@@ -19,13 +19,13 @@ export default function Home() {
       if (["AlphaBeta906", "ItzCountryballs"].includes(user)) {
         message = (
           <div>
-            You are logged in as {user}. <Link to='/test'>Test</Link>
+            You are logged in as {user}. <Link to='/test'>Test</Link>. <Link to={'/profile/' + user}>Profile</Link>
           </div>
         );
       } else {
         message = (
           <div>
-            You are logged in as {user}. <Link to='/signout'>Sign-Out</Link>
+            You are logged in as {user}. <Link to='/signout'>Sign-Out</Link>. <Link to={'/profile/' + user}>Profile</Link>
           </div>
         );
       }

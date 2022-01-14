@@ -99,7 +99,7 @@ export default function Suggest() {
           <p class="text-2xl">Suggest</p>
         </center>
         <center>
-          <form onSubmit={handleSubmit(onSubmit)} class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-80">
+          <form onSubmit={handleSubmit(onSubmit)} class="bg-white dark:bg-slate-400 shadow-md rounded px-8 pt-6 pb-8 mb-4 w-80">
             <center>
               <input {...register("e1")} placeholder="Element 1" class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
               <p style={{fontSize:25, fontWeight:"bold"}}>+</p>

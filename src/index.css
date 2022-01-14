@@ -17,19 +17,19 @@
 }
 
 a {
-  color: rgb(76, 76, 241);
+  color: gray;
   text-decoration: none;
-  transition: color 0.2s ease-in-out;
-}
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background-color: transparent;
 
-a:visited {
-  color: rgb(94, 0, 216);
+  transition: all 0.2s ease-in-out;
 }
 
 a:hover {
-  color: rgb(131, 131, 243);
   cursor: pointer;
-  text-decoration: underline;
+  border: 2px solid #ff080831;
+  background-color: #ff080831;
 }
 
 .logo {
