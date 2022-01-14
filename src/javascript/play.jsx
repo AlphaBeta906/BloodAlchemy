@@ -28,6 +28,16 @@ export default function Play() {
       return;
     }
 
+    if (data.e1 === "" || data.e2 === "") {
+      setResult(
+        <div class="bg-yellow-100 border-t border-b border-yellow-500 text-yellow-700 px-4 py-3 w-64" role="alert">
+          <p class="font-bold">⚠️ Warning ⚠️</p>
+          <p class="text-sm">Please fill in all fields.</p>
+        </div>
+      )
+      return;
+    }
+
     setSeconds(5);
 
     // I hate rewriting legacy code

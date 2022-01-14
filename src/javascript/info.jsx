@@ -128,12 +128,12 @@ export default function Info() {
                             </div>
                             <div class="flex mb-2 items-center justify-between">
                                 <div>
-                                    <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-gray-600 bg-gray-200">
-                                        😀 Creator
+                                    <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blue-600 bg-blue-200">
+                                        🖌 Creator
                                     </span>
                                 </div>
                                 <div class="text-right">
-                                    <span class="text-xs font-semibold inline-block text-gray-600">
+                                    <span class="text-xs font-semibold inline-block text-blue-600">
                                         <Link to={'/profile/' + snapshot1.val()[true_elem].creator}>{snapshot1.val()[true_elem].creator}</Link>
                                     </span>
                                 </div>
