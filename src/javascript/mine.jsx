@@ -43,9 +43,19 @@ export default function Mine() {
     } else {
       get(ref(db, `mines/${data.mine}`)).then((snapshot) => {
         if (snapshot.val() === undefined) {
-          setResult("That mine doesn't exist");
+          setResult(
+            <div class="bg-yellow-100 border-t border-b border-yellow-500 text-yellow-700 px-4 py-3 w-64" role="alert">
+              <p class="font-bold">⚠️ Warning ⚠️</p>
+              <p class="text-sm">Mine does not exist.</p>
+            </div>
+          );
         } else if (snapshot.val().owner !== user) {
-          setResult("You don't own that mine");
+          setResult(
+            <div class="bg-yellow-100 border-t border-b border-yellow-500 text-yellow-700 px-4 py-3 w-64" role="alert">
+              <p class="font-bold">⚠️ Warning ⚠️</p>
+              <p class="text-sm">You don't own that mine.</p>
+            </div>
+          );
         } else {
           setSeconds(10);
 
@@ -97,9 +107,12 @@ export default function Mine() {
             );
             });
 
-            setResult(<div>
-              <p>You found a <Link to={`/info/${element}`}>{element}</Link> element!</p>
-            </div>);
+            setResult(
+              <div class="bg-red-100 border-t border-b border-red-500 text-red-700 px-4 py-3 w-64" role="alert">
+                <p class="font-bold">🛑 Error 🛑</p>
+                <p class="text-sm">You found 1 <Link to={"/info/" + element}>{element}</Link>!</p>
+              </div>
+            );
           }).catch((error) => {
             setResult(
               <div class="bg-red-100 border-t border-b border-red-500 text-red-700 px-4 py-3 w-64" role="alert">
@@ -155,7 +168,7 @@ export default function Mine() {
         <div>
             <center>
               <p class="text-2xl">Mine</p>
-              <form onSubmit={handleSubmit(onSubmit)} class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+              <form onSubmit={handleSubmit(onSubmit)} class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-80">
                 <p>Mines: {mines} | Need more mines? <Link to="/attack/">Go</Link> <Link to="/search/">here</Link>!</p><br />
                 <input {...register("mine")} placeholder="Mine" class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" /><br /><br/>
                 <input type="submit" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" /><br /><br />
