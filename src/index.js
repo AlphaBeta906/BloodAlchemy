@@ -33,6 +33,7 @@ import Function from './javascript/function';
 import FunctionSuggest from './javascript/functionSuggest';
 import Bug from './javascript/bug';
 import Signout from "./javascript/signout";
+import FAQ from './javascript/faq';
 
 import ProfileNoArgs from './javascript/profileNoArgs';
 import InventoryNoArgs from './javascript/inventoryNoArgs';
@@ -61,6 +62,7 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="BloodAlchemy" element={<Home />} />
                 <Route path="about" element={<About />} />
+                <Route path="faq" element={<FAQ />} />
                 <Route path="contact" element={<Contact />} />
                 <Route path="play" element={<Play />} />
                 <Route path="suggest" element={<Suggest />} />
