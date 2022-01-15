@@ -6,7 +6,7 @@ import firebaseConfig from "./firebase";
 
 export default function Menu() {
     const [output, setOutput] = useState("");
-    const { index } = useParams();
+    let { index } = useParams();
 
     const app = initializeApp(firebaseConfig);
     const db = getDatabase(app);
