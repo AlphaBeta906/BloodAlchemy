@@ -8,7 +8,7 @@
 ![Tailwind](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 ![Git](https://img.shields.io/badge/GIT-E44C30?style=for-the-badge&logo=git&logoColor=white)
 
-This is Blood Alchemy, the sucessor to Elementals 3. I finally feel like a pro, only after like 2 weeks. This repository has a REFI (React-Firebase) site that is pretty (very) buggy and [![Blood-Alchemy-API](a Python API just because I can't rewrite code from Python to JavaScript)](https://github.com/AlphaBeta906/BloodAlchemyAPI)
+This is Blood Alchemy, the sucessor to Elementals 3. I finally feel like a pro, only after like 2 weeks. This repository has a REFI (React-Firebase) site that is pretty (very) buggy and [a Python API just because I can't rewrite code from Python to JavaScript](https://github.com/AlphaBeta906/BloodAlchemyAPI)
 
 ## FAQ
 
