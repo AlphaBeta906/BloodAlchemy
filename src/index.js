@@ -5,7 +5,8 @@ import {
     BrowserRouter as Router,
     Routes, 
     Route,
-    Link
+    Link,
+    Navigate
 } from "react-router-dom";
 
 import Home from "./javascript/home";
@@ -91,7 +92,10 @@ function App() {
                   <Route index element={<Menu />} />
                   <Route path=":elem" element={<Sell />} />
                 </Route>
-                <Route path="menu" element={<Menu />} />
+                <Route path="menu">
+                  <Route index element={<Navigate to="/menu/1/" />} />
+                  <Route path=":index" element={<Menu />} />
+                </Route>
                 <Route path="suggestions" element={<Suggestions />} />
                 <Route path="suggestion">
                   <Route index element={<Suggestions />} />

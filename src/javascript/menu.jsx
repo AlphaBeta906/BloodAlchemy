@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useParams } from 'react-router-dom';
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, get } from "firebase/database";
-import { randomInt } from './random';
 import firebaseConfig from "./firebase";
 
 export default function Menu() {
-    var [output, setOutput] = useState("");
+    const [output, setOutput] = useState("");
+    const { index } = useParams();
 
     const app = initializeApp(firebaseConfig);
     const db = getDatabase(app);
@@ -19,31 +19,43 @@ export default function Menu() {
                         <p class="text-2xl">Menu</p>
                     </center>
 
-                    <p>Showing 15 random elememnts...</p>
+                    <p>Showing page {index}...</p>
                 </div>
             )]
 
-            for (let i = 0; i < 15; i++) {
-                var true_elem = ""
+            const max_index = (Object.keys(snapshot1.val()).length / 25) + 1;
 
-                var elem_dict = Object.keys(snapshot1.val())
-                true_elem = elem_dict[randomInt(elem_dict.length)]
-                menu.push(
-                    <div>
-                        *️⃣ <b>{true_elem}</b> - <small>(<Link to={"/info/" + true_elem}>i</Link> ・ <Link to={"/buy/" + true_elem}>b</Link> ・ <Link to={"/sell/" + true_elem}>s</Link>)</small>
-                    </div>
-                )
+            if (index > max_index) {
+                index = max_index;
             }
+            
+            const newIndex = index - 1;
+            const elements = Object.keys(snapshot1.val());
 
-            menu.push(
-                <div>
-                    <center><Link to="/menu/">Reload</Link></center>
-                </div>
-            )
-            setOutput(menu);
+            try {
+                var elements2 = elements.slice(newIndex*25, newIndex*25+25);
+
+                console.log(elements2);
+
+                for (let elem in elements2) {
+                    menu.push(
+                        <div>
+                            *️⃣ <Link to={"/info/" + elements2[elem]}>{elements2[elem]}</Link><br />
+                        </div>
+                    )
+                }
+            } catch (Exception) {
+                setOutput(
+                    <Navigate to="/menu/1" />
+                )
+            } finally {
+                setOutput(menu);
+            }
         }
     }).catch((error) => {
-        output.push(error.toString());
+        setOutput(
+            <Navigate to="/menu/1" />
+        )
     });
 
     return output;
