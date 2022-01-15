@@ -12,7 +12,7 @@ export default function Home() {
     if (user === "") {
       message = (
         <div>
-          You are not logged in. Please <Link to='/login'>login</Link> or <Link to='/signin'>signin</Link>.
+          You are not logged in. Please <Link to='/login'>login</Link> or <Link to='/signin'>signin</Link> to play Blood Alchemy.
         </div>
       );
     } else {
@@ -35,6 +35,8 @@ export default function Home() {
     return (
         <div>
             <center>
+                <p class="text-2xl">Blood Alchemy Version 1.19.7</p>
+                <Link to='/updatelog'>Update Log</Link>
                 <p class="text-2xl">Home</p>
                 <p class="text-sm">"Elements and stuff, I don't know" - me</p><br/><br/>
 
