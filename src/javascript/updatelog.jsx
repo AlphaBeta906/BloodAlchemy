@@ -3,8 +3,11 @@ export default function UpdateLog() {
         <div>
             <center><p class="text-2xl">Current Version: 1.20.9</p></center>
             <center>What came along with the version?</center>
-            - A special message for specific humans who did some "stuff"...<br />
-            - Test page has been locked to administrators to hide new features.
+            - Grammar fixes on some pages.<br />
+            - Admin ranks has been added to the inventory page.
+            - Hints are now added.
+            - New changes to the Blood Alchemy logo.
+            - Second password field has been named to Confirm Password to avoid any confusions.
         </div>
     );
 }
