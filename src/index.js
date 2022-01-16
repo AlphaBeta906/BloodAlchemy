@@ -36,10 +36,12 @@ import Bug from './javascript/bug';
 import Signout from "./javascript/signout";
 import FAQ from './javascript/faq';
 import UpdateLog from './javascript/updatelog';
+import Hint from './javascript/hint';
 
 import ProfileNoArgs from './javascript/profileNoArgs';
 import InventoryNoArgs from './javascript/inventoryNoArgs';
 import InfoNoArgs from './javascript/infoNoArgs';
+import HintNoArgs from './javascript/hintNoArgs';
 
 import Error from './javascript/error';
 import Empty from "./javascript/empty";
@@ -113,6 +115,10 @@ function App() {
                 <Route path="bugs" element={<Bug />} />
                 <Route path="signout" element={<Signout />} />
                 <Route path="updatelog" element={<UpdateLog />} />
+                <Route path="hint">
+                  <Route index element={<HintNoArgs />} />
+                  <Route path=":elem" element={<Hint />} />
+                </Route>
                 <Route path="*" element={<Error status="404" />} />
             </Routes>
 
