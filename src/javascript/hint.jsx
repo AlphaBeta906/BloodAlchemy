@@ -51,7 +51,7 @@ export default function Hint() {
 
                     snapshot3.forEach((reaction) => {
                         if (reaction.val() === true_elem) {
-                            if (reaction.key.includes("(") || reaction.key.includes("(")) {
+                            if (reaction.key.includes("Refine(") || reaction.key.includes("Ferment(")) {
                                 const process = reaction.key.replace(")", "").split("(")[0];
                                 const element = reaction.key.replace(")", "").split("(")[1];
 
