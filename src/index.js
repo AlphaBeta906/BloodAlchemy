@@ -5,7 +5,8 @@ import {
     BrowserRouter as Router,
     Routes, 
     Route,
-    Link
+    Link,
+    Navigate
 } from "react-router-dom";
 
 import Home from "./javascript/home";
@@ -34,6 +35,7 @@ import FunctionSuggest from './javascript/functionSuggest';
 import Bug from './javascript/bug';
 import Signout from "./javascript/signout";
 import FAQ from './javascript/faq';
+import UpdateLog from './javascript/updatelog';
 
 import ProfileNoArgs from './javascript/profileNoArgs';
 import InventoryNoArgs from './javascript/inventoryNoArgs';
@@ -90,7 +92,10 @@ function App() {
                   <Route index element={<Menu />} />
                   <Route path=":elem" element={<Sell />} />
                 </Route>
-                <Route path="menu" element={<Menu />} />
+                <Route path="menu">
+                  <Route index element={<Navigate to="/menu/1/" />} />
+                  <Route path=":index" element={<Menu />} />
+                </Route>
                 <Route path="suggestions" element={<Suggestions />} />
                 <Route path="suggestion">
                   <Route index element={<Suggestions />} />
@@ -107,6 +112,7 @@ function App() {
                 <Route path="suggestFunct" element={<FunctionSuggest />} />
                 <Route path="bugs" element={<Bug />} />
                 <Route path="signout" element={<Signout />} />
+                <Route path="updatelog" element={<UpdateLog />} />
                 <Route path="*" element={<Error status="404" />} />
             </Routes>
 

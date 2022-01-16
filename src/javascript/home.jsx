@@ -45,8 +45,12 @@ export default function Home() {
         <div>
             <center>
                 <p class="text-2xl">Blood Alchemy Version 1.20.7</p>
+<<<<<<< HEAD
                 <Link to='/updatelog'>Update Log</Link>
                 <p class="text-2xl">Home</p>
+=======
+                <Link to='/updatelog'>Update Log</Link><br />
+>>>>>>> 1c4be9f765314ac24e8ccd4019952016c63c4bdf
                 <p class="text-sm">"Elements and stuff, I don't know" - me</p><br/><br/>
 
                 {text}<br></br>
