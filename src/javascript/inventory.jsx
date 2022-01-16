@@ -46,7 +46,7 @@ export default function Inventory() {
                     <center>
                     <p class="text-2xl">Inventory</p>
                     </center>
-                    <p class="text-xl">User: {true_user}</p>
+                    <p class="text-xl">Username: {true_user} {["AlphaBeta906", "ItzCountryballs"].includes(true_user) ? (<span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-gray-600 bg-gray-200">⚙️ Administrator</span>) : ""}</p>
                     <p class="text-xl" style={{color: '#5856D6'}}>🗂 Inventory:</p><br />
                 </div>
             )]

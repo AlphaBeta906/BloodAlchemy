@@ -10,7 +10,7 @@ export default function Error(props) {
             desk = "Add all of the required arguments!";
             break;
         case "401":
-            desk = "You are not logged in!";
+            desk = "You are not logged in or don't have access to this page!";
             break;
         case "404":
             desk = "Are you in the right place, bro?";

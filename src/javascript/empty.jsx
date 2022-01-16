@@ -63,6 +63,7 @@ export default function Empty() {
             <div class="flex-grow border-8 border-red-400 rounded-md shadow-md"></div>
             <center>
                 <p className="logo">Blood Alchemy</p>
+                <small><p className="logo">BETA</p></small>
             </center>
         </div>),
         links,

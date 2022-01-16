@@ -43,7 +43,7 @@ export default function Hint() {
                         (
                             <div>
                                 <center>
-                                    <p class="text-2xl">Hint(s) for {true_elem}</p>
+                                    <p class="text-2xl">Hint(s) for {true_elem}:</p>
                                 </center>
                             </div>
                         )

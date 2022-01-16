@@ -19,7 +19,7 @@ export default function Search() {
             setResult(
                 <div class="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3 w-64" role="alert">
                     <p class="font-bold">ℹ️ Info ℹ️</p>
-                    <p class="text-sm">Please wait {seconds} seconds.</p>
+                    <p class="text-sm">Please wait for {seconds} seconds.</p>
                 </div>
             );
         } else {
@@ -28,7 +28,7 @@ export default function Search() {
                     setResult(
                         <div class="bg-yellow-100 border-t border-b border-yellow-500 text-yellow-700 px-4 py-3 w-64" role="alert">
                             <p class="font-bold">⚠️ Warning ⚠️</p>
-                            <p class="text-sm">You are a slave.</p>
+                            <p class="text-sm">You are a slave, How would you try to search for mines?</p>
                         </div>
                     );
                 } else if (snapshot.val().watts < 50) {

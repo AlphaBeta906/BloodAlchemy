@@ -35,7 +35,7 @@ export default function Signin() {
       setResult(
         <div class="bg-yellow-100 border-t border-b border-yellow-500 text-yellow-700 px-4 py-3 w-64" role="alert">
           <p class="font-bold">⚠️ Warning ⚠️</p>
-          <p class="text-sm">Passwords do not match!</p>
+          <p class="text-sm">The passwords you inputted do not match! Please try again.</p>
         </div>
       );
     } else {
@@ -44,7 +44,7 @@ export default function Signin() {
           setResult(
             <div class="bg-yellow-100 border-t border-b border-yellow-500 text-yellow-700 px-4 py-3 w-64" role="alert">
               <p class="font-bold">⚠️ Warning ⚠️</p>
-              <p class="text-sm">Username is used.</p>
+              <p class="text-sm">This username is used. Please try again.</p>
             </div>
           );
         } else {
@@ -111,7 +111,7 @@ export default function Signin() {
                   <center>
                     <input {...register("username")} placeholder="Username" class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" /><br />
                     <input {...register("password")} placeholder="Password" type="password" class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" /><br />
-                    <input {...register("confirm")} placeholder="Password" type="password" class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" /><br /><br />
+                    <input {...register("confirm")} placeholder="Confirm Password" type="password" class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" /><br /><br />
                     <input type="submit" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" /><br /><br />
                     <p>{result}</p>
                   </center>
