@@ -1,6 +1,9 @@
 import { useEffect } from "react"
-
+import UserContext from "./userContext";
+import { useContext } from "react";
+if (["AlphaBeta906", "ItzCountryballs"].includes(user)) {
 export default function Test() {
+    const { user } = useContext(UserContext);
     useEffect(() => {        
         const pushAd = () => {
             try {
@@ -33,4 +36,9 @@ export default function Test() {
         data-ad-slot='4420988986'
         data-ad-format='auto' />
     );
+ }
+} else {
+    return (
+        <Error status="403" />
+    )
 }

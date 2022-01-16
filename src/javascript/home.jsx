@@ -24,6 +24,14 @@ export default function Home() {
           </div>
         );
       } else {
+        if (["AmorAltra" , "AetherDX"].includes(user)) {
+          message = (
+            <div>
+            You are logged in as {user}. <Link to='/signout'>Sign-Out</Link>. <Link to={'/profile/' + user}>Profile</Link><br />
+            Do you really think we Blood Alchemy developers don't know what you did?
+            </div>
+          );
+      } else {
         message = (
           <div>
             You are logged in as {user}. <Link to='/signout'>Sign-Out</Link>. <Link to={'/profile/' + user}>Profile</Link>
@@ -31,11 +39,12 @@ export default function Home() {
         );
       }
     }
+  }
     
     return (
         <div>
             <center>
-                <p class="text-2xl">Blood Alchemy Version 1.19.7</p>
+                <p class="text-2xl">Blood Alchemy Version 1.20.7</p>
                 <Link to='/updatelog'>Update Log</Link>
                 <p class="text-2xl">Home</p>
                 <p class="text-sm">"Elements and stuff, I don't know" - me</p><br/><br/>
