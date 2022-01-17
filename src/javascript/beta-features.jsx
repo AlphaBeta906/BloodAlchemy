@@ -20,11 +20,11 @@ function getResult(combination, dict) {
 }
 
 function requires(elements, inventory) {
-  var requires = {};
+  var requires2 = {};
 
   elements.forEach((element) => {
-    if (requires[element] === undefined) {
-      requires[element] = 1;
+    if (requires2[element] === undefined) {
+      requires2[element] = 1;
     }
   });
 
@@ -32,7 +32,7 @@ function requires(elements, inventory) {
     if (inventory[elements[element]] === undefined || inventory[elements[element]] < requires[elements[element]]) {
       return false;
     } else {
-      requires[element] += 1;
+      requires2[element] += 1;
     }
   }
 
