@@ -62,8 +62,8 @@ export default function Empty() {
             <br/>
             <div class="flex-grow border-8 border-red-400 rounded-md shadow-md"></div>
             <center>
-                <p className="logo">Blood Alchemy</p> <span class="text-s bg-red-900" style={{"fontFamily": "Octin Spraypaint"}}>OPEN-BETA</span><br />
-            </center>
+                <p className="logo">Blood Alchemy</p> <span class="text-s bg-red-900 px-2 py-1 rounded-full" style={{"fontFamily": "Octin Spraypaint"}}>OPEN-BETA</span>
+            </center><br />
         </div>),
         links,
         (<div>
