@@ -68,7 +68,7 @@ export default function BETAFeatures() {
     } else {
       const combination2 = combination.join("+");
 
-      if (reactions[combination2] === undefined) {
+      if (getResult(combination2, reactions) === false) {
         setResult(
           <Alert type="info" message={(
             <div>
