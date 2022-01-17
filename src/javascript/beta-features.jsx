@@ -183,7 +183,7 @@ export default function BETAFeatures() {
                     <input {...register("e1")} placeholder="Element 1" class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
                     <p style={{fontSize:25, fontWeight:"bold"}}>+</p>
                     <input {...register("e2")} placeholder="Element 2" class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" /><br/><br/>
-                    <input type="submit" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" /><br/><br/>
+                    <p style={{fontSize:25, fontWeight:"bold"}}>+</p>
                     <input {...register("e3")} placeholder="Element 3" class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" /><br/><br/>
                     <input type="submit" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" /><br/><br/>
                     <p>{result}</p>
@@ -197,7 +197,7 @@ export default function BETAFeatures() {
     );
   } else {
     return (
-      <Error status="401" />
+      <Error status="404" />
     )
   }
 }
