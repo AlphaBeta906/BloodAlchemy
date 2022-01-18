@@ -39,9 +39,7 @@ export default function Search() {
                         </div>
                     );
                 } else if (randomInt(4) !== 0) {
-                    set(ref(db, 'users/' + user + "/watts"), {
-                        watts: snapshot.val().watts - 50
-                    });
+                    set(ref(db, 'users/' + user + "/watts"), snapshot.val().watts - 50);
                     setSeconds(20);
 
 
@@ -52,9 +50,7 @@ export default function Search() {
                         </div>
                     );
                 } else {
-                    set(ref(db, 'users/' + user + "/watts"), {
-                        watts: snapshot.val().watts - 50
-                    });
+                    set(ref(db, 'users/' + user + "/watts"), snapshot.val().watts - 50);
 
                     get(ref(db, 'mines/')).then((snapshot1) => {
                         var mines = Object.keys(snapshot1.val()).length;
