@@ -29,6 +29,7 @@ export default function About() {
       <br/>
 
       <center><Link to="/faq/">FAQ</Link><br /></center>
+      <center><Link to="/ranks/">Ranks</Link><br /></center>
     </div>
   );
 }
