@@ -3,6 +3,9 @@ export default function Error(props) {
     var desk = "";
 
     switch (status) {
+        case "69":
+            desk = "Hey ummm... How did you get this very interesting error code?";
+            break;
         case "204":
             desk = "You already signed in!";
             break;
@@ -17,6 +20,9 @@ export default function Error(props) {
             break;
         case "500":
             desk = "I had a headache and I have no idea what happened.";
+            break;
+        case "666":
+            desk = "What the hell did you do.";
             break;
         default:
             desk = "Generic error message (Alpha forgot to add this in).";
