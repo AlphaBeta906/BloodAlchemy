@@ -52,7 +52,11 @@ export default function Profile() {
             setResult(
                 <div>
                     <center><p class="text-2xl">Profile</p></center>
+<<<<<<< HEAD
                     <p class="text-xl">User: {true_user} {["AlphaBeta906", "ItzCountryballs"].includes(true_user) ? (<span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-gray-600 bg-gray-200">⚙️ Admin</span>) : ""} {["Nv7", "oli"].includes(true_user) ? (<span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-gray-600 bg-gray-200">🧪 Trusted BETA Tester</span>) : ""}</p> <small><Link to={'/inventory/' + true_user}>(Check their inventory)</Link></small><br /><br />
+=======
+                    <p class="text-xl">User: {true_user} {["AlphaBeta906", "ItzCountryballs"].includes(true_user) ? (<span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-gray-600 bg-gray-200">⚙️ Admin</span>) : ""} {["Nv7"].includes(true_user) ? (<span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-green-600 bg-green-200">🧪 Trusted BETA Tester</span>) : ""}</p> <small><Link to={'/inventory/' + true_user}>(Check their inventory)</Link></small><br /><br />
+>>>>>>> d7e015b49d3644c177b015a655aa3113de93bd6e
 
                     <div class="relative pt-1">
                         <div class="flex mb-2 items-center justify-between">
