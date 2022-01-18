@@ -11,8 +11,6 @@
 # production
 /build
 
-firebase.jsx
-
 # misc
 .DS_Store
 .env.local
