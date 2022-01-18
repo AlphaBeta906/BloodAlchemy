@@ -37,7 +37,6 @@ import Signout from "./javascript/signout";
 import FAQ from './javascript/faq';
 import UpdateLog from './javascript/updatelog';
 import Hint from './javascript/hint';
-import BETAFeatures from './javascript/beta-features';
 
 import ProfileNoArgs from './javascript/profileNoArgs';
 import InventoryNoArgs from './javascript/inventoryNoArgs';
@@ -120,7 +119,6 @@ function App() {
                   <Route index element={<HintNoArgs />} />
                   <Route path=":elem" element={<Hint />} />
                 </Route>
-                <Route path="beta" element={<BETAFeatures />} />
                 <Route path="*" element={<Error status="404" />} />
             </Routes>
 

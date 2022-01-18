@@ -46,7 +46,11 @@ export default function Inventory() {
                     <center>
                     <p class="text-2xl">Inventory</p>
                     </center>
+<<<<<<< HEAD
+                    <p class="text-xl">Username: {true_user} {["AlphaBeta906", "ItzCountryballs"].includes(true_user) ? (<span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-gray-600 bg-gray-200">⚙️ Administrator</span>) : ""} {["Nv7", "oli"].includes(true_user) ? (<span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-gray-600 bg-gray-200">🧪 Trusted BETA Tester</span>) : ""}</p>
+=======
                     <p class="text-xl">Username: {true_user} {["AlphaBeta906", "ItzCountryballs"].includes(true_user) ? (<span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-gray-600 bg-gray-200">⚙️ Administrator</span>) : ""} {["Nv7"].includes(true_user) ? (<span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-green-600 bg-green-200">🧪 Trusted BETA Tester</span>) : ""}</p>
+>>>>>>> d7e015b49d3644c177b015a655aa3113de93bd6e
                     <p class="text-xl" style={{color: '#5856D6'}}>🗂 Inventory:</p><br />
                 </div>
             )]
