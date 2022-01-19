@@ -44,7 +44,7 @@ export default function Home() {
     return (
         <div>
             <center>
-                <p class="text-2xl">Blood Alchemy Version 1.20.9.1</p>
+                <p class="text-2xl">Blood Alchemy Version 1.20.9.2</p>
                 <Link to='/updatelog'>Update Log</Link><br />
                 <p class="text-sm">"Elements and stuff, I don't know" - me</p><br/><br/>
 

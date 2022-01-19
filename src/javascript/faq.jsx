@@ -18,7 +18,13 @@ export default function FAQ() {
 
                 <p class="text-xl">I want to talk to your manager!</p>
                 Take a chill pill. Go to the contact page, idiot.<br /><br />
+
+                <p class="text-xl">Why are ranks needed in Blood Alchemy?</p>
+                We Blood Alchemy developers wants to keep the players of our game safe. For example, You stumble upon an "admin". You then check their profile to see if they have the Admin rank. But they don't, So you blocked him because he might scam you or whatever he's doing. That's why ranks were added.<br /><br />
             </center>
+
+        <center><Link to="/about/">Back to About Page</Link><br /></center>
+        <center><Link to="/ranks/">Ranks</Link><br /></center>
         </div>
     )
 }
