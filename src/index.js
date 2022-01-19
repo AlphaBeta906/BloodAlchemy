@@ -37,6 +37,7 @@ import Signout from "./javascript/signout";
 import FAQ from './javascript/faq';
 import UpdateLog from './javascript/updatelog';
 import Hint from './javascript/hint';
+import Ranks from './javascript/ranks';
 
 import ProfileNoArgs from './javascript/profileNoArgs';
 import InventoryNoArgs from './javascript/inventoryNoArgs';
@@ -119,6 +120,7 @@ function App() {
                   <Route index element={<HintNoArgs />} />
                   <Route path=":elem" element={<Hint />} />
                 </Route>
+                <Route path="ranks" element={<Ranks />} />
                 <Route path="*" element={<Error status="404" />} />
             </Routes>
 
