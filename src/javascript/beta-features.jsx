@@ -14,9 +14,52 @@ export default function BETAFeatures() {
   const [seconds, setSeconds] = useState(0);
   const { user } = useContext(UserContext);
 
+  function getCombination(combination) {
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+  
+    const new_combination = combination.sort().join("+");
+  
+    get(ref(db, 'reactions')).then((snap) => {
+      snap.forEach((reaction) => {
+        const new_reaction = reaction.key.split("+").sort().join("+");
+  
+        if (new_combination === new_reaction) {
+          console.log(snap.val()[reaction.key]);
+          localStorage.removeItem("reaction");
+          localStorage.setItem("reaction", snap.val()[reaction.key]);
+        }
+      })
+    })
+  }
+  
+  function requires(combination, inventory, getRequires=false) {
+    const requires2 = [];
+  
+    combination.forEach((element) => {
+      if (inventory[element] === undefined || inventory[element] < requires2[element]) {
+        return false
+      } else {
+        requires2[element] += 1;
+      }
+    });
+  
+    if (getRequires) {
+      return requires2;
+    } else {
+      return true;
+    }
+  }
+
   const onSubmit = (data) => {
     var app = initializeApp(firebaseConfig);
     var db = getDatabase(app);
+
+    var elements = []
+
+    for (var i = 1; i < 3; i++) {
+      elements.push(data["e" + i])
+    }
 
     if (seconds !== 0) {
       setResult(
@@ -25,124 +68,59 @@ export default function BETAFeatures() {
           <p class="text-sm">Please wait for {seconds} seconds.</p>
         </div>
       )
-      return;
-    }
-
-    if (data.e1 === "" || data.e2 === "" || data.e3 === "") {
+    } else if (data.e1 === "" || data.e2 === "" || data.e3 === "") {
       setResult(
         <div class="bg-yellow-100 border-t border-b border-yellow-500 text-yellow-700 px-4 py-3 w-64" role="alert">
           <p class="font-bold">⚠️ Warning ⚠️</p>
           <p class="text-sm">Please fill in all fields.</p>
         </div>
       )
-      return;
-    }
+    } else {
+      get(ref(db, `users/${user}`)).then((snapshot) => {
+        setSeconds(5);
 
-    setSeconds(5);
+        if (requires(elements, snapshot.val().inventory) === false) {
+          setResult(
+            <div class="bg-yellow-100 border-t border-b border-yellow-500 text-yellow-700 px-4 py-3 w-64" role="alert">
+              <p class="font-bold">⚠️ Warning ⚠️</p>
+              <p class="text-sm">You have not enough elements.</p>
+            </div>
+          )
+        } else {
+          getCombination(elements);
+          var reaction = localStorage.reaction;
 
-    // oh yes three elements oh YESSSSSS
-    get(ref(db, 'reactions')).then((snapshot) => {
-      var reactions = {};
-
-      snapshot.forEach(snap => {
-        reactions[snap.key] = snap.val();
-      });
-      
-      var first = data.e1
-      var second = data.e2
-      var third = data.e3
-
-      if (reactions[first + "+" + second + "+" + third] === undefined && reactions[second + "+" + first + "+" + third] === undefined && reactions[third + "+" + first + "+" + second] === undefined && reactions[first + "+" + third + "+" + second] === undefined && reactions[second + "+" + third + "+" + first] === undefined && reactions[third + "+" + second + "+" + first] === undefined) {
-        setResult(
-          <div class="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3 w-64" role="alert">
-            <p class="font-bold">ℹ️ Info ℹ️</p>
-            <p class="text-sm">No reaction ( {first} + {second} + {third} ) <Link to="/betasuggest">Suggest?</Link>.</p>
-          </div>
-        );
-      } else {
-        // MY WATER IS ALL GONE THANKS TO CODE THAT WAS USEFUL BEFORE BUT NOW ITS NOT GAH I NEED TO WORK NOW
-        // NOT MAKING THIS SILLY COMMENT AAA
-        // lost 4000 water elements
-
-        get(ref(db, `users/${user}/inventory`)).then((snapshotw) => {
-          if (snapshotw.val()[first] <= 0 || snapshotw.val()[first] === undefined) {
+          if (reaction === false) {
             setResult(
-              <div class="bg-yellow-100 border-t border-b border-yellow-500 text-yellow-700 px-4 py-3 w-64" role="alert">
-                <p class="font-bold">⚠️ Warning ⚠️</p>
-                <p class="text-sm">The element <Link to={'/info/' + first}>{first}</Link> is not in your inventory! You can buy more <Link to={'/buy/' + first}>here</Link>.</p>
+              <div class="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3 w-64" role="alert">
+                <p class="font-bold">ℹ️ Info ℹ️</p>
+                <p class="text-sm">No reaction found ( {elements.join(" + ")} ).</p>
               </div>
-            );
-          } else if (snapshotw.val()[second] <= 0 || snapshotw.val()[second] === undefined) {
-            setResult(
-              <div class="bg-yellow-100 border-t border-b border-yellow-500 text-yellow-700 px-4 py-3 w-64" role="alert">
-                <p class="font-bold">⚠️ Warning ⚠️</p>
-                <p class="text-sm">The element <Link to={'/info/' + second}>{second}</Link> is not in your inventory! You can buy more <Link to={'/buy/' + second}>here</Link>.</p>
-              </div>
-            );
-        } else if (snapshotw.val()[third] <= 0 || snapshotw.val()[third] === undefined) {
-            setResult(
-              <div class="bg-yellow-100 border-t border-b border-yellow-500 text-yellow-700 px-4 py-3 w-64" role="alert">
-                <p class="font-bold">⚠️ Warning ⚠️</p>
-                <p class="text-sm">The element <Link to={'/info/' + third}>{third}</Link> is not in your inventory! You can buy more <Link to={'/buy/' + third}>here</Link>.</p>
-              </div>
-            );
-          } else if (first === second === third && snapshotw.val()[first] < 3) { 
-            setResult(
-              <div class="bg-yellow-100 border-t border-b border-yellow-500 text-yellow-700 px-4 py-3 w-64" role="alert">
-                <p class="font-bold">⚠️ Warning ⚠️</p>
-                <p class="text-sm">The element <Link to={'/info/' + second}>{second}</Link> is not in your inventory! You can buy more <Link to={'/buy/' + second}>here</Link>.</p>
-              </div>
-            );
+            )
           } else {
-            var reaction = ""
+            get(ref(db, `elements/${reaction}`)).then((snapshot2) => {
+              var watts = snapshot2.val().generation * snapshot2.val().complexity + gDTRGB(snapshot2.val().color) * snapshot.val().level;
+              watts = Math.ceil(watts);
 
-            if (reactions[first + "+" + second + "+" + third] !== undefined) {
-              reaction = reactions[first + "+" + second + "+" + third]
-            } else {
-              reaction = reactions[second + "+" + first + "+" + third]
-            }
-
-            get(ref(db, `elements/${reaction}`)).then((snapshot1) => {
-              get(ref(db, `users/${user}`)).then((snapshotx) => {
-                var watts = snapshot1.val().generation * snapshot1.val().complexity + gDTRGB(snapshot1.val().color) * snapshotx.val().level;
-                watts = Math.ceil(watts);
-
-                set(ref(db, `users/${user}/watts`), snapshotx.val()["watts"] + watts);
-
-                setResult(
-                  <div class="bg-green-100 border-t border-b border-green-500 text-green-700 px-4 py-3 w-64" role="alert">
-                    <p class="font-bold">✅ Success ✅</p>
-                    <p class="text-sm">You have created <Link to={"/info/" + reaction}>{reaction}</Link>, which gives you {watts} watts!</p>
-                  </div>
-                )
-              })
-            }).catch((error) => {
               setResult(
-                <div class="bg-red-100 border-t border-b border-red-500 text-red-700 px-4 py-3 w-64" role="alert">
-                  <p class="font-bold">🛑 Error 🛑</p>
-                  <p class="text-sm">{error.toString()}</p>
+                <div class="bg-green-100 border-t border-b border-green-500 text-green-700 px-4 py-3 w-64" role="alert">
+                  <p class="font-bold">✅ Success ✅</p>
+                  <p class="text-sm">You have created <Link to={"/info/" + reaction}>{reaction}</Link>, which gives you {watts} watts!</p>
                 </div>
-              );
-            });
+              )
 
-            get(ref(db, `users/${user}/inventory/`)).then((snapshot3) => {
-              set(ref(db, `users/${user}/inventory/${first}`), snapshot3.val()[first] - 1);
-              set(ref(db, `users/${user}/inventory/${second}`), snapshot3.val()[second] - 2);
-              set(ref(db, `users/${user}/inventory/${third}`), snapshot3.val()[third] - 3);
-            }).catch((error) => {
-              setResult(
-                <div class="bg-red-100 border-t border-b border-red-500 text-red-700 px-4 py-3 w-64" role="alert">
-                  <p class="font-bold">🛑 Error 🛑</p>
-                  <p class="text-sm">{error.toString()}</p>
-                </div>
-              );
-            });
+              const requires3 = requires(elements, snapshot.val().inventory, true)
+              
+              requires3.forEach((element) => {
+                set(ref(db, `users/${user}/inventory/${element}`), snapshot.val().inventory[element] - requires3[element]);
+              })  
 
-            get(ref(db, `users/${user}/inventory/${reaction}`)).then((snapshot4) => {
-              if (!snapshot.exists()) {
+              set(ref(db, `users/${user}/inventory/watts`), snapshot.val().inventory.watts + watts);
+
+              if (snapshot.val().inventory[reaction] === undefined) {
                 set(ref(db, `users/${user}/inventory/${reaction}`), 1);
               } else {
-                set(ref(db, `users/${user}/inventory/${reaction}`), snapshot4.val() + 1);
+                set(ref(db, `users/${user}/inventory/${reaction}`), snapshot.val().inventory[reaction] + 1);
               }
             }).catch((error) => {
               setResult(
@@ -150,18 +128,21 @@ export default function BETAFeatures() {
                   <p class="font-bold">🛑 Error 🛑</p>
                   <p class="text-sm">{error.toString()}</p>
                 </div>
-              );
-            });
+              )
+            })
           }
-        }).catch((error) => {
-          console.error(error);
-        });
-      }
-    }).catch((error) => {
-      console.error(error)
-    });
+        }
+      }).catch((error) => {
+        setResult(
+          <div class="bg-red-100 border-t border-b border-red-500 text-red-700 px-4 py-3 w-64" role="alert">
+            <p class="font-bold">🛑 Error 🛑</p>
+            <p class="text-sm">{error.toString()}</p>
+          </div>
+        )
+      })
+    }
   };
-
+  
   useEffect(() => {
     if (seconds > 0) {
       setTimeout(() => setSeconds(seconds - 1), 1000);
@@ -170,25 +151,29 @@ export default function BETAFeatures() {
     }
   }, [seconds]);
   
-  if (user !== '') {
+  if (["AlphaBeta906", "ItzCountryballs", "Nv7", "oli"].includes(user)) {
     return (
       <div>
           <center>
             <p class="text-2xl">Play</p>
             <span class="text-s bg-red-800 px-2 py-1 rounded-full" style={{"fontFamily": "Octin Spraypaint"}}>EXCLUSIVE BETA FEATURE</span>
-          </center>
+          </center><br /><br />
           <center>
               <form onSubmit={handleSubmit(onSubmit)} class="bg-white dark:bg-slate-400 shadow-md rounded px-8 pt-6 pb-8 mb-4 w-80">
                   <center>
                     <input {...register("e1")} placeholder="Element 1" class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
-                    <p style={{fontSize:25, fontWeight:"bold"}}>+</p>
-                    <input {...register("e2")} placeholder="Element 2" class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" /><br/><br/>
-                    <input type="submit" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" /><br/><br/>
-                    <input {...register("e3")} placeholder="Element 3" class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" /><br/><br/>
+                    {[...Array(2 - 1).keys()].map((i) => {
+                      return (
+                        <div>
+                          <p style={{fontSize:25, fontWeight:"bold"}}>+</p>
+                          <input {...register("e" + (i + 2))} placeholder={`Element ` + (i+2).toString()} class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+                        </div>
+                      )
+                    })}<br /><br />
                     <input type="submit" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" /><br/><br/>
                     <p>{result}</p>
                   </center>
-              </form>
+              </form><br /><br />
 
               <p>Need more resources? <Link to="/mine">Go here</Link>. Inventory? <Link to="/inventory">Go here.</Link> <Link to="/function/">Change mode</Link></p>
               <p>This is Part 1 of the BETA Features in Blood Alchemy, More features will be coming soon!</p>
@@ -197,7 +182,7 @@ export default function BETAFeatures() {
     );
   } else {
     return (
-      <Error status="401" />
+      <Error status="404" />
     )
   }
 }
