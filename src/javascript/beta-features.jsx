@@ -115,7 +115,7 @@ export default function BETAFeatures() {
                 set(ref(db, `users/${user}/inventory/${element}`), snapshot.val().inventory[element] - requires3[element]);
               })  
 
-              set(ref(db, `users/${user}/inventory/watts`), snapshot.val().inventory.watts + watts);
+              set(ref(db, `users/${user}/watts`), snapshot.val().inventory.watts + watts);
 
               if (snapshot.val().inventory[reaction] === undefined) {
                 set(ref(db, `users/${user}/inventory/${reaction}`), 1);
