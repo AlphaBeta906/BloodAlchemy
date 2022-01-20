@@ -7,7 +7,7 @@ export default function Bug() {
 
             If you want to report a bug, please do the following:<br /><br />
             
-            1. Go to the contact page of Blood Alchemy and contact a staff with their social media.
+            1. Go to the contact page of Blood Alchemy and contact a staff with their social media.<br />
             2. Make the title the summary of the issue.<br />
             3. In the body, please discuss in full detail about the issue, with verifiable evidence, that is clear.<br />
             4. Attach a screenshot of the bug.<br />
