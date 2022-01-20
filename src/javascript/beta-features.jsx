@@ -12,6 +12,7 @@ export default function BETAFeatures() {
   const { register, handleSubmit } = useForm();
   const [result, setResult] = useState("");
   const [seconds, setSeconds] = useState(0);
+  const [token, setToken] = useState();
   const { user } = useContext(UserContext);
 
   function getCombination(combination) {
@@ -170,7 +171,7 @@ export default function BETAFeatures() {
                         </div>
                       )
                     })}<br /><br />
-                    <input type="submit" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" /><br/><br/>
+                    <input type="submit" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" />
                     <p>{result}</p>
                   </center>
               </form><br /><br />

@@ -2,12 +2,15 @@ import { React, useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import {
-    BrowserRouter as Router,
-    Routes, 
-    Route,
-    Link,
-    Navigate
+  BrowserRouter as Router,
+  Routes, 
+  Route,
+  Link,
+  Navigate
 } from "react-router-dom";
+import {
+  GoogleReCaptchaProvider
+} from 'react-google-recaptcha-v3';
 
 import Home from "./javascript/home";
 import About from "./javascript/about";
@@ -60,6 +63,7 @@ function App() {
 
   return (
     <UserContext.Provider value={{user, setUser}}>
+      <GoogleReCaptchaProvider reCaptchaKey="6Lc1xiUeAAAAAE2dX4hyl9Pe9MmLWnXpmgipZ8CM">
       <div class="bg-white text-black dark:bg-gray-800 dark:text-white transition-all" style={{minHeight: "100vh"}}>        
         <Router>
             <Empty />
@@ -138,6 +142,7 @@ function App() {
             </footer>
         </Router>
       </div>
+      </GoogleReCaptchaProvider>
     </UserContext.Provider>
   );
 }
