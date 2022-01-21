@@ -40,7 +40,11 @@ input:checked ~ .line {
 }
 
 input:checked ~ .dot {
-  transition: translateX(100%)
+  transform: translateX(100%);
+}
+
+input:checked ~ .dot {
+  transform: translateX(100%);
 }
 
 .logo {
