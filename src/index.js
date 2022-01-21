@@ -128,6 +128,7 @@ function App() {
                 </Route>
                 <Route path="ranks" element={<Ranks />} />
                 <Route path="beta" element={<BETAFeatures />} />
+                <Route path="admin" element={<AdminPanel />} />
                 <Route path="*" element={<Error status="404" />} />
             </Routes>
 
