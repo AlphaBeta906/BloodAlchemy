@@ -12,7 +12,6 @@ export default function BETAFeatures() {
   const { register, handleSubmit } = useForm();
   const [result, setResult] = useState("");
   const [seconds, setSeconds] = useState(0);
-  const [token, setToken] = useState();
   const { user } = useContext(UserContext);
 
   function getCombination(combination) {

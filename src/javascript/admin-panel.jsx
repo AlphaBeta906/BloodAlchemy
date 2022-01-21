@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { useContext } from "react"
 import UserContext from "./userContext";
 import Error from "./error";
 

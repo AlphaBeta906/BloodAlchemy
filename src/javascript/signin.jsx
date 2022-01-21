@@ -4,6 +4,7 @@ import { Navigate } from "react-router-dom";
 import { initializeApp } from 'firebase/app';
 import { getDatabase, ref, set, get } from "firebase/database";
 import { sha256 } from 'js-sha256';
+import { GoogleReCaptcha } from "react-google-recaptcha-v3";
 import UserContext from "./userContext";
 import firebaseConfig from "./firebase";
 import Error from "./error";
@@ -12,6 +13,7 @@ export default function Signin() {
   const { register, handleSubmit } = useForm();
   const [result, setResult] = useState("");
   const { user, setUser } = useContext(UserContext);
+  const [token, setToken] = useState("");
 
   const onSubmit = async (data) => {
     var app = initializeApp(firebaseConfig);
@@ -36,6 +38,13 @@ export default function Signin() {
         <div class="bg-yellow-100 border-t border-b border-yellow-500 text-yellow-700 px-4 py-3 w-64" role="alert">
           <p class="font-bold">⚠️ Warning ⚠️</p>
           <p class="text-sm">The passwords you inputted do not match! Please try again.</p>
+        </div>
+      );
+    } else if (token === "") {
+      setResult(
+        <div class="bg-yellow-100 border-t border-b border-yellow-500 text-yellow-700 px-4 py-3 w-64" role="alert">
+          <p class="font-bold">⚠️ Warning ⚠️</p>
+          <p class="text-sm">Please verify that you are not a robot!</p>
         </div>
       );
     } else {
@@ -109,6 +118,10 @@ export default function Signin() {
           <center>
               <form onSubmit={handleSubmit(onSubmit)} class="bg-white dark:bg-slate-400 shadow-md rounded px-8 pt-6 pb-8 mb-4 w-80">
                   <center>
+                    <GoogleReCaptcha
+                      sitekey="6Lc1xiUeAAAAAE2dX4hyl9Pe9MmLWnXpmgipZ8CM"
+                      onChange={(token) => setToken(token)}
+                    />
                     <input {...register("username")} placeholder="Username" class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" /><br />
                     <input {...register("password")} placeholder="Password" type="password" class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" /><br />
                     <input {...register("confirm")} placeholder="Confirm Password" type="password" class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" /><br /><br />
