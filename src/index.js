@@ -42,6 +42,7 @@ import UpdateLog from './javascript/updatelog';
 import Hint from './javascript/hint';
 import Ranks from './javascript/ranks';
 import BETAFeatures from './javascript/beta-features';
+import AdminPanel from './javascript/admin-panel';
 
 import ProfileNoArgs from './javascript/profileNoArgs';
 import InventoryNoArgs from './javascript/inventoryNoArgs';
