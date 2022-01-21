@@ -35,6 +35,14 @@ a:hover {
   padding-right: 10px;
 }
 
+input:checked ~ .line {
+  background-color: #48bb78
+}
+
+input:checked ~ .dot {
+  transition: translateX(100%)
+}
+
 .logo {
   color: #ee260c;
   font-family: 'Octin Spraypaint', sans-serif;

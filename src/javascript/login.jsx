@@ -67,8 +67,7 @@ export default function Login() {
           </center>
           <center>
               <GoogleReCaptcha
-                sitekey="6Lc1xiUeAAAAAE2dX4hyl9Pe9MmLWnXpmgipZ8CM"
-                onChange={(token) => setToken(token)}
+                onVerify={(token) => setToken(token)}
               />
               <form onSubmit={handleSubmit(onSubmit)} class="bg-white dark:bg-slate-400 shadow-md rounded px-8 pt-6 pb-8 mb-4 w-80">
                   <center>
