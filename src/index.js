@@ -65,7 +65,7 @@ function App() {
   return (
     <UserContext.Provider value={{user, setUser}}>
       <GoogleReCaptchaProvider reCaptchaKey="6Lc1xiUeAAAAAE2dX4hyl9Pe9MmLWnXpmgipZ8CM">
-      <div class="bg-white text-black dark:bg-gray-800 dark:text-white transition-all" style={{minHeight: "100vh"}}>        
+      <div class="bg-white text-black dark:bg-gray-800 dark:text-white transition-all px-2 py-2" style={{minHeight: "100vh"}}>        
         <Router>
             <Empty />
             
