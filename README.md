@@ -1,5 +1,3 @@
-[![Maintainability](https://api.codeclimate.com/v1/badges/33f313b31f240d402d01/maintainability)](https://codeclimate.com/github/AlphaBeta906/BloodAlchemy/maintainability)
-[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=AlphaBeta906_BloodAlchemy&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=AlphaBeta906_BloodAlchemy)
 # ⚛️ Blood Alchemy
 ![Python](https://img.shields.io/badge/Python-14354C?style=for-the-badge&logo=python&logoColor=white)
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
