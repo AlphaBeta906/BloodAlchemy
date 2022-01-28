@@ -26,7 +26,7 @@ export default function Upgrade() {
             setSeconds(20);
 
             get(ref(db, "/users/")).then((snapshot) => {
-                var cost = (level + 1) * 100;
+                var cost = (!["AlphaBeta906", "ItzCountryballs", "Nv7", "oli"].includes(user)) ? (level + 1) * 100 : 0;
 
                 if (snapshot.val()[user]["watts"] >= cost) {
                     set(ref(db, "/users/" + user + "/level"), level + 1);
@@ -85,7 +85,7 @@ export default function Upgrade() {
                 <center>
                     <p class="text-2xl">Upgrade</p>
 
-                    <p>You would be upgrading from Level {level} to Level {level + 1}. Which will cost {(level + 1) * 100} watts.</p><br />
+                    <p>You would be upgrading from Level {level} to Level {level + 1}. Which will cost {(!["AlphaBeta906", "ItzCountryballs", "Nv7", "oli"].includes(user)) ? ((level * 1) * 100) : 0} watts.</p><br />
 
                     <button class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" onClick={onSubmit}>Upgrade</button>
                     <p>{result}</p>

@@ -17,7 +17,7 @@ export default function Buy() {
 
     get(ref(db, `elements/`)).then((snapshot1) => {
         if (Object.keys(snapshot1.val()).includes(param.elem)) {
-            const price = snapshot1.val()[param.elem]["generation"] * (snapshot1.val()[param.elem]["complexity"] * 2)
+            const price = (!["AlphaBeta906", "ItzCountryballs", "Nv7", "oli"].includes(user)) ? snapshot1.val()[param.elem]["generation"] * (snapshot1.val()[param.elem]["complexity"] * 2) : 0;
 
             const onSubmit = () => {
                 if (user !== "") {
