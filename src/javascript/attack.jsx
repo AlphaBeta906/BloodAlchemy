@@ -65,9 +65,6 @@ export default function Attack() {
                         });
                     });
 
-                    console.log(your_power);
-                    console.log(owner_power);
-
                     if (your_power > owner_power) {
                         set(ref(db, 'mines/' + data.mine + '/owner'), user);
 
