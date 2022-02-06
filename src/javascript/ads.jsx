@@ -1,9 +1,6 @@
-import { useEffect, useContext } from "react"
-import UserContext from "./userContext";
+import { useEffect } from "react"
 
 export default function Ads() {
-    const { user } = useContext(UserContext);
-
     useEffect(() => {        
         const pushAd = () => {
             try {
