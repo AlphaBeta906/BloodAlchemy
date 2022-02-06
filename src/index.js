@@ -52,6 +52,7 @@ import HintNoArgs from './javascript/hintNoArgs';
 import Error from './javascript/error';
 import Empty from "./javascript/empty";
 import Tips from './javascript/tips';
+import Ads from './javascript/ad';
 
 import UserContext from "./javascript/userContext";
 
@@ -135,7 +136,8 @@ function App() {
             <footer>
               <br /><br /><br />
               <small><center><Link to="/bugs">Report a Bug</Link></center></small><br />
-              <Tips />
+              <Tips /><br />
+              <Ads /><br />
               <br/>
               <div class="flex-grow border-8 border-red-400 rounded-md shadow-md"></div>
               <center>&copy; AlphaBeta906, AlphaBeta906 LLC (nonexisting thing joke), 2021</center>
