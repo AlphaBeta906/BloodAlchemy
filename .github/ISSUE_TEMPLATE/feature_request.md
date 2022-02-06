@@ -2,7 +2,7 @@
 name: Feature request
 about: Suggest an idea for this project
 title: ''
-labels: 'status: triage', 'topic: enhancement'
+labels: 'status: triage, topic: enhancement'
 assignees: ''
 
 ---
