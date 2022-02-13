@@ -87,7 +87,7 @@ function App() {
       })
     });
 
-    client.login('942218377496236122').catch(console.error('Discord RPC: o'));
+    client.login('942218377496236122').catch(console.error('Discord RPC: x'));
   }, [discord, user]);
 
   return (
