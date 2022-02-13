@@ -11,6 +11,7 @@ import {
 import {
   GoogleReCaptchaProvider
 } from 'react-google-recaptcha-v3';
+import { Client } from 'discord-rpc';
 
 import Home from "./javascript/home";
 import About from "./javascript/about";
@@ -58,10 +59,36 @@ import UserContext from "./javascript/userContext";
 
 function App() {
   const [user, setUser] = useState("");
+  const [discord, setDiscord] = useState(true);
 
   useEffect(() => {
     document.title = "Blood Alchemy (BETA)";
-  }, []);
+
+    const client = new Client({
+      transport: 'ipc'
+    });
+
+    const setActivity = (data) => {
+      if (discord === true) {
+        client.setActivity(data);
+      }
+    }
+
+    const startTimestamp = new Date();
+
+    client.on('ready', () => {
+      setActivity({
+        details: user !== '' ? `Logged in as ${user}` : 'Logged in as Guest',
+        state: 'Doing Alchemy',
+        startTimestamp,
+        largeImageKey: 'logo',
+        largeImageText: 'Blood Alchemy RIP 2021-2022',
+        instance: false,
+      })
+    });
+
+    client.login('942218377496236122').catch(console.error('Discord RPC: o'));
+  }, [discord, user]);
 
   return (
     <UserContext.Provider value={{user, setUser}}>
