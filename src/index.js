@@ -44,6 +44,7 @@ import Hint from './javascript/hint';
 import Ranks from './javascript/ranks';
 import BETAFeatures from './javascript/beta-features';
 import AdminPanel from './javascript/admin-panel';
+import Games from './javascript/games';
 
 import ProfileNoArgs from './javascript/profileNoArgs';
 import InventoryNoArgs from './javascript/inventoryNoArgs';
@@ -70,7 +71,11 @@ function App() {
 
     const setActivity = (data) => {
       if (discord === true) {
-        client.setActivity(data);
+        try {
+          client.setActivity(data);
+        } catch (e) {
+          setDiscord(false);
+        }
       }
     }
 
@@ -157,6 +162,7 @@ function App() {
                 <Route path="ranks" element={<Ranks />} />
                 <Route path="beta" element={<BETAFeatures />} />
                 <Route path="admin" element={<AdminPanel />} />
+                <Route path="games" element={<Games />} />
                 <Route path="*" element={<Error status="404" />} />
             </Routes>
 
