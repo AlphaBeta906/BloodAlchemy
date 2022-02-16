@@ -24,6 +24,7 @@ export default function FAQ() {
 
         <center><Link to="/about/">Back to About Page</Link><br /></center>
         <center><Link to="/ranks/">Ranks</Link><br /></center>
+        <center><Link to="/games/">Games</Link></center>
         </div>
     )
 }

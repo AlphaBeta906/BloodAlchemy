@@ -30,6 +30,7 @@ export default function About() {
 
       <center><Link to="/faq/">FAQ</Link><br /></center>
       <center><Link to="/ranks/">Ranks</Link><br /></center>
+      <center><Link to="/games/">Games</Link></center>
     </div>
   );
 }
