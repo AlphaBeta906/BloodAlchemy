@@ -1,6 +1,6 @@
 module.exports = {
     target: 'node',
-    entry: require.resolve('./src/index.js'),
+    entry: './src/index.js',
     resolve: {
         fallback: { "timers": require.resolve("timers-browserify") }
     },
