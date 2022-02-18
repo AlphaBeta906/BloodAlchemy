@@ -45,7 +45,15 @@ export default function Info() {
         }
 
         get(ref(db, `users/`)).then((snapshot2) => {
-            var price = snapshot1.val()[true_elem].generation * snapshot1.val()[true_elem].complexity + gDTRGB(snapshot1.val()[true_elem].color) * snapshot2.val()[user].level;
+            var level = 0
+
+            if (snapshot2.val()[user].level === undefined || snapshot2.val()[user].level === null) {
+                level = 1
+            } else {
+                level = 2
+            }
+
+            var price = snapshot1.val()[true_elem].generation * snapshot1.val()[true_elem].complexity + gDTRGB(snapshot1.val()[true_elem].color) * level;
             price = Math.ceil(price);
 
             var result1 = ""
