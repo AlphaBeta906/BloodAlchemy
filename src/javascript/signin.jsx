@@ -129,6 +129,10 @@ export default function Signin() {
                   </center>
               </form>
           </center>
+
+          <footer>
+            <Ads/><br/>
+          </footer>
       </div>
     );
   } else if (result === "") {

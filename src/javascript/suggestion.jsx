@@ -237,6 +237,10 @@ export default function Suggestion() {
                     status,
                     (<div>
                         <center>{result}</center>
+
+                        <footer>
+                            <Ads/><br/>
+                        </footer>
                     </div>)
                 ]
             );

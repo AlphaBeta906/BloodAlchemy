@@ -180,6 +180,10 @@ export default function Play() {
 
               <p>Need more resources? <Link to="/mine">Go here</Link>. Inventory? <Link to="/inventory">Go here.</Link> <Link to="/function/">Change mode</Link></p>
           </center>
+
+          <footer>
+            <Ads/><br/>
+          </footer>
       </div>
     );
   } else {

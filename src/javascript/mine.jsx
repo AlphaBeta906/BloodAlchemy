@@ -175,6 +175,10 @@ export default function Mine() {
                 <p>{result}</p>
               </form>
             </center>
+
+            <footer>
+              <Ads/><br/>
+            </footer>
         </div>
     );
   } else {

@@ -131,6 +131,10 @@ export default function Attack() {
                         <p>{result}</p>
                     </form>
                 </center>
+
+                <footer>
+                    <Ads/><br/>
+                </footer>
             </div>
         );
     } else {

@@ -44,6 +44,10 @@ export default function Menu() {
                         </div>
                     )
                 }
+
+                menu.push(<footer>
+                    <Ads/><br/>
+                </footer>)
             } catch (Exception) {
                 setOutput(
                     <Navigate to="/menu/1" />

@@ -12,6 +12,10 @@ export default function Contact() {
             <center>GitHub: ItzCountryballs</center>
             <center>Discord: ItzCountryballs#3682</center>
             <center>Twitter: @ICountryballs</center>
+
+            <footer>
+                <Ads/><br/>
+            </footer>
         </div>
     );
 }

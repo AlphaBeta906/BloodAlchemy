@@ -76,6 +76,10 @@ export default function Sell() {
                         <center><button onClick={onSubmit} class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Deal</button></center><br />
                         <center><Link to="/menu/">Back to menu</Link></center>
                         <center>{result}</center>
+
+                        <footer>
+                            <Ads/><br/>
+                        </footer>
                     </div>
                 );
             } else {

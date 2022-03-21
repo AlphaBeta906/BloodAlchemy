@@ -26,6 +26,7 @@ export default function Error(props) {
             break;
         default:
             desk = "Generic error message (Alpha forgot to add this in).";
+            status = "906"
             break;
     }
 

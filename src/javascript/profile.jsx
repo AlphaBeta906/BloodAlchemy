@@ -107,6 +107,10 @@ export default function Profile() {
                             <div style={{width: `${percentage}%`}} class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-red-500"></div>
                         </div>
                     </div>
+
+                    <footer>
+                        <Ads/><br/>
+                    </footer>
                 </div>
             );
         }).catch((error) => {

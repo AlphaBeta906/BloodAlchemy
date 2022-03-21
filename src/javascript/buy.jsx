@@ -77,6 +77,10 @@ export default function Buy() {
                         <center><button onClick={onSubmit} class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Buy</button></center><br />
 
                         <center><Link to="/menu/">Back to menu</Link></center>
+
+                        <footer>
+                            <Ads/><br/>
+                        </footer>
                     </div>
                 );
             } else {

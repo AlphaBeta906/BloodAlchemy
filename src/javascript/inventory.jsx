@@ -59,6 +59,10 @@ export default function Inventory() {
                 ))
             });
 
+            output.push(<footer>
+                <Ads/><br/>
+            </footer>)
+
             setResult(output)
         }).catch((error) => {
             setResult(

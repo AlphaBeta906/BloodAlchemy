@@ -35,14 +35,14 @@ export default function Upgrade() {
                     setResult(
                         <div class="bg-green-100 border-t border-b border-green-500 text-green-700 px-4 py-3 w-64" role="alert">
                             <p class="font-bold">✅ Success ✅</p>
-                            <p class="text-sm">Ugrade sucessful!</p>
+                            <p class="text-sm">Upgrade sucessful!</p>
                         </div>
                     );
                 } else {
                     setResult(
                         <div class="bg-yellow-100 border-t border-b border-yellow-500 text-yellow-700 px-4 py-3 w-64" role="alert">
                             <p class="font-bold">⚠️ Warning ⚠️</p>
-                            <p class="text-sm">Insufficent funds.</p>
+                            <p class="text-sm">Insufficient funds.</p>
                         </div>
                     );
                 }
@@ -90,6 +90,10 @@ export default function Upgrade() {
                     <button class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" onClick={onSubmit}>Upgrade</button>
                     <p>{result}</p>
                 </center>
+
+                <footer>
+                    <Ads/><br/>
+                </footer>
             </div>
         );
     } else {

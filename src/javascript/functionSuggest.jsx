@@ -105,6 +105,10 @@ export default function FunctionSuggest() {
                     <p>{result}</p>
                 </form>
             </center>
+
+            <footer>
+                <Ads/><br/>
+            </footer>
         </div>
     )
 }

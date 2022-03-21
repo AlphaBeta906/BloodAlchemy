@@ -111,6 +111,10 @@ export default function Suggest() {
             </center>
           </form>
         </center>
+
+        <footer>
+          <Ads/><br/>
+        </footer>
       </div>
     );
   } else {

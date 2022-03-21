@@ -91,6 +91,10 @@ export default function Hint() {
                         }
                     })
 
+                    deOutput.push(<footer>
+                        <Ads/><br/>
+                    </footer>)
+
                     setOutput(deOutput);
                 }).catch((error) => {
                     setOutput(

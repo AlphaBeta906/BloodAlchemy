@@ -6,6 +6,10 @@ export default function UpdateLog() {
             - New and secret error codes came out.<br />
             - You can now see your level at your profile page.<br />
             - Ranks page has been re-added.<br />
+
+            <footer>
+                <Ads/><br/>
+            </footer>
         </div>
     );
 }

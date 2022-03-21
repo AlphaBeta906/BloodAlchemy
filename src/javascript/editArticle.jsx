@@ -83,6 +83,10 @@ export default function EditArticle() {
 
                     <Link to={`/info/${params.elem.replace(/%20/g, " ")}`}>Back to info page</Link>
                 </center>
+
+                <footer>
+                    <Ads/><br/>
+                </footer>
             </div>
         );
     } else if (!exists) {

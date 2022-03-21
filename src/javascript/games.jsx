@@ -17,6 +17,10 @@ export default function Games() {
             <center><Link to="/about/">Back to About Page</Link><br /></center>
             <center><Link to="/faq/">FAQ</Link><br /></center>
             <center><Link to="/ranks/">Ranks</Link></center>
+
+            <footer>
+                <Ads/><br/>
+            </footer>
         </div>
     );
 }

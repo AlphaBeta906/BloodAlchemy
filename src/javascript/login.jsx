@@ -78,6 +78,10 @@ export default function Login() {
                   </center>
               </form>
           </center>
+
+          <footer>
+            <Ads/><br/>
+          </footer>
       </div>
     );
   } else if (result === "") {

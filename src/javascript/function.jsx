@@ -151,6 +151,10 @@ export default function Function() {
                         <p>{result}</p>
                     </form>
                 </center>
+
+                <footer>
+                    <Ads/><br/>
+                </footer>
             </div>
         );
     }

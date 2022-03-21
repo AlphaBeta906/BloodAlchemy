@@ -110,6 +110,10 @@ export default function Search() {
                     <center><button class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" onClick={onSubmit}>Yes</button></center><br />
                     <p>{result}</p>
                 </center>
+
+                <footer>
+                    <Ads/><br/>
+                </footer>
             </div>
         )
     } else {

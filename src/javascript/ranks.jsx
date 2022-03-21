@@ -18,6 +18,10 @@ export default function Ranks() {
       <center><Link to="/about/">Back to About Page</Link><br /></center>
       <center><Link to="/faq/">FAQ</Link><br /></center>
       <center><Link to="/games/">Games</Link></center>
+
+      <footer>
+        <Ads/><br/>
+      </footer>
     </div>
   );
 }

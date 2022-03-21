@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Ads from "./ads";
 
 export default function About() {
   return (
@@ -31,6 +32,10 @@ export default function About() {
       <center><Link to="/faq/">FAQ</Link><br /></center>
       <center><Link to="/ranks/">Ranks</Link><br /></center>
       <center><Link to="/games/">Games</Link></center>
+
+      <footer>
+        <Ads/><br/>
+      </footer>
     </div>
   );
 }

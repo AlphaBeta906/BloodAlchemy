@@ -167,6 +167,10 @@ export default function Info() {
                             <i>"{desc}"</i><br />
                             {editor}
                         </center>
+
+                        <footer>
+                            <Ads/><br/>
+                        </footer>
                     </div>
                 );
             }).catch((error) => {
