@@ -57,6 +57,12 @@ export default function Suggestions() {
             );
         }
 
+        reactions.push(
+            <footer>
+                <Ads/><br/>
+            </footer>
+        );
+
         setOutput(reactions);
     }).catch((error) => {
         console.error(error);
