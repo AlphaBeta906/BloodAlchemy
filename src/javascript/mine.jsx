@@ -7,6 +7,7 @@ import { randomInt } from './random';
 import UserContext from "./userContext";
 import firebaseConfig from "./firebase";
 import Error from "./error";
+import Ads from './ads';
 
 export default function Mine() {
   const [result, setResult] = useState("");

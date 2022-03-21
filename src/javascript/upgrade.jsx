@@ -4,6 +4,7 @@ import { getDatabase, ref, set, get } from "firebase/database";
 import UserContext from "./userContext";
 import firebaseConfig from "./firebase";
 import Error from "./error";
+import Ads from './ads';
 
 export default function Upgrade() {
     const [result, setResult] = useState("");

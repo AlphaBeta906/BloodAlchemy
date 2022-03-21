@@ -3,6 +3,7 @@ import { Link, Navigate, useParams } from 'react-router-dom';
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, get } from "firebase/database";
 import firebaseConfig from "./firebase";
+import Ads from './ads';
 
 export default function Menu() {
     const [output, setOutput] = useState("");

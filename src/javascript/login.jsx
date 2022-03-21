@@ -8,6 +8,7 @@ import { GoogleReCaptcha } from "react-google-recaptcha-v3";
 import UserContext from "./userContext";
 import firebaseConfig from "./firebase";
 import Error from "./error";
+import Ads from './ads';
 
 export default function Login() {
   const { register, handleSubmit } = useForm();

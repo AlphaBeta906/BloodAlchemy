@@ -4,6 +4,7 @@ import { initializeApp } from "firebase/app";
 import { getDatabase, ref, set, get } from "firebase/database";
 import firebaseConfig from "./firebase";
 import UserContext from "./userContext";
+import Ads from './ads';
 
 export default function FunctionSuggest() {
     const { register, handleSubmit } = useForm();

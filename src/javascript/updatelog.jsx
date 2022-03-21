@@ -1,3 +1,5 @@
+import Ads from './ads';
+
 export default function UpdateLog() {
     return (
         <div>

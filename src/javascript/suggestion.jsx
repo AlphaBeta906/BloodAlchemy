@@ -6,6 +6,7 @@ import firebaseConfig from "./firebase";
 import UserContext from "./userContext";
 import axios from "axios";
 import Error from "./error";
+import Ads from './ads';
 
 export default function Suggestion() {
     let params = useParams();

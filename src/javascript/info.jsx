@@ -6,6 +6,7 @@ import { didYouMean } from "./didYouMean";
 import { gDTRGB } from './colorDistance';
 import UserContext from "./userContext";
 import firebaseConfig from "./firebase";
+import Ads from './ads';
 
 export default function Info() {
     let params = useParams();

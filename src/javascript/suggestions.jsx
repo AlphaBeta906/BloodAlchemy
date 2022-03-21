@@ -3,6 +3,7 @@ import { initializeApp } from "firebase/app";
 import { getDatabase, ref, get } from "firebase/database";
 import { Link } from "react-router-dom";
 import firebaseConfig from "./firebase";
+import Ads from './ads';
 
 export default function Suggestions() {
     const [output, setOutput] = useState("");

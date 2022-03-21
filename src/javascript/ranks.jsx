@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Ads from './ads';
 
 export default function Ranks() {
   return (

@@ -5,6 +5,7 @@ import { randomInt } from './random';
 import firebaseConfig from './firebase';
 import UserContext from './userContext';
 import Error from './error';
+import Ads from './ads';
 
 export default function Search() {
     const [result, setResult] = useState("");

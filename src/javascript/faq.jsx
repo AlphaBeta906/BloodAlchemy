@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import Ads from './ads';
 
 export default function FAQ() {
     return (
@@ -13,7 +14,7 @@ export default function FAQ() {
                 Yes, this is a game based on another game (Elemental 3) based on Doodle God.<br /><br />
 
                 <p class="text-xl">COPPA?</p>
-                No, we are legally outside of COPPA's juristriction, and we hate it so very much. We pledge to not add cookies nor trackers to the game.<br /><br />
+                Yes, COPPA is enforced in this game. You must be 13 years or older to play.<br /><br />
 
                 <p class="text-xl">I saw a bad word in this site! Please remove it!</p>
                 We Blood Alchemy developers are not responsible for any bad words in the game, since this is a community-driven project. I am afraid we can't do anything about it.<br /><br />

@@ -5,6 +5,7 @@ import { getDatabase, ref, get } from "firebase/database";
 import { didYouMean } from "./didYouMean";
 import UserContext from "./userContext";
 import firebaseConfig from "./firebase";
+import Ads from './ads';
 
 export default function Inventory() {
     let params = useParams();

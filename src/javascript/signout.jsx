@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
 import { Navigate } from "react-router-dom";
 import UserContext from "./userContext";
+import Ads from './ads';
 
 export default function Signout() {
     const [result, setResult] = useState("");

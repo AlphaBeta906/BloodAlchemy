@@ -7,6 +7,7 @@ import { gDTRGB } from "./colorDistance";
 import UserContext from "./userContext";
 import firebaseConfig from "./firebase";
 import Error from "./error";
+import Ads from './ads';
 
 export default function Play() {
   const { register, handleSubmit } = useForm();

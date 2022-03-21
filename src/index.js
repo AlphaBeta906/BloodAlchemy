@@ -53,7 +53,6 @@ import HintNoArgs from './javascript/hintNoArgs';
 import Error from './javascript/error';
 import Empty from "./javascript/empty";
 import Tips from './javascript/tips';
-import Ads from './javascript/ads';
 
 import UserContext from "./javascript/userContext";
 

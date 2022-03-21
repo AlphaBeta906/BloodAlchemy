@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import UserContext from "./userContext";
+import Ads from './ads';
 
 export default function Home() {
     const { user } = useContext(UserContext);
@@ -51,6 +52,10 @@ export default function Home() {
                 {text}<br></br>
                 {message}
             </center>
+
+            <footer>
+                <Ads/><br/>
+            </footer>
         </div>
     );
 }
