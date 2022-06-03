@@ -20,10 +20,31 @@ export default function Suggestion() {
     var db = getDatabase(app);
 
     function mix_hex(hex1, hex2) {
-        // http://127.0.0.1:5000/color_mixing/FFA500-FFA500
-        var promise = axios.get("https://alphabeta906.pythonanywhere.com/color_mixing/" + hex1 + "-" + hex2);
-
-        return promise.then((res) => res.data.combined_color);
+        d = {hex1: 1, hex2: 1};
+        
+        d_items = Object.keys(d).sort().map(function(k) {
+            return [k, d[k]];
+        });
+        tot_weight = d_items.reduce(function(acc, v, i) {
+            return acc + v[1];
+        }, 0);
+        red = Math.floor(d_items.reduce(function(acc, v, i) {
+            return acc + (int(v[0].substring(0, 2), 16) * v[1]);
+        }, 0) / tot_weight);
+        green = Math.floor(d_items.reduce(function(acc, v, i) {
+            return acc + (int(v[0].substring(2, 4), 16) * v[1]);
+        }, 0) / tot_weight);
+        blue = Math.floor(d_items.reduce(function(acc, v, i) {
+            return acc + (int(v[0].substring(4, 6), 16) * v[1]);
+        }, 0) / tot_weight);
+        zpad = function(x) {
+            if (x.length === 2) {
+                return x;
+            }
+            return '0' + x;
+        };
+        
+        return (zpad(hex(red)[2]) + zpad(hex(green)[2]) + zpad(hex(blue)[2])).toUpperCase();
     }
 
     const onSubmit = () => {
