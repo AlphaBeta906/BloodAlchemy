@@ -4,7 +4,6 @@ import { initializeApp } from "firebase/app";
 import { getDatabase, ref, get, set } from "firebase/database";
 import firebaseConfig from "./firebase";
 import UserContext from "./userContext";
-import axios from "axios";
 import Error from "./error";
 import Ads from './ads';
 
@@ -21,7 +20,7 @@ export default function Suggestion() {
 
     function mix_hex(hex1, hex2) {
         d = {hex1: 1, hex2: 1};
-        
+
         d_items = Object.keys(d).sort().map(function(k) {
             return [k, d[k]];
         });
