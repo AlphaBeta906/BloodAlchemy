@@ -19,31 +19,31 @@ export default function Suggestion() {
     var db = getDatabase(app);
 
     function mix_hex(hex1, hex2) {
-        d = {hex1: 1, hex2: 1};
+        var d = {hex1: 1, hex2: 1};
 
-        d_items = Object.keys(d).sort().map(function(k) {
+        var d_items = Object.keys(d).sort().map(function(k) {
             return [k, d[k]];
         });
-        tot_weight = d_items.reduce(function(acc, v, i) {
+        var tot_weight = d_items.reduce(function(acc, v, i) {
             return acc + v[1];
         }, 0);
-        red = Math.floor(d_items.reduce(function(acc, v, i) {
-            return acc + (int(v[0].substring(0, 2), 16) * v[1]);
+        var red = Math.floor(d_items.reduce(function(acc, v, i) {
+            return acc + parseInt((v[0].substring(0, 2), 16) * v[1]);
         }, 0) / tot_weight);
-        green = Math.floor(d_items.reduce(function(acc, v, i) {
-            return acc + (int(v[0].substring(2, 4), 16) * v[1]);
+        var green = Math.floor(d_items.reduce(function(acc, v, i) {
+            return acc + parseInt((v[0].substring(2, 4), 16) * v[1]);
         }, 0) / tot_weight);
-        blue = Math.floor(d_items.reduce(function(acc, v, i) {
-            return acc + (int(v[0].substring(4, 6), 16) * v[1]);
+        var blue = Math.floor(d_items.reduce(function(acc, v, i) {
+            return acc + parseInt((v[0].substring(4, 6), 16) * v[1]);
         }, 0) / tot_weight);
-        zpad = function(x) {
+        const zpad = function(x) {
             if (x.length === 2) {
                 return x;
             }
             return '0' + x;
         };
         
-        return (zpad(hex(red)[2]) + zpad(hex(green)[2]) + zpad(hex(blue)[2])).toUpperCase();
+        return (zpad(parseInt(red, 16)[2]) + zpad(parseInt(green, 16)[2]) + zpad(parseInt(blue, 16)[2])).toUpperCase();
     }
 
     const onSubmit = () => {
