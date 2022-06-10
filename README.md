@@ -5,21 +5,12 @@
 ![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)
 ![Tailwind](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
-This is Blood Alchemy, the sucessor to Elementals 3. I finally feel like a pro, only after like 2 weeks. This repository has a REFI (React-Firebase) site that is pretty (very) buggy and [a Python API just because I can't rewrite code from Python to JavaScript](https://github.com/AlphaBeta906/BloodAlchemyAPI)
+Blood Alchemy website has been deleted. I'm going to explain a bit more as the post goes on but TL;DR if you don't have much time: I feel like I burned out my passion for the project. Blood Alchemy for me has always been a personal project, and not a commercial endeavour, yet I treated it as such with the ads, and many updates. I felt burned out, and with almost no one helping me, I wasted all my passion on it.
 
-## FAQ
+I won't say that I hated everything about working on it. It was really fun seeing the community grow, and adding new features. What I hated though was the shackles of responsibility I had. I know many people talked about overworking yourself, and I am not going to repeat it here, but this is a really important part of my reasoning to delete Blood Alchemy. I placed all of my responsibility about doing Blood Alchemy, as if I don't I'll be mocked. While I know it's not true, it really hurts. Especially that I mostly work alone and Itz doesn't really help, places tons of pressure on me.
 
-### How do I run this?
-Firstly, (of course) get all the files. You will need ALL OF THEM. (like 90% is useful)
+So what now? I don't know. If anyone is willing to continue Blood Alchemy, go ahead, even with implementing ads for your own revenue, I really don't care. I might create another discord bot for Blood Alchemy, though I already moved on from Elemental 3.
 
-Then, ask me on the contact page my email, then and only then I will give you the code for the tokens. Then do `npm start` on my-app to pop up this abomination.
+So long, Blood Alchemy.
 
-**Note: By running this, and getting the tokens, you would agree that I will use your code for my website (if it takes off).**
-
-### Sweet! It is working now. By the way, when is the real thing gonna emerge.
-It did! The website is at https://alphabeta906.github.io/BloodAlchemy
-
-### Can I be part of the development?
-No. Atleast not yet. If you want to help and me not paying you; you need to be good at React. If you want to get paid. Wait for a few months before the bread is earned.
-
-[![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-orange.svg)](https://sonarcloud.io/summary/new_code?id=AlphaBeta906_BloodAlchemy)
+[Discord](https://discord.gg/7KA8D2j7Ec)
