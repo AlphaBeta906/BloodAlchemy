@@ -5,7 +5,7 @@
 ![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)
 ![Tailwind](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
-Blood Alchemy website has been deleted. I'm going to explain a bit more as the post goes on but TL;DR if you don't have much time: I feel like I burned out my passion for the project. Blood Alchemy for me has always been a personal project, and not a commercial endeavour, yet I treated it as such with the ads, and many updates. I felt burned out, and with almost no one helping me, I wasted all my passion on it.
+The Blood Alchemy website has been deleted. I'm going to explain a bit more as the post goes on but TL;DR if you don't have much time: I feel like I burned out my passion for the project. Blood Alchemy for me has always been a personal project, and not a commercial endeavour, yet I treated it as such with the ads, and many updates. I felt burned out, and with almost no one helping me, I wasted all my passion on it.
 
 I won't say that I hated everything about working on it. It was really fun seeing the community grow, and adding new features. What I hated though was the shackles of responsibility I had. I know many people talked about overworking yourself, and I am not going to repeat it here, but this is a really important part of my reasoning to delete Blood Alchemy. I placed all of my responsibility about doing Blood Alchemy, as if I don't I'll be mocked. While I know it's not true, it really hurts. Especially that I mostly work alone and Itz doesn't really help, places tons of pressure on me.
 
